@@ -38,7 +38,7 @@ Light Snake (Provisoire)
 - Si l'utilisateur clique sur Multijoueur 
     - Le joueur sera redirigé sur le menu multijoueur
 
-### (<- Menu Solo)
+### (-> Menu Solo)
 - (Le joueur disposera d'une carte permettant de naviguer dans les niveaux de la campagne du jeu. (à définir))
 
     
@@ -84,6 +84,14 @@ Light Snake (Provisoire)
       - Le "chat" qui doit vaincre la souris avant la fin du temps impartie. Il produit des murs
       - La "Souris" qui doit s'enfuir jusqu'a la fin du temps impartie. Elle ne produit pas de mur.
     - A la fin du temps les "souris" gagnent. Si les "souris" meurt avant le temps impartie , le(s) "chats" gagnent.
+
+### -> Amélioration possible (si le temps me le permet)(classé par importance)
+1. Implementer un mode multi Online 
+2. Implementer un mode solo d'enigmes basé sur la méchanique du snake (posage de mur)
+3. Implementer des IA rendant le mode local jouable en solo
+4. Ajout d'evenement dans le mode multijoueur
+5. Ajout de map aléatoire (obsactle prefais ou aléatoire)
+
 
 ## 5. Livrables
 1. Planning
