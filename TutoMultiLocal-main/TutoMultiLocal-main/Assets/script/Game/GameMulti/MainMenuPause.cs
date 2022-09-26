@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : MainMenuPause.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class MainMenuPause : MonoBehaviour
 {
 

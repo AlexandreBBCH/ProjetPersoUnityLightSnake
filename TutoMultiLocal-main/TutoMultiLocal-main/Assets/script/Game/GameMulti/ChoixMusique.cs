@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
-
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : ChoixMusique.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class ChoixMusique : MonoBehaviour
 {
 
@@ -16,7 +20,7 @@ public class ChoixMusique : MonoBehaviour
     public AudioClip ReTron;
     public AudioClip Processing;
 
-
+    //choix de la musique
     public void selectionMusique()
     {
         if(objetMusique == null)

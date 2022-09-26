@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : GameMananger.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class GameMananger : MonoBehaviour
 {
 
@@ -73,6 +77,7 @@ public class GameMananger : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
+            p.score++;
             scores[0]++;
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
@@ -83,6 +88,7 @@ public class GameMananger : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
+            p.score++;
             scores[1]++;
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
@@ -93,6 +99,7 @@ public class GameMananger : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
+            p.score++;
             scores[2]++;
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
@@ -103,6 +110,7 @@ public class GameMananger : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
+            p.score++;
             scores[0]++;
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);

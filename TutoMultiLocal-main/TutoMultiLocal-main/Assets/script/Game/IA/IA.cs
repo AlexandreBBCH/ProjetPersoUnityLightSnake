@@ -5,13 +5,15 @@ using System.Globalization;
 using Unity.Mathematics;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Rendering.PostProcessing;
 
-public class Player : MonoBehaviour
+public class IA : MonoBehaviour
 {
+
     // Start is called before the first frame update
 
     Rigidbody2D rb;
-    public int speed; 
+    public int speed;
     public Vector2 dir;
     GameObject wallPrefab;// mur a instancier
     Vector2 lastPos;
@@ -31,7 +33,7 @@ public class Player : MonoBehaviour
     Vector2 initialPos;
     Vector2 dirRight;
     public LayerMask layerToGiveToWall;
-    public bool invert= false;
+    public bool invert = false;
     public bool inBoost = false;
 
     public Vector2 saveDirectionRight;
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
     int missilePosY;
 
     public bool isAbot = false;
- 
+
 
     public GameObject Missile;
     public int shotMissile = 1;
@@ -48,18 +50,18 @@ public class Player : MonoBehaviour
     float time;
     bool timerStart = false;
     bool verifBoost = false;
-    int tempsAttente = 120;  
-    
+    int tempsAttente = 120;
+
     public bool immortal = false;
 
-  
+
     public Sprite oldPoweUpBoost;
     public Sprite oldIconStop;
     public Sprite oldIconInvert;
     public Sprite oldIconInfinityShot;
     public Sprite oldIconApocalypse;
     int nbPlayers;
-    int playerAlive ;
+    int playerAlive;
     public GameObject[] allBoost;
     public GameObject[] allShot;
 
@@ -100,12 +102,12 @@ public class Player : MonoBehaviour
             nbPlayers = PlayerPrefs.GetInt("nbLifePlayers");
             int playerAlive = nbPlayers;
         }
-     
+
         initialPos = transform.position;
         dir = Vector2.up;//Direction par defaut
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = dir * speed * gm.gameSpeed;
-        wallPrefab = Resources.Load("Wall"+gameObject.tag) as GameObject;
+        wallPrefab = Resources.Load("Wall" + gameObject.tag) as GameObject;
         //head = Resources.Load("head" + playerName) as GameObject;
         if (isAbot == true)
         {
@@ -129,7 +131,7 @@ public class Player : MonoBehaviour
                 title.text = "Light Snake infinity Life";
                 GameObject.Find("Life" + playerName).GetComponent<Text>().text = "Immortal ";
             }
-         
+
 
         }
 
@@ -137,19 +139,21 @@ public class Player : MonoBehaviour
         if (gm.modeScore)
         {
 
-       
-         nbRound = PlayerPrefs.GetInt("nbRound");
-        if (nbRound <= 100)
-        {
-            title.text = "Light Snake " + score + "/" + nbRound;
-        }
-        else
-        {
-            title.text = "Light Snake Ininity";
-        }
+
+            nbRound = PlayerPrefs.GetInt("nbRound");
+            if (nbRound <= 100)
+            {
+                title.text = "Light Snake " + score + "/" + nbRound;
+            }
+            else
+            {
+                title.text = "Light Snake Ininity";
+            }
         }
 
     }
+
+
     public RaycastHit2D top;
     public RaycastHit2D bottom;
     public RaycastHit2D left;
@@ -171,7 +175,7 @@ public class Player : MonoBehaviour
         //GameObject.Find("PlayerBlue").GetComponent<Player>().effect.inverserControl();
 
         //GameObject.Find("PlayerBleu").GetComponent<Player>().invert = true;
-      
+
 
         GameObject.Find("Boost" + playerName).GetComponent<Text>().text = "Boost : " + boost;
         GameObject.Find("Shot" + playerName).GetComponent<Text>().text = "Shot : " + shotMissile;
@@ -182,17 +186,17 @@ public class Player : MonoBehaviour
         cam = Camera.main.GetComponent<Cam>();//fait le lien avec le script "Cam"
         gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
 
- 
-  
+
+
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        Debug.DrawRay(new Vector2(transform.position.x,transform.position.y + 1), Vector2.up * detectionDanger, Color.white);
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y -1 ), Vector2.down * detectionDanger, Color.blue);
-        Debug.DrawRay(new Vector2(transform.position.x +1, transform.position.y ), Vector2.right * detectionDanger, Color.red);
-        Debug.DrawRay(new Vector2(transform.position.x -1, transform.position.y ), Vector2.left * detectionDanger, Color.green);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), Vector2.up * detectionDanger, Color.white);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1), Vector2.down * detectionDanger, Color.blue);
+        Debug.DrawRay(new Vector2(transform.position.x + 1, transform.position.y), Vector2.right * detectionDanger, Color.red);
+        Debug.DrawRay(new Vector2(transform.position.x - 1, transform.position.y), Vector2.left * detectionDanger, Color.green);
         //head.transform.position = lastPos;
 
         //Debug.Log(time);
@@ -211,10 +215,10 @@ public class Player : MonoBehaviour
 
         if (isAbot)
         {
-                checkDangerRight();     
-                checkDangerTop();       
-                checkDangerBot();
-                checkDangerLeft();       
+            checkDangerRight();
+            checkDangerTop();
+            checkDangerBot();
+            checkDangerLeft();
         }
 
 
@@ -224,10 +228,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(PlayerPrefs.GetString("itemActif"));
+
 
         if (isAbot)
-        {     
+        {
             TakeWallDecision();
             right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, detectionDanger, ~layer);
             top = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, detectionDanger, ~layer);
@@ -240,14 +244,14 @@ public class Player : MonoBehaviour
         if (timerStart)
         {
             time++;
-            
+
         }
 
 
-            //activation du boost en fonction du temps
-            if (time >= tempsAttente)
+        //activation du boost en fonction du temps
+        if (time >= tempsAttente)
         {
-           
+
             if (canActivateBoost)
             {
                 verifBoost = true;
@@ -255,9 +259,9 @@ public class Player : MonoBehaviour
                 GameObject.Find("Boost" + playerName).GetComponent<Text>().text = "Boost : " + boost;
                 timerStart = false;
                 time = 0;
-               
+
             }
-       
+
         }
 
 
@@ -293,118 +297,118 @@ public class Player : MonoBehaviour
         if (dir.x == 0 && dir.y == -1)
         {
             Instantiate(Missile, new Vector2(transform.position.x, transform.position.y - 1.5f), Quaternion.identity); // tir bas
-                                                                                                                    //tir haut 0,-1
+                                                                                                                       //tir haut 0,-1
         }
-     
+
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)//se declanche au moment du toucher du mur si on a activer la fonctionalité "on trigger"
     {
-        if(collision != lastWallCol && collision.gameObject.tag != "PowerUpBoost" )
+        if (collision != lastWallCol && collision.gameObject.tag != "PowerUpBoost")
         {
             isAlive = false;
             gm.KillPlayer();
-            cam.Shake(0.7f,0.4f,50f);
+            cam.Shake(0.7f, 0.4f, 50f);
             cam.PlayBoumSfx();
-            Instantiate(boomParticles, transform.position, Quaternion.identity);        
+            Instantiate(boomParticles, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             speed = 5;
             canActivateBoost = true;
             if (gm.modeLife)
             {
                 life--;
-                GameObject.Find("Life"+playerName).GetComponent<Text>().text = "Life "+ life;
+                GameObject.Find("Life" + playerName).GetComponent<Text>().text = "Life " + life;
             }
-           
+
             //Debug.Log(playerName);
             //gestion des coeur
 
 
         }
-        
+
     }
 
 
-   public void HandheldKeys()
+    public void HandheldKeys()
     {
         if (isAbot == false && gm.gameSpeed >= 1)
         {
 
-       
-        if (Input.GetButtonDown(playerName+"UP"))
-        {
-            if (dir != Vector2.down)
-            {
-            dir = Vector2.up;
-                CreateWall();
-           
-            }
-        }
-        if (Input.GetButtonDown(playerName+"DOWN"))
-        {
-            if (dir != Vector2.up)
-            {
-                dir = Vector2.down;
-                CreateWall();
-            }
-        }
-        if (Input.GetButtonDown(playerName+"LEFT"))
-        {
-            if (dir != Vector2.right)
-            {
-                dir = Vector2.left;
-                CreateWall();
-            }
-        }
-        if (Input.GetButtonDown(playerName+"RIGHT"))
-        {
-            if (dir != Vector2.left)
-            {
-                dir = Vector2.right;
-                CreateWall();
-            }
-        }
-        if (Input.GetButtonDown(playerName + "BOOST"))
-        {
-            //timer start a l appuie
-            timerStart = true;
 
-
-        }
-
-            if (Input.GetButtonUp(playerName+"BOOST"))
-        {
-
-            if (time <= tempsAttente)
+            if (Input.GetButtonDown(playerName + "UP"))
             {
-
-                if (verifBoost == false)
+                if (dir != Vector2.down)
                 {
-                    if (shotMissile >= 1)
+                    dir = Vector2.up;
+                    CreateWall();
+
+                }
+            }
+            if (Input.GetButtonDown(playerName + "DOWN"))
+            {
+                if (dir != Vector2.up)
+                {
+                    dir = Vector2.down;
+                    CreateWall();
+                }
+            }
+            if (Input.GetButtonDown(playerName + "LEFT"))
+            {
+                if (dir != Vector2.right)
+                {
+                    dir = Vector2.left;
+                    CreateWall();
+                }
+            }
+            if (Input.GetButtonDown(playerName + "RIGHT"))
+            {
+                if (dir != Vector2.left)
+                {
+                    dir = Vector2.right;
+                    CreateWall();
+                }
+            }
+            if (Input.GetButtonDown(playerName + "BOOST"))
+            {
+                //timer start a l appuie
+                timerStart = true;
+
+
+            }
+
+            if (Input.GetButtonUp(playerName + "BOOST"))
+            {
+
+                if (time <= tempsAttente)
+                {
+
+                    if (verifBoost == false)
                     {
-                        shootDirection();
-                        shotMissile--;
-                        GameObject.Find("Shot" + playerName).GetComponent<Text>().text = "Shot : " + shotMissile;
-                        
+                        if (shotMissile >= 1)
+                        {
+                            shootDirection();
+                            shotMissile--;
+                            GameObject.Find("Shot" + playerName).GetComponent<Text>().text = "Shot : " + shotMissile;
+
+                        }
+
+                        timerStart = false;
+                        time = 0;
+                    }
+                    else
+                    {
+                        verifBoost = false;
                     }
 
-                    timerStart = false;
-                    time = 0;
                 }
-                else
-                {
-                    verifBoost = false;
-                }
-              
+                timerStart = false;
+                time = 0;
+
+
             }
-            timerStart = false;
-            time = 0;
-
 
         }
-      
-        }
- 
+
         rb.velocity = dir * speed * gm.gameSpeed;
     }
 
@@ -426,12 +430,12 @@ public class Player : MonoBehaviour
     public void checkDangerTop()
     {
         //verifie si il y a un danger en haut
- 
+
         if (top.collider.tag == "border" || top.collider.tag == "mur")
         {
             topDanger = true;
             StartCoroutine("topSafe");
-           
+
         }
     }
 
@@ -490,18 +494,18 @@ public class Player : MonoBehaviour
         }
 
     }
- 
-
-   
 
 
 
 
-   public bool waitUp = false;
-   public bool waitDown = false;
-   public bool waitRight = false;
-   public bool waitLeft = false;
-   public bool waitGlobal = false;
+
+
+
+    public bool waitUp = false;
+    public bool waitDown = false;
+    public bool waitRight = false;
+    public bool waitLeft = false;
+    public bool waitGlobal = false;
     int wait = 1;
     public RaycastHit2D hitWall;
 
@@ -510,19 +514,19 @@ public class Player : MonoBehaviour
 
         if (dir.x == 1 && dir.y == 0)//si il va vers la droite
         {
-     
+
             hitWall = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right, detectionWall, ~layer);
 
             if (hitWall.collider.tag == "border" || hitWall.collider.tag == "mur")
             {
-          
+
                 int alea = giveRandom(1, 2);
- 
+
                 if ((topDanger == false && bottomDanger == false && waitGlobal == false) || (topDanger == true && bottomDanger == true && waitGlobal == false))
                 {
                     if (alea == 1 && waitUp == false && waitGlobal == false)
                     {
-                
+
                         dir = Vector2.up;
                         CreateWall();
                         StartCoroutine("waitDirDown");
@@ -559,18 +563,18 @@ public class Player : MonoBehaviour
                 }
 
             }
- 
+
 
         }
 
         if (dir.x == -1 && dir.y == 0)//si il va a gauche
         {
-    
-      hitWall = Physics2D.Raycast(new Vector2(transform.position.x -1, transform.position.y), -transform.right, detectionWall, ~layer);
-   
+
+            hitWall = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), -transform.right, detectionWall, ~layer);
+
             if (hitWall.collider.tag == "border" || hitWall.collider.tag == "mur")
             {
-          
+
                 int alea2 = giveRandom(1, 2);
                 if ((topDanger == false && bottomDanger == false && waitGlobal == false) || (topDanger == true && bottomDanger == true && waitGlobal == false))
                 {
@@ -616,15 +620,15 @@ public class Player : MonoBehaviour
 
         }
 
-   
+
         if (dir.x == 0 && dir.y == -1)//si il va en bas
-        {  
-        
+        {
+
             hitWall = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1), -transform.up, detectionWall, ~layer);
 
             if (hitWall.collider.tag == "border" || hitWall.collider.tag == "mur")
             {
-                
+
                 int alea3 = giveRandom(1, 2);
                 if ((rightDanger == false && leftDanger == false && waitGlobal == false) || (rightDanger == true && leftDanger == true && waitGlobal == false))
                 {
@@ -667,31 +671,31 @@ public class Player : MonoBehaviour
                 }
 
             }
-        
+
 
         }
 
 
         if (dir.x == 0 && dir.y == 1)//si il vas vers le haut
         {
-      
-             hitWall = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), transform.up, detectionWall, ~layer);
+
+            hitWall = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), transform.up, detectionWall, ~layer);
             if (hitWall.collider.tag == "border" || hitWall.collider.tag == "mur")
             {
-        
+
                 int alea4 = giveRandom(1, 2);
                 if ((rightDanger == false && leftDanger == false && waitGlobal == false) || (rightDanger == true && leftDanger == true && waitGlobal == false))
                 {
                     if (alea4 == 1 && waitRight == false && waitGlobal == false)
                     {
-                    
+
                         dir = Vector2.right;
                         bottomDanger = false;
                         Debug.Log("test");
                         CreateWall();
                         StartCoroutine("waitDirLeft");
                         StartCoroutine("waitDirGlobal");
-             
+
                     }
                     if (alea4 == 2 && waitLeft == false && waitGlobal == false)
                     {
@@ -701,7 +705,7 @@ public class Player : MonoBehaviour
                         CreateWall();
                         StartCoroutine("waitDirRight");
                         StartCoroutine("waitDirGlobal");
-         
+
                     }
 
                 }
@@ -713,9 +717,9 @@ public class Player : MonoBehaviour
                     CreateWall();
                     StartCoroutine("waitDirRight");
                     StartCoroutine("waitDirGlobal");
-  
+
                 }
-                else if (leftDanger == true && waitRight == false && waitGlobal == false) 
+                else if (leftDanger == true && waitRight == false && waitGlobal == false)
                 {
                     dir = Vector2.right;
                     bottomDanger = false;
@@ -724,17 +728,17 @@ public class Player : MonoBehaviour
                     StartCoroutine("waitDirLeft");
                     StartCoroutine("waitDirGlobal");
 
-        
+
                 }
-         
+
             }
- 
+
 
 
         }
-     
+
     }
- 
+
     IEnumerator waitDirUp()
     {
         waitUp = true;
@@ -785,8 +789,8 @@ public class Player : MonoBehaviour
         switch (alea)
         {
             case 1:
-                if (dir != Vector2.down  && dir != Vector2.up && waitGlobal == false && waitUp == false && !topDanger)
-                {                
+                if (dir != Vector2.down && dir != Vector2.up && waitGlobal == false && waitUp == false && !topDanger)
+                {
                     dir = Vector2.up;
                     CreateWall();
                     StartCoroutine("waitDirDown");
@@ -801,7 +805,7 @@ public class Player : MonoBehaviour
                 break;
             case 2:
                 if (dir != Vector2.left && dir != Vector2.right && waitGlobal == false && waitRight == false && !rightDanger)
-                {                 
+                {
                     dir = Vector2.right;
                     CreateWall();
                     StartCoroutine("waitDirLeft");
@@ -829,7 +833,7 @@ public class Player : MonoBehaviour
 
                 break;
             case 4:
-                if (dir != Vector2.right && dir != Vector2.left && waitGlobal == false && waitLeft == false && !leftDanger )
+                if (dir != Vector2.right && dir != Vector2.left && waitGlobal == false && waitLeft == false && !leftDanger)
                 {
                     dir = Vector2.left;
                     CreateWall();
@@ -857,12 +861,12 @@ public class Player : MonoBehaviour
 
         if (checkBufUp.collider.name == "PowerBoost(Clone)")
         {
-         
+
             dir = Vector2.up;
         }
         if (checkBufDown.collider.name == "PowerBoost(Clone)")
         {
-     
+
             dir = Vector2.down;
         }
         if (checkBufRight.collider.name == "PowerBoost(Clone)")
@@ -886,25 +890,25 @@ public class Player : MonoBehaviour
         if (dir.x == 0 && dir.y == 1)
         {
             dirRight = Vector2.right;
-           
+
         }
         else if (dir.x == 1 && dir.y == 0)
         {
             dirRight = Vector2.down;
-     
+
         }
         else if (dir.x == -1 && dir.y == 0)
         {
             dirRight = Vector2.up;
-         
-        }
-        else 
-        {
-            dirRight = Vector2.left;
-          
 
         }
-    
+        else
+        {
+            dirRight = Vector2.left;
+
+
+        }
+
     }
 
 
@@ -944,22 +948,22 @@ public class Player : MonoBehaviour
         if (boost >= 1 && gm.gameSpeed >= 1)
         {
 
-        
-        canActivateBoost = false;
-        speed += 5;
-        boost--;
-        GameObject.Find("Boost" + playerName).GetComponent<Text>().text = "Boost : " + boost;
-        yield return new WaitForSeconds(3);
-        speed -= 5;
 
-        Invoke("ReloadBoost",1);
+            canActivateBoost = false;
+            speed += 5;
+            boost--;
+            GameObject.Find("Boost" + playerName).GetComponent<Text>().text = "Boost : " + boost;
+            yield return new WaitForSeconds(3);
+            speed -= 5;
+
+            Invoke("ReloadBoost", 1);
             if (inBoost == false)
             {
                 speed = 10;
             }
-    
 
-            
+
+
         }
     }
 
@@ -988,20 +992,20 @@ public class Player : MonoBehaviour
         if (immortal == false)
         {
 
-     
-        if (col)
-        {
-        col.transform.position = posStart + (posEnd - posStart)/2;
-        float size = Vector2.Distance(posEnd, posStart);
-        if (posStart.x != posEnd.x)
-        {
-            col.transform.localScale = new Vector2(size + wallWidth, wallWidth);
-        }
-        else
-        {
-            col.transform.localScale = new Vector2(wallWidth,size + wallWidth);
-        }
-        }
+
+            if (col)
+            {
+                col.transform.position = posStart + (posEnd - posStart) / 2;
+                float size = Vector2.Distance(posEnd, posStart);
+                if (posStart.x != posEnd.x)
+                {
+                    col.transform.localScale = new Vector2(size + wallWidth, wallWidth);
+                }
+                else
+                {
+                    col.transform.localScale = new Vector2(wallWidth, size + wallWidth);
+                }
+            }
         }
 
     }
@@ -1015,7 +1019,7 @@ public class Player : MonoBehaviour
         GameObject.Find("iconInfinityShot" + playerName).GetComponent<Image>().sprite = oldIconInfinityShot;
         GameObject.Find("iconInvert" + playerName).GetComponent<Image>().sprite = oldIconInvert;
     }
- 
+
     public void clearDisplay()
     {
 
@@ -1040,7 +1044,7 @@ public class Player : MonoBehaviour
     public Text p3FinalScore;
     public Text p4FinalScore;
 
-   public void verifWin()
+    public void verifWin()
     {
         if (nbRound <= 100)
         {
@@ -1049,10 +1053,10 @@ public class Player : MonoBehaviour
                 menuFinPartie.SetActive(true);
                 GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
                 speed = 0;
-             
+
             }
 
-           
+
         }
         else
         {
@@ -1061,7 +1065,7 @@ public class Player : MonoBehaviour
     }
 
 
-   
+
 
 
     bool scoreAddedTimer = false;
@@ -1100,7 +1104,7 @@ public class Player : MonoBehaviour
             return false;
         }
     }
-    
+
     public void ResetPlayer()
     {
         if (gm.modeScore)
@@ -1108,7 +1112,7 @@ public class Player : MonoBehaviour
             StartCoroutine(AddScore());
             title.text = "Light Snake " + score + "/" + nbRound;
         }
-  
+
         resetIcon();
         invert = false;
         waitAction = false;
@@ -1127,7 +1131,7 @@ public class Player : MonoBehaviour
             isAlive = false;
 
             //Debug.Log(playerName);
-        
+
             //Debug.Log(nbPlayers);
         }
         else
@@ -1136,7 +1140,7 @@ public class Player : MonoBehaviour
         }
         dir = Vector2.up;
         speed = 10;
-        transform.localScale = new Vector2(1,1);
+        transform.localScale = new Vector2(1, 1);
         immortal = false;
         clearDisplay();
         resetWait();
@@ -1153,10 +1157,10 @@ public class Player : MonoBehaviour
             }
             //if (playerAlive <= 1) { menuFinPartie.SetActive(true); };
         }
-       
+
         // afficher la fin du round afficher le vainqueur et retour au lobby apres 4 sec
-     
-    
+
+
 
 
     }
@@ -1165,3 +1169,6 @@ public class Player : MonoBehaviour
 
 
 }
+
+
+

@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : ActivatePlayers.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class ActivatePlayers : MonoBehaviour
 {
     public GameObject P3;
     public GameObject P4;
     public bool modeScore;
     public bool modeLife;
+
+    //gere l'affichage en fonction du nombre de joueurs
     void Awake()
     {
 

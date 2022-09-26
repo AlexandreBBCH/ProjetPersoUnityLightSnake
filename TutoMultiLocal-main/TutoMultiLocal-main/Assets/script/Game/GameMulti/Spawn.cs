@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : Spawn.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class Spawn : MonoBehaviour
 {
 
 
     public GameObject powerUp;
     public float Radius = 1;
-
     GameMananger gm;
-
     public GameObject explosionAlea;
     public bool fullMapBuff = false;
 
@@ -45,7 +47,7 @@ public class Spawn : MonoBehaviour
     {
 
      string validationItem = PlayerPrefs.GetString("itemActif");
-        Debug.Log(PlayerPrefs.GetString("itemActif"));
+        //Debug.Log(PlayerPrefs.GetString("itemActif"));
         gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
         if (validationItem == "Yes")
         {
@@ -59,9 +61,6 @@ public class Spawn : MonoBehaviour
     }
     private void Start()
     {
-
-  
-
         if (fullMapBuff == false)
         {
             if (mapBuffActivated)
@@ -69,20 +68,14 @@ public class Spawn : MonoBehaviour
                 
             InvokeRepeating("SpawnRandomBuff", 1, 7);
             }
-        }
-    
-        
-      
-        
+        }        
     }
 
-   
     void SpawnRandomBuff()
     {
         Vector3 randomPos = Random.insideUnitCircle * Radius;
         Instantiate(powerUp,randomPos, Quaternion.identity);
     }
-   
     void explosion()
     {
         Vector3 randomExplosion = Random.insideUnitCircle * Radius;
@@ -92,7 +85,6 @@ public class Spawn : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-
         Gizmos.DrawWireSphere(this.transform.position, Radius);   
     }
 }

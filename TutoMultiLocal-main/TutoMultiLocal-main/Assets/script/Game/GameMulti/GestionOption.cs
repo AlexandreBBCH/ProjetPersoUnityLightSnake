@@ -3,28 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : GestionOption.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class GestionOption : MonoBehaviour
 {
 
     public Slider musiqueSlider;
     public Text volumeMusiqueText;
     public float volumeMusique;
-
     public Slider bruitageSlider;
     public Text bruitageText;
     public float volumeBruitage;
 
 
-
-    private void Start()
-    {
-
-    
-
-    }
-
-
-
+    //c est ici que l ont recupere les parametre audio au prealable choisis ainsi que la gestion du volume 
+    //des bruitage 
         public void GestionAudio()
     {
         volumeMusique = musiqueSlider.value;
@@ -45,8 +42,8 @@ public class GestionOption : MonoBehaviour
         }
     }
 
-
-
+    //""
+    //des musiques
     public void GestionSound()
     {
         volumeBruitage = bruitageSlider.value;

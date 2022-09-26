@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : DontDestroyAtLoad.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class DontDestroyAtLoad : MonoBehaviour
 {
     public GestionOption option;
@@ -21,17 +26,15 @@ public class DontDestroyAtLoad : MonoBehaviour
 
     int musiqueIndex;
 
-
+    //empeche la destrûction lors du changement de scene
 
     private void Awake()
     {
-
         DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
-
         musiqueIndex = PlayerPrefs.GetInt("choixMusique");
        
         switch (musiqueIndex)
@@ -89,7 +92,7 @@ public class DontDestroyAtLoad : MonoBehaviour
 
     public void choixMusique()
     {
-    
+    //c est ici que sera stocké la musique sauvegarder de la derniere session de jeu
     }
 
 

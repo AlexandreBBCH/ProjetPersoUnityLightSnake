@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+
+
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : parametreScoreGame.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class parametreScoreGame : MonoBehaviour
 {
 

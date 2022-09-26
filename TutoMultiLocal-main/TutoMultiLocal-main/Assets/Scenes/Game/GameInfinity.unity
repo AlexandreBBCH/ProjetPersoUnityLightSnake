@@ -4055,6 +4055,7 @@ MonoBehaviour:
   modeLife: 0
   nbLife: 0
   totalScore: 0
+  lastOne: 1
 --- !u!4 &951940959
 Transform:
   m_ObjectHideFlags: 0
@@ -4252,6 +4253,10 @@ PrefabInstance:
       propertyPath: Missile
       value: 
       objectReference: {fileID: 3490006286633049113, guid: 4dd081a731e38e54ab6aba459c7f7cd1, type: 3}
+    - target: {fileID: 984714207383443222, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 984714207383443222, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: oldIconStop
       value: 
@@ -6879,7 +6884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.2072144, y: -0.7135925}
+  m_AnchoredPosition: {x: 1.2072754, y: -0.71362305}
   m_SizeDelta: {x: -357.89, y: -60.8061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456250906

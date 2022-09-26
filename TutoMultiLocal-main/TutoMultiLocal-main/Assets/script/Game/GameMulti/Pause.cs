@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : Pause.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class Pause : MonoBehaviour
 {
 
     bool isPaused = false;
     GameMananger gm;
     public GameObject pauseMenu;
-
     public Slider musiqueSlider;
     public Slider bruitageSlider;
 

@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : checkBox.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class checkBox : MonoBehaviour
 {
-    // Start is called before the first frame update
+  
+    //creation d'une checkbox textuel de a à z
+
 
     public Text chckItem;
     bool itemCheck = true;

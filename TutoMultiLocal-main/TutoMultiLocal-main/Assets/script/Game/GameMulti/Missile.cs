@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : Missile.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class Missile : MonoBehaviour
 {
 
@@ -19,6 +26,8 @@ public class Missile : MonoBehaviour
     public AudioClip boomSfx;
     int directionMissileX;
     int directionMissileY;
+
+    //cest ici que l ont joue le son de l impact
     public void PlayBoumSfx()
     {
         GetComponent<AudioSource>().volume = (float)PlayerPrefs.GetInt("volumeBruitage") / 100;
@@ -42,7 +51,7 @@ public class Missile : MonoBehaviour
     }
 
 
-
+    //gere la rapidité du missile
     private void LateUpdate()
     {
 
@@ -61,7 +70,7 @@ public class Missile : MonoBehaviour
 
 
 
-
+    //tir en fonction de la direction du regard du joueur
     void shot()
     {
     
@@ -123,6 +132,7 @@ public class Missile : MonoBehaviour
         //Destroy(collision.gameObject);
     }
 
+    //empeche le spam de missile
     IEnumerator wait(int sec)
     {
         Debug.Log("att" + sec);

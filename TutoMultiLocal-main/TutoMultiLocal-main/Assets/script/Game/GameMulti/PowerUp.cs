@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 
-
+//Projet  : Light Snake
+//Auteur  : Alexandre Babich
+//Class   : PowerUp.cs
+//Date    : 26.09.2022
+//Version : Alpha
 public class PowerUp : MonoBehaviour
 {
 
