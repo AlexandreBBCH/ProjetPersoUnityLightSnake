@@ -95,7 +95,7 @@ Light Snake (Provisoire)
 
 ## 5. Livrables
 1. Planning
-2. Trello
+2. Trello https://trello.com/invite/b/fWsq97px/18b80643c3df05f8a35b684a2e5d8d12/projet-lightsnake
 3. Rapport de projet
 4. Manuel d'utilisateur
 5. Git
