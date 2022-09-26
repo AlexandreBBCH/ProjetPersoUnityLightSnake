@@ -1,0 +1,134 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Missile : MonoBehaviour
+{
+
+
+
+    Rigidbody2D rb;
+    public int speed;
+    Vector2 direction;
+    Player player;
+    Cam cam;
+    public GameObject boomParticles;
+    GameMananger gm;
+    public string playerName;
+
+    public AudioClip boomSfx;
+    int directionMissileX;
+    int directionMissileY;
+    public void PlayBoumSfx()
+    {
+        GetComponent<AudioSource>().volume = (float)PlayerPrefs.GetInt("volumeBruitage") / 100;
+        GetComponent<AudioSource>().PlayOneShot(boomSfx);
+    }
+
+    private void Awake()
+    {
+        directionMissileX = PlayerPrefs.GetInt("MissilePosX" + playerName);
+        directionMissileY = PlayerPrefs.GetInt("MissilePosY" + playerName);
+    }
+
+    private void Start()
+    {
+        //valeur par defaut
+  
+        cam = Camera.main.GetComponent<Cam>();
+        rb = GetComponent<Rigidbody2D>();
+        shot();
+
+    }
+
+
+
+    private void LateUpdate()
+    {
+
+       
+        if (direction != null)
+        {
+       
+            rb.velocity = direction * speed;
+
+        }
+       
+        //rb.velocity = direction * speed * gm.gameSpeed;
+    }
+
+
+
+
+
+
+    void shot()
+    {
+    
+
+        if (directionMissileX == 1 && directionMissileY == 0)
+            {
+         
+                direction = Vector2.right;
+            }
+            if (directionMissileX == 0 && directionMissileY == -1)
+        {
+        
+            direction = Vector2.down;
+            }
+            if (directionMissileX == 0 && directionMissileY == 1)
+        {
+          
+            direction = Vector2.up;
+            }
+            if (directionMissileX == -1 && directionMissileY == 0)
+        {
+           
+            direction = Vector2.left;
+            }
+
+        
+     
+    }
+
+
+    //Detruit un mur au contact
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag != "bg" && collision.gameObject.tag != "border")
+        {
+      
+            cam.PlayBoumSfx();
+            cam.Shake(0.75f, 2f, 30);
+            collision.gameObject.SetActive(false);
+            Instantiate(boomParticles, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            PlayBoumSfx();
+
+        }
+        else
+        {
+        
+            cam.PlayBoumSfx();
+            cam.Shake(0.75f, 2f, 30);
+            Instantiate(boomParticles, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            PlayBoumSfx();
+     
+        }
+
+
+
+        //Destroy(collision.gameObject);
+    }
+
+    IEnumerator wait(int sec)
+    {
+        Debug.Log("att" + sec);
+        yield return new WaitForSeconds(sec);
+    }
+
+}
+
+
