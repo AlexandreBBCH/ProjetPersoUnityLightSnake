@@ -13,15 +13,26 @@ public class ActivatePlayers : MonoBehaviour
     public bool modeScore;
     public bool modeLife;
 
-    //gere l'affichage en fonction du nombre de joueurs
+
+
     void Awake()
     {
 
+        displayPlayerInfoMultiGame();
+
+
+    }
+
+    /// <summary>
+    /// Methode servant a gerer l'affichage en fonction du nombre de joueurs en mode multi
+    /// </summary>
+    private void displayPlayerInfoMultiGame()
+    {
 
         if (modeScore)
         {
             int nbPlayers = PlayerPrefs.GetInt("nbPlayers");
-          
+
 
             if (nbPlayers == 2)
             {
@@ -44,7 +55,7 @@ public class ActivatePlayers : MonoBehaviour
         if (modeLife)
         {
             int nbPlayers = PlayerPrefs.GetInt("nbLifePlayers");
-        
+
 
             if (nbPlayers == 2)
             {
@@ -63,7 +74,7 @@ public class ActivatePlayers : MonoBehaviour
                 P4.SetActive(true);
             }
         }
-
-
     }
 }
+
+

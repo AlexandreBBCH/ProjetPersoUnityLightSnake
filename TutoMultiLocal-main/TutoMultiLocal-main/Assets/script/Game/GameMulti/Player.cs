@@ -14,7 +14,7 @@ using System;
 public class Player : MonoBehaviour
 {
   
-    //Variable gerant le joueur et ces intération
+    //Variable gerant le joueur et ces intéraction
     Rigidbody2D rb;
     public int speed; 
     public Vector2 dir;
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public Vector2 saveDirectionRight;
     int missilePosX;
     int missilePosY;
+    public int score = 0;
     //A activé quand les IA auront été codé
     public bool isAbot = false;
  
@@ -129,7 +130,7 @@ public class Player : MonoBehaviour
          nbRound = PlayerPrefs.GetInt("nbRound");
         if (nbRound <= 100)
         {
-            title.text = "Light Snake " + score + "/" + nbRound;
+            title.text = "Light Snake " + gm.round + "/" + nbRound;
         }
         else
         {
@@ -470,30 +471,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    public int score = 0;
+
 
 
 
     //c est ici que l on verifie quand la partie se finis
-   public void verifWin()
-    {
-        if (nbRound <= 100)
-        {
-            if (score >= nbRound)
-            {
-                menuFinPartie.SetActive(true);
-                GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
-                speed = 0;
-             
-            }
 
-           
-        }
-        else
-        {
-            title.text = "Light Snake Ininity";
-        }
-    }
 
 
    
@@ -505,9 +488,8 @@ public class Player : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
-          
+
             score++;
-            Debug.Log(playerName + " " + score);
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
             scoreAddedTimer = false;
@@ -531,10 +513,11 @@ public class Player : MonoBehaviour
     //remet a 0 les attribut du joueur
     public void ResetPlayer()
     {
+    
         if (gm.modeScore)
         {
             StartCoroutine(AddScore());
-            title.text = "Light Snake " + score + "/" + nbRound;
+          
         }
   
         resetIcon();
@@ -545,7 +528,7 @@ public class Player : MonoBehaviour
         GameObject.Find("Boost" + playerName).GetComponent<Text>().text = "Boost : " + boost;
         GameObject.Find("Shot" + playerName).GetComponent<Text>().text = "Shot : " + shotMissile;
         transform.position = initialPos;
-
+      
 
         //gestion mode vie
 
@@ -567,11 +550,8 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector2(1,1);
         immortal = false;
         clearDisplay();
-      
-        if (gm.modeScore)
-        {
-            verifWin();
-        }
+
+
 
         if (gm.modeLife)
         {

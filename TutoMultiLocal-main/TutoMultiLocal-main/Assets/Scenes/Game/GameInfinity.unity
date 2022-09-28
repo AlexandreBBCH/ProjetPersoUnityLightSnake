@@ -4050,12 +4050,16 @@ MonoBehaviour:
   gameSpeed: 1
   scores: 00000000000000000000000000000000
   life: 
+  round: 1
   goTxt: {fileID: 820228001}
   modeScore: 1
   modeLife: 0
   nbLife: 0
+  nbRound: 0
   totalScore: 0
   lastOne: 1
+  menuFinPartie: {fileID: 1456250904}
+  title: {fileID: 674442559}
 --- !u!4 &951940959
 Transform:
   m_ObjectHideFlags: 0
@@ -5401,6 +5405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musique: {fileID: 1330439122}
+  musiqueIndex: 0
   objetMusique: {fileID: 0}
   ZaZa: {fileID: 8300000, guid: 0173b7960d8de4f408500a619cbddc7e, type: 3}
   ReTron: {fileID: 8300000, guid: 144abab1a4b4e2349889f33c9f101541, type: 3}

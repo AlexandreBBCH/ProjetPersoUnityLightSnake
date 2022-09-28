@@ -20,7 +20,9 @@ public class ChoixMusique : MonoBehaviour
     public AudioClip ReTron;
     public AudioClip Processing;
 
-    //choix de la musique
+  /// <summary>
+  /// Methode servant à changer de musique
+  /// </summary>
     public void selectionMusique()
     {
         if(objetMusique == null)

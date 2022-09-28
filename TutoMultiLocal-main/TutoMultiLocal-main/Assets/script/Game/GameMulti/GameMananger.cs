@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 //Projet  : Light Snake
@@ -18,17 +19,26 @@ public class GameMananger : MonoBehaviour
     public float gameSpeed = 1;
     public int[] scores;
     public int[] life;
+    public int round = 1;
     Player[] players;
     public GameObject goTxt;
     PowerUp powerUp;
     public bool modeScore;
     public bool modeLife;
+  
 
     public int nbLife;
+    public int nbRound;
     public int totalScore = 0;
     public bool lastOne = true;
 
+    public GameObject menuFinPartie;
+    public Text title;
 
+    bool scoreAddedTimer = false;
+    bool roundAddedTimer = false;
+
+    int nbPlayers;
     private void Start()
     {
         players = FindObjectsOfType<Player>();
@@ -40,10 +50,15 @@ public class GameMananger : MonoBehaviour
 
     private void Awake()
     {
+        nbPlayers = PlayerPrefs.GetInt("nbPlayers");
         if (modeLife)
         {
             nbLife = PlayerPrefs.GetInt("nbLife");
             lifeStatetement();
+        }
+        if (modeScore)
+        {
+            nbRound = PlayerPrefs.GetInt("nbRound");
         }
  
     }
@@ -72,13 +87,13 @@ public class GameMananger : MonoBehaviour
         }
     }
 
-    bool scoreAddedTimer = false;
+  
     IEnumerator AddScore0()
     {
         if (!scoreAddedTimer)
         {
-            p.score++;
             scores[0]++;
+
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
             scoreAddedTimer = false;
@@ -88,8 +103,8 @@ public class GameMananger : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
-            p.score++;
             scores[1]++;
+         
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
             scoreAddedTimer = false;
@@ -99,8 +114,8 @@ public class GameMananger : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
-            p.score++;
             scores[2]++;
+
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
             scoreAddedTimer = false;
@@ -110,8 +125,8 @@ public class GameMananger : MonoBehaviour
     {
         if (!scoreAddedTimer)
         {
-            p.score++;
-            scores[0]++;
+            scores[3]++;
+
             scoreAddedTimer = true;
             yield return new WaitForSeconds(2);
             scoreAddedTimer = false;
@@ -119,7 +134,8 @@ public class GameMananger : MonoBehaviour
     }
     void GetWinner()
     {
-        foreach(Player p in players)
+     
+        foreach (Player p in players)
         {
        
             if (p.isAlive)
@@ -131,18 +147,13 @@ public class GameMananger : MonoBehaviour
                 switch (p.playerName)
                 {
                     case "P1":
-
-
-
-                    
                         StartCoroutine("AddScore0");
-                        GameObject.Find("ScoreP1").GetComponent<Text>().text = "Score " + scores[0];
-                   
-                        break;
+               
+                            break;
                     case "P2":
           
                         StartCoroutine("AddScore1");
-                        GameObject.Find("ScoreP2").GetComponent<Text>().text = "Score " + scores[1];
+                
                       
 
 
@@ -150,7 +161,7 @@ public class GameMananger : MonoBehaviour
                     case "P3":
         
                         StartCoroutine("AddScore2");
-                        GameObject.Find("ScoreP3").GetComponent<Text>().text = "Score " + scores[2];
+                  
                      
 
                         break;
@@ -158,11 +169,28 @@ public class GameMananger : MonoBehaviour
                       
                
                         StartCoroutine("AddScore3");
+
+                  
+                 
+                            break;
+
+             
+                    }
+              
+
+                    GameObject.Find("ScoreP1").GetComponent<Text>().text = "Score " + scores[0];
+                    GameObject.Find("ScoreP2").GetComponent<Text>().text = "Score " + scores[1];
+                    if (nbPlayers == 3)
+                    {
+                        GameObject.Find("ScoreP3").GetComponent<Text>().text = "Score " + scores[2];
+                    }
+                    if (nbPlayers == 4)
+                    {
+                        GameObject.Find("ScoreP3").GetComponent<Text>().text = "Score " + scores[2];
                         GameObject.Find("ScoreP4").GetComponent<Text>().text = "Score " + scores[3];
-                        
-                        break;
+                    }
+
                 }
-            }
           }
         }
         //Reset Game
@@ -191,18 +219,60 @@ public class GameMananger : MonoBehaviour
     }
 
 
+    IEnumerator waitAddScore()
+    {
+        if (!roundAddedTimer)
+        {
+            round++;
+            roundAddedTimer = true;
+            yield return new WaitForSeconds(1);
+            roundAddedTimer = false;
+        }
+    }
+
+    public void verifWin()
+    {
+        if (nbRound <= 100)
+        {
+            if (round > nbRound)
+            {
+                menuFinPartie.SetActive(true);
+                title.text = "Light Snake " + nbRound + "/" + nbRound;
+                GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
+                p.speed = 0;
+
+            }
+
+
+        }
+        else
+        {
+            title.text = "Light Snake Ininity";
+        }
+    }
+
 
 
 
     IEnumerator ResetGame() //Ienumerator permet de mettre un yield pour faire attendre
     {
+      
+        if (modeScore)
+        {
+
+
+
+            StartCoroutine(waitAddScore());
+            title.text = "Light Snake " + round + "/" + nbRound;
+            verifWin();
+        }
         yield return new WaitForSeconds(2);  
         goTxt.SetActive(true);
         nbAlivePlayers = players.Length;
         gameSpeed = 1;
         GameObject[] murs = GameObject.FindGameObjectsWithTag("mur");
-      
-        
+
+
         foreach(GameObject go in murs)
         {
             Destroy(go);
@@ -267,6 +337,6 @@ public class GameMananger : MonoBehaviour
         goTxt.SetActive(false);
     }
 
-
+ 
 
 }
