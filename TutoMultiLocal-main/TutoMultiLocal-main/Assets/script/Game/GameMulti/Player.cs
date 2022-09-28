@@ -369,17 +369,6 @@ public class Player : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     //c est ici quon gere le boost du personnage
     IEnumerator ActivateBoost()
     {
@@ -439,7 +428,7 @@ public class Player : MonoBehaviour
         {
             col.transform.localScale = new Vector2(wallWidth,size + wallWidth);
         }
-        }
+      } 
         }
 
     }

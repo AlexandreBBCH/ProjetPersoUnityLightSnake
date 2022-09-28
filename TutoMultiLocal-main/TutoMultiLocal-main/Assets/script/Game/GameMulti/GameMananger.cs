@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -43,9 +45,6 @@ public class GameMananger : MonoBehaviour
     {
         players = FindObjectsOfType<Player>();
         nbAlivePlayers = players.Length;
-   
-      
-
     }
 
     private void Awake()
@@ -236,7 +235,14 @@ public class GameMananger : MonoBehaviour
         {
             if (round > nbRound)
             {
+                //int bestScore =  (new[] { scores[0], scores[1], scores[2], scores[3] }.Max()) ;
+
+                Debug.Log("P1 " + scores[0]);
+                Debug.Log("P2 " + scores[1]);
+                Debug.Log("P3 " + scores[2]);
+                Debug.Log("P4 " + scores[3]);
                 menuFinPartie.SetActive(true);
+          
                 title.text = "Light Snake " + nbRound + "/" + nbRound;
                 GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
                 p.speed = 0;

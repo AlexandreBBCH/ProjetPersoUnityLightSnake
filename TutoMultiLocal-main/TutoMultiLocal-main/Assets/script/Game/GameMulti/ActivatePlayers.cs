@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //Projet  : Light Snake
 //Auteur  : Alexandre Babich
 //Class   : ActivatePlayers.cs
@@ -13,6 +14,8 @@ public class ActivatePlayers : MonoBehaviour
     public bool modeScore;
     public bool modeLife;
 
+    public GameObject score3;
+    public GameObject score4;
 
 
     void Awake()
@@ -39,16 +42,21 @@ public class ActivatePlayers : MonoBehaviour
 
                 GameObject.FindGameObjectWithTag("StatGreen").SetActive(false);
                 GameObject.FindGameObjectWithTag("StatViolet").SetActive(false);
+               
             }
             if (nbPlayers == 3)
             {
                 P3.SetActive(true);
                 GameObject.FindGameObjectWithTag("StatViolet").SetActive(false);
+                score3.SetActive(true);
             }
             else if (nbPlayers == 4)
             {
                 P3.SetActive(true);
                 P4.SetActive(true);
+                score3.SetActive(true);
+                score4.SetActive(true);
+
             }
         }
 

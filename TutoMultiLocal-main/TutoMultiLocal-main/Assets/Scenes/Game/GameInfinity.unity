@@ -4090,6 +4090,8 @@ MonoBehaviour:
   P4: {fileID: 1623886450}
   modeScore: 1
   modeLife: 0
+  score3: {fileID: 1698828210}
+  score4: {fileID: 1792196797}
 --- !u!1 &961332733
 GameObject:
   m_ObjectHideFlags: 0
@@ -5404,12 +5406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d278601d1901941a25661bb24dd72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musique: {fileID: 1330439122}
-  musiqueIndex: 0
-  objetMusique: {fileID: 0}
-  ZaZa: {fileID: 8300000, guid: 0173b7960d8de4f408500a619cbddc7e, type: 3}
-  ReTron: {fileID: 8300000, guid: 144abab1a4b4e2349889f33c9f101541, type: 3}
-  Processing: {fileID: 8300000, guid: 8ab481449fcc8d24d8a63b0e65f529af, type: 3}
 --- !u!1 &1187476680
 GameObject:
   m_ObjectHideFlags: 0
@@ -7668,7 +7664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1698828211
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8033,7 +8029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1792196798
 RectTransform:
   m_ObjectHideFlags: 0
