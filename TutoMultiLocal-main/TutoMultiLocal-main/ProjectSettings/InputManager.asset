@@ -633,7 +633,7 @@ InputManager:
     m_Name: P2BOOST
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: x
+    negativeButton: e
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
@@ -714,7 +714,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: b
+    positiveButton: z
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -794,7 +794,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: m
+    positiveButton: o
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

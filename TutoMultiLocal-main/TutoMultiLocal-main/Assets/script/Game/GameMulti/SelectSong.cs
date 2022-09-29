@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 
-//Projet  : Light Snake
-//Auteur  : Alexandre Babich
-//Class   : ChoixMusique.cs
-//Date    : 26.09.2022
-//Version : Alpha
-public class ChoixMusique : MonoBehaviour
+public class SelectSong : MonoBehaviour
 {
-
-
     public Dropdown musique;
     int musiqueIndex;
     public GameObject objetMusique;
@@ -20,16 +12,14 @@ public class ChoixMusique : MonoBehaviour
     public AudioClip ReTron;
     public AudioClip Processing;
 
-  /// <summary>
-  /// Methode servant à changer de musique
-  /// </summary>
+
     public void selectionMusique()
     {
-        if(objetMusique == null)
+        if (objetMusique == null)
         {
             objetMusique = GameObject.Find("Musique");
         }
-     
+
         musiqueIndex = musique.value;
         objetMusique.GetComponent<AudioSource>().Stop();
         switch (musiqueIndex)
@@ -45,10 +35,7 @@ public class ChoixMusique : MonoBehaviour
                 break;
         }
         objetMusique.GetComponent<AudioSource>().Play();
-        PlayerPrefs.SetInt("choixMusique",musiqueIndex);
+        PlayerPrefs.SetInt("choixMusique", musiqueIndex);
     }
-
-
-  
 
 }

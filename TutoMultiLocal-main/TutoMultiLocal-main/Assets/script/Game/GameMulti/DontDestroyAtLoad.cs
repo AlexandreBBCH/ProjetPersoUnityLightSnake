@@ -20,7 +20,7 @@ public class DontDestroyAtLoad : MonoBehaviour
     public AudioClip ZaZa;
     public AudioClip ReTron;
     public AudioClip Processing;
-    ChoixMusique musiqueScript;
+    SelectSong musiqueScript;
 
    
 
@@ -35,7 +35,7 @@ public class DontDestroyAtLoad : MonoBehaviour
 
     void Start()
     {
-        musiqueIndex = PlayerPrefs.GetInt("choixMusique");
+        musiqueIndex = PlayerPrefs.GetInt("SelectSong");
        
         switch (musiqueIndex)
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -36,6 +37,11 @@ public class GameMananger : MonoBehaviour
 
     public GameObject menuFinPartie;
     public Text title;
+    public Text scoreFinalFirst;
+    public Text scoreFinalSecond;
+    public Text scoreFinalThird;
+    public Text scoreFinalFourth;
+
 
     bool scoreAddedTimer = false;
     bool roundAddedTimer = false;
@@ -229,20 +235,83 @@ public class GameMananger : MonoBehaviour
         }
     }
 
+    public void orderScoreBoardAndDisplay()
+    {
+        //string[,] scoreBoard = { { "P1", "" }, { "", "" }, { "", "" }, { "", "" } };
+
+
+        Dictionary<string,int> scoreboard = new Dictionary<string,int>();
+
+        scoreboard.Add("P1", scores[0]);
+        scoreboard.Add("P2", scores[1]);
+
+      
+
+
+
+        if (nbPlayers == 3)
+        {
+            scoreboard.Add("P3", scores[2]);
+        }
+        if (nbPlayers == 4)
+        {
+            scoreboard.Add("P3", scores[2]);
+            scoreboard.Add("P4", scores[3]);
+        }
+
+        int compteur = 0;
+        foreach (KeyValuePair<string,int> scoreInfos in scoreboard.OrderByDescending(key => key.Value))
+        {
+            compteur++;
+
+            if (compteur == 1)
+            {
+                scoreFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 2)
+            {
+                scoreFinalSecond.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 3)
+            {
+                scoreFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 4)
+            {
+                scoreFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            //Debug.Log(scoreInfos.Value + scoreInfos.Key);
+            //scoreInfos.Key + " : " +scoreInfos.Value;
+            //GameObject.Find(scoreInfos.Key + "ScoreFinal").GetComponent<Text>().text = Convert.ToString( scoreInfos.Value);
+
+       
+        }
+
+    }
+
     public void verifWin()
     {
+
+
+
+
+
         if (nbRound <= 100)
         {
             if (round > nbRound)
             {
                 //int bestScore =  (new[] { scores[0], scores[1], scores[2], scores[3] }.Max()) ;
 
-                Debug.Log("P1 " + scores[0]);
-                Debug.Log("P2 " + scores[1]);
-                Debug.Log("P3 " + scores[2]);
-                Debug.Log("P4 " + scores[3]);
+                //Debug.Log(scoreBoard["P1"]);
+
+             
                 menuFinPartie.SetActive(true);
-          
+                orderScoreBoardAndDisplay();
+
+    
+             
+
+
                 title.text = "Light Snake " + nbRound + "/" + nbRound;
                 GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
                 p.speed = 0;

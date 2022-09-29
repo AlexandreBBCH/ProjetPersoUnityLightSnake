@@ -18,6 +18,9 @@ public class ActivatePlayers : MonoBehaviour
     public GameObject score4;
 
 
+   
+
+
     void Awake()
     {
 
@@ -27,7 +30,7 @@ public class ActivatePlayers : MonoBehaviour
     }
 
     /// <summary>
-    /// Methode servant a gerer l'affichage en fonction du nombre de joueurs en mode multi
+    /// Affiche le tableau des joueur en fonction du nombre de joueur
     /// </summary>
     private void displayPlayerInfoMultiGame()
     {
@@ -49,6 +52,8 @@ public class ActivatePlayers : MonoBehaviour
                 P3.SetActive(true);
                 GameObject.FindGameObjectWithTag("StatViolet").SetActive(false);
                 score3.SetActive(true);
+                
+
             }
             else if (nbPlayers == 4)
             {

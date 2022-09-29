@@ -840,7 +840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40.200134, y: 3.0009966}
+  m_AnchoredPosition: {x: -47.3, y: -0.4}
   m_SizeDelta: {x: 285.557, y: 86.1981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161311167
@@ -864,11 +864,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: ffadd6ce68fe4b545882ace93e29e08e, type: 3}
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 1
     m_MaxSize: 44
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3925,12 +3925,16 @@ MonoBehaviour:
   gameSpeed: 1
   scores: 00000000000000000000000000000000
   life: 03000000030000000300000003000000
+  round: 1
   goTxt: {fileID: 820228001}
   modeScore: 0
   modeLife: 1
   nbLife: 0
+  nbRound: 0
   totalScore: 0
   lastOne: 1
+  menuFinPartie: {fileID: 0}
+  title: {fileID: 0}
 --- !u!4 &951940959
 Transform:
   m_ObjectHideFlags: 0
@@ -3961,6 +3965,8 @@ MonoBehaviour:
   P4: {fileID: 1623886450}
   modeScore: 0
   modeLife: 1
+  score3: {fileID: 0}
+  score4: {fileID: 0}
 --- !u!1 &961332733
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,7 +6774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.2072144, y: -0.7135925}
+  m_AnchoredPosition: {x: 1.2072754, y: -0.71362305}
   m_SizeDelta: {x: -357.89, y: -60.8061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456250906

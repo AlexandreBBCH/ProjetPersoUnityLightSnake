@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 318459049}
   - component: {fileID: 318459048}
   - component: {fileID: 318459050}
+  - component: {fileID: 318459051}
   m_Layer: 0
   m_Name: Musique
   m_TagString: song
@@ -855,8 +856,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   option: {fileID: 1133263696}
-  audioBruitage: {fileID: 0}
-  musique: {fileID: 0}
+  audioBruitage: {fileID: 519420035}
+  musique: {fileID: 1519561037}
+  ZaZa: {fileID: 8300000, guid: 0173b7960d8de4f408500a619cbddc7e, type: 3}
+  ReTron: {fileID: 8300000, guid: 144abab1a4b4e2349889f33c9f101541, type: 3}
+  Processing: {fileID: 8300000, guid: 8ab481449fcc8d24d8a63b0e65f529af, type: 3}
+--- !u!114 &318459051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318459047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c741ac8b2f578ba4c8a9594e8879aad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musique: {fileID: 1519561037}
+  objetMusique: {fileID: 318459047}
   ZaZa: {fileID: 8300000, guid: 0173b7960d8de4f408500a619cbddc7e, type: 3}
   ReTron: {fileID: 8300000, guid: 144abab1a4b4e2349889f33c9f101541, type: 3}
   Processing: {fileID: 8300000, guid: 8ab481449fcc8d24d8a63b0e65f529af, type: 3}
@@ -1221,6 +1239,7 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420035}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420036}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1480,6 +1499,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boomSfx: {fileID: 8300000, guid: 29e06a436c42d534581a0379423dc9c7, type: 3}
   chhh: {fileID: 0}
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c741ac8b2f578ba4c8a9594e8879aad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musique: {fileID: 1519561037}
+  objetMusique: {fileID: 318459047}
+  ZaZa: {fileID: 8300000, guid: 0173b7960d8de4f408500a619cbddc7e, type: 3}
+  ReTron: {fileID: 8300000, guid: 144abab1a4b4e2349889f33c9f101541, type: 3}
+  Processing: {fileID: 8300000, guid: 8ab481449fcc8d24d8a63b0e65f529af, type: 3}
 --- !u!1 &572856727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,6 +2799,7 @@ GameObject:
   - component: {fileID: 1133263693}
   - component: {fileID: 1133263692}
   - component: {fileID: 1133263691}
+  - component: {fileID: 1133263699}
   - component: {fileID: 1133263695}
   - component: {fileID: 1133263696}
   - component: {fileID: 1133263697}
@@ -2878,6 +2915,14 @@ MonoBehaviour:
   optionMenu: {fileID: 0}
   nbPlayers: {fileID: 830854190}
   nbPlayersSlider: {fileID: 1593684353}
+  nbLifePlayers: {fileID: 0}
+  nbPlayersLifeSlider: {fileID: 0}
+  nbRound: {fileID: 0}
+  sliderRound: {fileID: 0}
+  nbLife: {fileID: 0}
+  sldLife: {fileID: 0}
+  modeScore: 0
+  modeLife: 0
 --- !u!114 &1133263696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2908,11 +2953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d278601d1901941a25661bb24dd72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musique: {fileID: 1519561037}
-  objetMusique: {fileID: 318459047}
-  ZaZa: {fileID: 8300000, guid: 0173b7960d8de4f408500a619cbddc7e, type: 3}
-  ReTron: {fileID: 8300000, guid: 144abab1a4b4e2349889f33c9f101541, type: 3}
-  Processing: {fileID: 8300000, guid: 8ab481449fcc8d24d8a63b0e65f529af, type: 3}
 --- !u!114 &1133263698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,6 +2968,23 @@ MonoBehaviour:
   pauseMenu: {fileID: 1340659651}
   musiqueSlider: {fileID: 11569289}
   bruitageSlider: {fileID: 314605827}
+--- !u!114 &1133263699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133263690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c741ac8b2f578ba4c8a9594e8879aad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musique: {fileID: 1519561037}
+  objetMusique: {fileID: 318459047}
+  ZaZa: {fileID: 8300000, guid: 0173b7960d8de4f408500a619cbddc7e, type: 3}
+  ReTron: {fileID: 8300000, guid: 144abab1a4b4e2349889f33c9f101541, type: 3}
+  Processing: {fileID: 8300000, guid: 8ab481449fcc8d24d8a63b0e65f529af, type: 3}
 --- !u!1 &1149882374
 GameObject:
   m_ObjectHideFlags: 0

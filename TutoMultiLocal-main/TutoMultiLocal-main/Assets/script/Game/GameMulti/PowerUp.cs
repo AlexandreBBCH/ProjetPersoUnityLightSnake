@@ -100,7 +100,7 @@ public class PowerUp : MonoBehaviour
 
         if (collision.gameObject.tag == "PowerUpBoost")
         {
-            string AleaPowerUp = powerUp[Random.Range(0,powerUp.Length)];
+            string AleaPowerUp = powerUp[5/*Random.Range(0,powerUp.Length)*/];
 
             if (AleaPowerUp == "PowerUpBoost")
             {
