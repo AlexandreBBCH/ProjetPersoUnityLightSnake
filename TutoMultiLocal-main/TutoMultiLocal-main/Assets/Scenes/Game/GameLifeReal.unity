@@ -3666,10 +3666,15 @@ MonoBehaviour:
   lastOne: 1
   menuFinPartie: {fileID: 1456250904}
   title: {fileID: 674442559}
+  winner: {fileID: 0}
   scoreFinalFirst: {fileID: 961332736}
   scoreFinalSecond: {fileID: 421518513}
   scoreFinalThird: {fileID: 1698828213}
   scoreFinalFourth: {fileID: 1792196800}
+  scoreLifeFinalFirst: {fileID: 961332736}
+  scoreLifeFinalSecond: {fileID: 421518513}
+  scoreLifeFinalThird: {fileID: 1698828213}
+  scoreLifeFinalFourth: {fileID: 1792196800}
   nbPlayers: 0
   generalLifeCompteur: 0
 --- !u!4 &951940959

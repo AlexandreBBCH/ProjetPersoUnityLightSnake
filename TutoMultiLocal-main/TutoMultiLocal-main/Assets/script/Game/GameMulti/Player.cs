@@ -513,6 +513,7 @@ public class Player : MonoBehaviour
             if (finalLife == 0)
             {
                 finalLife = gm.generalLifeCompteur;
+           
                 gm.generalLifeCompteur--;
             }
             return true;
@@ -529,7 +530,7 @@ public class Player : MonoBehaviour
     //remet a 0 les attribut du joueur
     public void ResetPlayer()
     {
-    
+         //Debug.Log(GameObject.Find("PlayerBlue").GetComponent<Player>().finalLife);
         if (gm.modeScore)
         {
             StartCoroutine(AddScore());

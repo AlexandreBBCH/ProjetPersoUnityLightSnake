@@ -66,7 +66,9 @@ public class GameMananger : MonoBehaviour
         scoreboardLife.Add("P2", 0);
         scoreboardLife.Add("P3", 0);
         scoreboardLife.Add("P4", 0);
-  
+
+       
+
     }
 
 
@@ -310,49 +312,37 @@ public class GameMananger : MonoBehaviour
 
     public void orderScoreBoardLifeAndDisplay()
     {
+        Debug.Log(GameObject.Find("PlayerBlue").GetComponent<Player>().finalLife);
 
 
-        //scoreboard.Add("P1", scores[0]);
-        //scoreboard.Add("P2", scores[1]);
-        //if (nbPlayers == 3)
+        //int compteur = 0;
+        //foreach (KeyValuePair<string, int> scoreInfos in scoreboardLife.OrderByDescending(key => key.Value))
         //{
-        //    scoreboard.Add("P3", scores[2]);
+        //    compteur++;
+
+        //    if (compteur == 1)  
+        //    {
+
+        //        scoreLifeFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
+        //        winner.text = scoreInfos.Key;
+        //    }
+        //    if (compteur == 2)
+        //    {
+        //        scoreLifeFinalSecond.text = scoreInfos.Key + " : " + scoreInfos.Value;
+        //    }
+        //    if (compteur == 3)
+        //    {
+        //        scoreLifeFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
+        //    }
+        //    if (compteur == 4)
+        //    {
+        //        scoreLifeFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
+        //        scoreLifeFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
+        //    }
+
+
+
         //}
-        //if (nbPlayers == 4)
-        //{
-        //    scoreboard.Add("P3", scores[2]);
-        //    scoreboard.Add("P4", scores[3]);
-        //}
-
-        int compteur = 0;
-        foreach (KeyValuePair<string, int> scoreInfos in scoreboardLife.OrderByDescending(key => key.Value))
-        {
-            compteur++;
-
-            if (compteur == 1)
-            {
-
-                scoreLifeFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
-                winner.text = scoreInfos.Key;
-            }
-            if (compteur == 2)
-            {
-                scoreLifeFinalSecond.text = scoreInfos.Key + " : " + scoreInfos.Value;
-            }
-            if (compteur == 3)
-            {
-                scoreLifeFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
-            }
-            if (compteur == 4)
-            {
-                scoreLifeFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
-            }
-            //Debug.Log(scoreInfos.Value + scoreInfos.Key);
-            //scoreInfos.Key + " : " +scoreInfos.Value;
-            //GameObject.Find(scoreInfos.Key + "ScoreFinal").GetComponent<Text>().text = Convert.ToString( scoreInfos.Value);
-
-
-        }
 
     }
     public void verifWin()
@@ -387,7 +377,7 @@ public class GameMananger : MonoBehaviour
 
     IEnumerator ResetGame() //Ienumerator permet de mettre un yield pour faire attendre
     {
-
+      
         if (modeScore)
         {
             StartCoroutine(waitAddScore());
@@ -427,13 +417,22 @@ public class GameMananger : MonoBehaviour
                 if (nbAlivePlayers <= 1)
                 {
                     p.menuFinPartie.SetActive(true);
-                    scoreboardLife["P1"]= p.finalLife;
-                    scoreboardLife["P2"] = p.finalLife;
-                    scoreboardLife["P3"] = p.finalLife;
-                    scoreboardLife["P4"] = p.finalLife;
+           
 
+                    //scoreboardLife["P1"] = GameObject.Find("PlayerBlue").GetComponent<Player>().finalLife;
+                    //scoreboardLife["P2"] = GameObject.Find("PlayerRed").GetComponent<Player>().finalLife;
+                    //if (nbPlayers == 3)
+                    //{
+                    //    scoreboardLife["P3"] = GameObject.Find("PlayerGreen").GetComponent<Player>().finalLife;
+                    //}
+                    //if (nbPlayers == 4)
+                    //{
+                    //    scoreboardLife["P4"] = GameObject.Find("PlayerViolet").GetComponent<Player>().finalLife;
+                    //}
+                   
+                
 
-
+          
                     GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
                     p.speed = 0;
                 }
@@ -467,13 +466,13 @@ public class GameMananger : MonoBehaviour
                 p.ResetPlayer();
             }
 
-
+       
 
 
         }
 
     
-        Debug.Log(p.playerName + " " + p.finalLife);
+        //Debug.Log(p.playerName + " " + p.finalLife);
         
         
         scoreBoardOrder();
