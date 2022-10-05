@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2969499021742858060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6359773809888067885}
+  - component: {fileID: 2430213770866639304}
+  - component: {fileID: 4029019732584740000}
+  - component: {fileID: 5639201272978617647}
+  - component: {fileID: 2050597097239261475}
+  - component: {fileID: -6892936086096010095}
+  m_Layer: 7
+  m_Name: PlayerViolet
+  m_TagString: Violet
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6359773809888067885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969499021742858060}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2430213770866639304
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969499021742858060}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 06a8e00da15a9cb4fa21e6a5c8f1370a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: ebd4119c285a03947a58f0fedc5512b0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &4029019732584740000
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969499021742858060}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &5639201272978617647
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969499021742858060}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2050597097239261475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969499021742858060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2f5ac710fdb674c8d482ae6126abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  dir: {x: 0, y: 0}
+  boomParticles: {fileID: 5448669591574638774, guid: e4b2d54523ece53408ac8383ba4d22d8, type: 3}
+  playerName: P4
+  isAlive: 1
+  boost: 1
+  layerToGiveToWall:
+    serializedVersion: 2
+    m_Bits: 0
+  invert: 0
+  inBoost: 0
+  saveDirectionRight: {x: 0, y: 0}
+  Missile: {fileID: 3490006286633049113, guid: 5b1064f3b09f1e14ca8dc2945aa119a5, type: 3}
+  shotMissile: 1
+  immortal: 0
+  oldPoweUpBoost: {fileID: 0}
+  oldIconStop: {fileID: 0}
+  oldIconInvert: {fileID: 0}
+  oldIconInfinityShot: {fileID: 0}
+  oldIconApocalypse: {fileID: 0}
+--- !u!114 &-6892936086096010095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969499021742858060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad81e81794f124c804b4e41731f688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boomParticles: {fileID: 5448669591574638774, guid: e4b2d54523ece53408ac8383ba4d22d8, type: 3}
+  iconBoost: {fileID: 21300000, guid: 8bf46076ea096bf408d1f28c71c32e2f, type: 3}
+  iconStop: {fileID: 21300000, guid: f0847749c11b12849b2eff0cfc8340dc, type: 3}
+  iconInvert: {fileID: 21300000, guid: 40f67be5ffdba564e9ee8615690a7619, type: 3}
+  iconInfinityShot: {fileID: 21300000, guid: 6cc884059a319704699518956d25f212, type: 3}
+  iconApocalypse: {fileID: 21300000, guid: 4b9f2c660d8e0d940adb2a667ca5d040, type: 3}
+  p1: {fileID: 5869925476801061635, guid: e5e822ce1b57f8748b974bb8d79ce835, type: 3}
+  p2: {fileID: 5978015879430817060, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
+  p3: {fileID: 7772532937021087046, guid: 21c6149972080c54cbe6ebbce8587b1b, type: 3}
+  p4: {fileID: 2969499021742858060}
+  boost: {fileID: 8099003727720713195, guid: f02b6e22140eea74e95708a2d7c3a919, type: 3}
+  shot: {fileID: 8811895461943143520, guid: 8fde514720ba4ab4184932108b89e5fc, type: 3}
+  mur: []
+  boomSfx: {fileID: 8300000, guid: 29e06a436c42d534581a0379423dc9c7, type: 3}
