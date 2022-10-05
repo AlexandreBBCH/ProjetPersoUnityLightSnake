@@ -15,4 +15,11 @@
 
 
 ### <b> Aprem
-#### J'ai réglé le problème de la musique qui m'empechait de changer de musique de jeu. Et je compte pour la prochaine fois régler le tableau des score du mode vie ainsi que débuté le 3ieme et dernier mode multi.
+#### J'ai réglé le problème de la musique qui m'empechait de changer de musique de jeu. Et je compte pour la prochaine fois régler le tableau des score du mode vie ainsi que débuté le 3ieme et dernier mode multi. J'ai eu un problème avec mon git m'empechant de push mon jeu. Je réglerai se problème la prochaine fois
+
+## 05.10.2022
+### <b> Matin
+#### J'ai dû créer une nouvelle branch "MasterReparation" pour continuer le versioning de mon jeu.
+
+### <b> Aprem
+####

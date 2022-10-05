@@ -1631,7 +1631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64.39502, y: 162.42001}
+  m_AnchoredPosition: {x: 50.8, y: 162.42001}
   m_SizeDelta: {x: 132.7901, y: 49.4469}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &442303670
@@ -4061,6 +4061,7 @@ MonoBehaviour:
   lastOne: 1
   menuFinPartie: {fileID: 1456250904}
   title: {fileID: 674442559}
+  winner: {fileID: 442303671}
   scoreFinalFirst: {fileID: 961332736}
   scoreFinalSecond: {fileID: 421518513}
   scoreFinalThird: {fileID: 1698828213}

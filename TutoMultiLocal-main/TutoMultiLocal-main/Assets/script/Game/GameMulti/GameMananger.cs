@@ -37,10 +37,16 @@ public class GameMananger : MonoBehaviour
 
     public GameObject menuFinPartie;
     public Text title;
+    public Text winner;
     public Text scoreFinalFirst;
     public Text scoreFinalSecond;
     public Text scoreFinalThird;
     public Text scoreFinalFourth;
+
+    public Text scoreLifeFinalFirst;
+    public Text scoreLifeFinalSecond;
+    public Text scoreLifeFinalThird;
+    public Text scoreLifeFinalFourth;
 
 
     bool scoreAddedTimer = false;
@@ -56,6 +62,11 @@ public class GameMananger : MonoBehaviour
     {
         players = FindObjectsOfType<Player>();
         nbAlivePlayers = players.Length;
+        scoreboardLife.Add("P1", 0);
+        scoreboardLife.Add("P2", 0);
+        scoreboardLife.Add("P3", 0);
+        scoreboardLife.Add("P4", 0);
+  
     }
 
 
@@ -272,7 +283,9 @@ public class GameMananger : MonoBehaviour
 
             if (compteur == 1)
             {
+ 
                 scoreFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
+                winner.text =scoreInfos.Key;
             }
             if (compteur == 2)
             {
@@ -295,6 +308,53 @@ public class GameMananger : MonoBehaviour
 
     }
 
+    public void orderScoreBoardLifeAndDisplay()
+    {
+
+
+        //scoreboard.Add("P1", scores[0]);
+        //scoreboard.Add("P2", scores[1]);
+        //if (nbPlayers == 3)
+        //{
+        //    scoreboard.Add("P3", scores[2]);
+        //}
+        //if (nbPlayers == 4)
+        //{
+        //    scoreboard.Add("P3", scores[2]);
+        //    scoreboard.Add("P4", scores[3]);
+        //}
+
+        int compteur = 0;
+        foreach (KeyValuePair<string, int> scoreInfos in scoreboardLife.OrderByDescending(key => key.Value))
+        {
+            compteur++;
+
+            if (compteur == 1)
+            {
+
+                scoreLifeFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
+                winner.text = scoreInfos.Key;
+            }
+            if (compteur == 2)
+            {
+                scoreLifeFinalSecond.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 3)
+            {
+                scoreLifeFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 4)
+            {
+                scoreLifeFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            //Debug.Log(scoreInfos.Value + scoreInfos.Key);
+            //scoreInfos.Key + " : " +scoreInfos.Value;
+            //GameObject.Find(scoreInfos.Key + "ScoreFinal").GetComponent<Text>().text = Convert.ToString( scoreInfos.Value);
+
+
+        }
+
+    }
     public void verifWin()
     {
         if (nbRound <= 100)
@@ -356,7 +416,6 @@ public class GameMananger : MonoBehaviour
                 //bug
                 if (nbAlivePlayers <= 1)
                 {
-
                     GameObject.Find("theWinner").GetComponent<Text>().text = convertName(p.name);
                 }
             }
@@ -368,6 +427,13 @@ public class GameMananger : MonoBehaviour
                 if (nbAlivePlayers <= 1)
                 {
                     p.menuFinPartie.SetActive(true);
+                    scoreboardLife["P1"]= p.finalLife;
+                    scoreboardLife["P2"] = p.finalLife;
+                    scoreboardLife["P3"] = p.finalLife;
+                    scoreboardLife["P4"] = p.finalLife;
+
+
+
                     GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
                     p.speed = 0;
                 }
@@ -376,11 +442,16 @@ public class GameMananger : MonoBehaviour
             {
                 if (p.isDead())
                 {
-                    generalLifeCompteur--;
-
+          
+             
                     p.gameObject.SetActive(false);
+                  
                     p.ResetPlayer();
-                    p.finalLife = generalLifeCompteur;
+                 
+                
+         
+
+
                 }
                 else
                 {
@@ -398,68 +469,50 @@ public class GameMananger : MonoBehaviour
 
 
 
-        }
-
-
-        foreach (Player p in players)
-        {
-
-
-
-            //Debug.Log(p.playerName + " " + p.finalLife.ToString());
-
-
-            //Mode vie scoreboard
-
-            scoreboardLife.Add(p.playerName, p.finalLife);
-
-            foreach (var item in scoreboardLife)
-            {
-                Debug.Log(scoreboardLife.Values);
-            }
-            Debug.Log(scoreboardLife.Keys);
-
-
-
-            //scoreboardLife.Add("P1", p.finalLife);
-            //scoreboardLife.Add("P2", p.finalLife);
-            //if (nbPlayers == 3)
-            //{
-            //    scoreboardLife.Add("P3", p.finalLife);
-            //}
-            //if (nbPlayers == 4)
-            //{
-            //    scoreboardLife.Add("P3", p.finalLife);
-            //    scoreboardLife.Add("P4", p.finalLife);
-            //}
 
         }
-            int compteur = 0;
-            foreach (KeyValuePair<string, int> scoreInfos in scoreboard.OrderBy(key => key.Value))
-            {
-                compteur++;
 
-                if (compteur == 1)
-                {
-                    scoreFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
-                }
-                if (compteur == 2)
-                {
-                    scoreFinalSecond.text = scoreInfos.Key + " : " + scoreInfos.Value;
-                }
-                if (compteur == 3)
-                {
-                    scoreFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
-                }
-                if (compteur == 4)
-                {
-                    scoreFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
-                }
-            }
+    
+        Debug.Log(p.playerName + " " + p.finalLife);
+        
+        
+        scoreBoardOrder();
+
+
             Invoke("HideGoTxt", 2);
             powerUp.gameObject.SetActive(true);
 
+     
+
+    }
+
+
+    void scoreBoardOrder()
+    {
+        int compteur = 0;
+        foreach (KeyValuePair<string, int> scoreInfos in scoreboard.OrderBy(key => key.Value))
+        {
+            compteur++;
+
+            if (compteur == 1)
+            {
+                scoreFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 2)
+            {
+                scoreFinalSecond.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 3)
+            {
+                scoreFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
+            if (compteur == 4)
+            {
+                scoreFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
+            }
         }
+    }
+
 
         void HideGoTxt()
         {

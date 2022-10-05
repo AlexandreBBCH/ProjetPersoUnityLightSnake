@@ -482,10 +482,10 @@ public class Player : MonoBehaviour
 
 
 
-    //c est ici que l on verifie quand la partie se finis
+   
 
 
-
+    
    
 
 
@@ -509,7 +509,16 @@ public class Player : MonoBehaviour
     {
         if (gm.modeLife && life <= 0)
         {
+
+            if (finalLife == 0)
+            {
+                finalLife = gm.generalLifeCompteur;
+                gm.generalLifeCompteur--;
+            }
             return true;
+
+          
+             
         }
         else
         {
@@ -543,10 +552,6 @@ public class Player : MonoBehaviour
         if (isDead())
         {
             isAlive = false;
-
-            //Debug.Log(playerName);
-        
-            //Debug.Log(nbPlayers);
         }
         else
         {
@@ -561,18 +566,7 @@ public class Player : MonoBehaviour
 
 
 
-        if (gm.modeLife)
-        {
-            foreach (var item in playerName)
-            {
-                //Debug.Log(item);
-            }
-            //if (playerAlive <= 1) { menuFinPartie.SetActive(true); };
-        }
-
-        //to do afficher la fin du round afficher le vainqueur et retour au lobby apres 4 sec
-
-  
+   
 
 
     }
