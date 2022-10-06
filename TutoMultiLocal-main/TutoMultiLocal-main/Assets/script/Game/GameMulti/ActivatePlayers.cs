@@ -16,16 +16,12 @@ public class ActivatePlayers : MonoBehaviour
 
     public GameObject score3;
     public GameObject score4;
-
- 
     public GameObject scoreLife3;
     public GameObject scoreLife4;
 
     void Awake()
     {
-
         displayPlayerInfoMultiGame();
-      /*  Debug.Log(getRandomDir())*/;
 
     }
 
@@ -38,7 +34,7 @@ public class ActivatePlayers : MonoBehaviour
  
 
     /// <summary>
-    /// Affiche le tableau des joueur en fonction du nombre de joueur
+    /// Affiche le tableau des joueurs ainsi que le scoreboard en fonction du nombre de joueur
     /// </summary>
     private void displayPlayerInfoMultiGame()
     {

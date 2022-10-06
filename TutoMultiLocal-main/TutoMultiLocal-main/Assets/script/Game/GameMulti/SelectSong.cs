@@ -21,6 +21,11 @@ public class SelectSong : MonoBehaviour
     {
         allMusic = new AudioClip[] {ReTron,ZaZa,Processing, LightSnakeTheme};
     }
+
+
+    /// <summary>
+    /// sert a selectionnez la musique souhaité
+    /// </summary>
     public void selectionMusique()
     {
         if (objetMusique == null)

@@ -28,10 +28,10 @@ public class Missile : MonoBehaviour
     int directionMissileY;
 
     //cest ici que l ont joue le son de l impact
-    public void PlayBoumSfx()
+    public void PlayBoumSfx(AudioClip sound)
     {
         GetComponent<AudioSource>().volume = (float)PlayerPrefs.GetInt("volumeBruitage") / 100;
-        GetComponent<AudioSource>().PlayOneShot(boomSfx);
+        GetComponent<AudioSource>().PlayOneShot(sound);
     }
 
     private void Awake()
@@ -70,7 +70,11 @@ public class Missile : MonoBehaviour
 
 
 
-    //tir en fonction de la direction du regard du joueur
+ 
+
+    /// <summary>
+    /// tir en fonction de la direction du regard du joueur
+    /// </summary>
     void shot()
     {
     
@@ -108,22 +112,22 @@ public class Missile : MonoBehaviour
         if (collision.gameObject.tag != "bg" && collision.gameObject.tag != "border")
         {
       
-            cam.PlayBoumSfx();
+            cam.PlayBoumSfx(cam.boomSfx);
             cam.Shake(0.75f, 2f, 30);
             collision.gameObject.SetActive(false);
             Instantiate(boomParticles, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            PlayBoumSfx();
+            PlayBoumSfx(boomSfx);
 
         }
         else
         {
         
-            cam.PlayBoumSfx();
+            cam.PlayBoumSfx(cam.boomSfx);
             cam.Shake(0.75f, 2f, 30);
             Instantiate(boomParticles, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            PlayBoumSfx();
+            PlayBoumSfx(boomSfx);
      
         }
 
@@ -132,7 +136,12 @@ public class Missile : MonoBehaviour
         //Destroy(collision.gameObject);
     }
 
-    //empeche le spam de missile
+    
+
+    /// <summary>
+    /// empeche le spam de missie
+    /// </summary>
+    /// <param name="sec">int temps d'attente entre chaque tir </param>
     IEnumerator wait(int sec)
     {
         Debug.Log("att" + sec);

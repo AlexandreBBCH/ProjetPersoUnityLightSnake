@@ -13,19 +13,24 @@ public class Cam : MonoBehaviour
     public AudioClip chhh;
     bool shakingCam;
   
-    //Joue un son
-    public void PlayBoumSfx()
+/// <summary>
+/// Joue un son souhaité en fonction du volume 
+/// </summary>
+/// <param name="sound">AudioClip voulue</param>
+    public void PlayBoumSfx(AudioClip sound)
     {
         GetComponent<AudioSource>().volume = (float)PlayerPrefs.GetInt("volumeBruitage")/100;
         GetComponent<AudioSource>().PlayOneShot(boomSfx);
     }
 
-    public void PlayChhhh()
-    {
-            StartCoroutine("wait");
-    }
+
     
-   
+   /// <summary>
+   /// Lance la fonction ShakeCam
+   /// </summary>
+   /// <param name="duration">Durée de l'animation</param>
+   /// <param name="amount">quantite</param>
+   /// <param name="intensity">frequence</param>
     public void Shake(float duration, float amount,float intensity)
     {
         if (!shakingCam)
@@ -35,8 +40,15 @@ public class Cam : MonoBehaviour
     }
 
 
-    //tuto unity pour faire cette effet  
-    //gere le mouvement de la cam
+
+    /// <summary>
+    /// tuto unity pour faire cette effet , 
+    /// gere le mouvement de la cam
+    /// </summary>
+    /// <param name="dur">durée de l'animation</param>
+    /// <param name="amount">quantite</param>
+    /// <param name="intensity">frequence</param>
+    /// <returns></returns>
     IEnumerator ShakeCam(float dur, float amount,float intensity)
     {
         float t = dur;

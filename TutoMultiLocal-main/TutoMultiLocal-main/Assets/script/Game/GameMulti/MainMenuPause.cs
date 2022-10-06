@@ -27,6 +27,10 @@ public class MainMenuPause : MonoBehaviour
 
         gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
     }
+
+    /// <summary>
+    /// renvoie au menu principal
+    /// </summary>
     public void BackToMenu()
     {
         Application.LoadLevel(0);
@@ -62,7 +66,9 @@ public class MainMenuPause : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// gere l ouverture du mode pause
+    /// </summary>
     public void openMenu()
     {
         if (!isPaused)

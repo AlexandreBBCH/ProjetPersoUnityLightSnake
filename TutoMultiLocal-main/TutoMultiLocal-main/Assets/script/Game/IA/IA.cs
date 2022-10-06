@@ -309,7 +309,7 @@ public class IA : MonoBehaviour
             isAlive = false;
             gm.KillPlayer();
             cam.Shake(0.7f, 0.4f, 50f);
-            cam.PlayBoumSfx();
+            cam.PlayBoumSfx(cam.boomSfx);
             Instantiate(boomParticles, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             speed = 5;

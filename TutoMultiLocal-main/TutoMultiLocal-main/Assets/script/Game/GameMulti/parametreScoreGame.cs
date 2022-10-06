@@ -17,18 +17,9 @@ public class parametreScoreGame : MonoBehaviour
 
     public GameObject detailMenu;
     bool isDetailed = false;
-    private void Start()
-    {
-
-    }
-
-    private void Awake()
-    {
-   
-    }
-
-
-
+ /// <summary>
+ /// ouvre la page detail
+ /// </summary>
     public void openDetail()
     {
 

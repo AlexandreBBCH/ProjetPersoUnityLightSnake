@@ -68,22 +68,6 @@ public class GameMananger : MonoBehaviour
     {
         players = FindObjectsOfType<Player>();
         nbAlivePlayers = players.Length;
-        scoreboardLife.Add("P1", 0);
-        scoreboardLife.Add("P2", 0);
-        if (nbPlayers == 3)
-        {
-            scoreboardLife.Add("P3", 0);
-
-        }
-        if (nbPlayers == 4)
-        {
-            scoreboardLife.Add("P3", 0);
-            scoreboardLife.Add("P4", 0);
-        }
- 
-
-       
-
     }
 
 
@@ -92,6 +76,16 @@ public class GameMananger : MonoBehaviour
     private void Awake()
     {
 
+        initialisation();
+
+    }
+
+
+    /// <summary>
+    /// Initalise les parties avec le nécéssaire propre au mode 
+    /// </summary>
+    public void initialisation()
+    {
         if (modeLife)
         {
             nbPlayers = PlayerPrefs.GetInt("nbLifePlayers");
@@ -106,24 +100,40 @@ public class GameMananger : MonoBehaviour
 
         }
 
-        generalLifeCompteur = nbPlayers;
-
+   
 
     }
 
-
+    /// <summary>
+    /// Initialise tout ce qui concerne le mode vie (affichage et gestion du mode vie en general)
+    /// </summary>
     public void lifeStatetement()
     {
+        scoreboardLife.Add("P1", 0);
+        scoreboardLife.Add("P2", 0);
+        if (nbPlayers == 3)
+        {
+            scoreboardLife.Add("P3", 0);
+
+        }
+        if (nbPlayers == 4)
+        {
+            scoreboardLife.Add("P3", 0);
+            scoreboardLife.Add("P4", 0);
+        }
         GameObject.Find("LifeP1").GetComponent<Text>().text = "Life : " + nbLife;
         GameObject.Find("LifeP2").GetComponent<Text>().text = "Life : " + nbLife;
         GameObject.Find("LifeP3").GetComponent<Text>().text = "Life : " + nbLife;
-        GameObject.Find("LifeP4").GetComponent<Text>().text = "Life :" + nbLife;
+        GameObject.Find("LifeP4").GetComponent<Text>().text = "Life : " + nbLife;
+        generalLifeCompteur = nbPlayers;
     }
 
 
 
-
-
+    //A optimiser en une fonction
+    /// <summary>
+    /// Gere le nombre de joueur en vie et active tout les donnée concernant la fin de partie si il ny a plus de joueur restant
+    /// </summary>
     public void KillPlayer()
     {
         nbAlivePlayers--;
@@ -134,7 +144,9 @@ public class GameMananger : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Ajout de 1 score au joueur 1 en empechant tout bug de duplication 
+    /// </summary>
     IEnumerator AddScore0()
     {
         if (!scoreAddedTimer)
@@ -146,6 +158,9 @@ public class GameMananger : MonoBehaviour
             scoreAddedTimer = false;
         }
     }
+    /// <summary>
+    /// Ajout de 1 score au joueur 2 en empechant tout bug de duplication 
+    /// </summary>
     IEnumerator AddScore1()
     {
         if (!scoreAddedTimer)
@@ -157,6 +172,9 @@ public class GameMananger : MonoBehaviour
             scoreAddedTimer = false;
         }
     }
+    /// <summary>
+    /// Ajout de 1 score au joueur 3 en empechant tout bug de duplication 
+    /// </summary>
     IEnumerator AddScore2()
     {
         if (!scoreAddedTimer)
@@ -168,6 +186,9 @@ public class GameMananger : MonoBehaviour
             scoreAddedTimer = false;
         }
     }
+    /// <summary>
+    /// Ajout de 1 score au joueur 4 en empechant tout bug de duplication 
+    /// </summary>
     IEnumerator AddScore3()
     {
         if (!scoreAddedTimer)
@@ -179,6 +200,10 @@ public class GameMananger : MonoBehaviour
             scoreAddedTimer = false;
         }
     }
+
+    /// <summary>
+    /// regarde qui gagne le round et lui donne un point en concéquence
+    /// </summary>
     void GetWinner()
     {
 
@@ -244,6 +269,12 @@ public class GameMananger : MonoBehaviour
         StartCoroutine("ResetGame");
     }
 
+
+    /// <summary>
+    /// convertie les nom base "PlayerColor" en "P1,P2"
+    /// </summary>
+    /// <param name="name">nom du joueur</param>
+    /// <returns>string nom convertie</returns>
     public string convertName(string name)
     {
         if (name == "PlayerBlue")
@@ -265,7 +296,9 @@ public class GameMananger : MonoBehaviour
         return name;
     }
 
-   
+   /// <summary>
+   /// Empeche la duplication de round
+   /// </summary>
     IEnumerator waitAddScore()
     {
         if (!roundAddedTimer)
@@ -277,6 +310,10 @@ public class GameMananger : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Gere l'affichage du score board du mode score
+    /// </summary>
     public void orderScoreBoardAndDisplay()
     {
       
@@ -328,7 +365,9 @@ public class GameMananger : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// Gere l'affichage du score board du mode vie
+    /// </summary>
     public void orderScoreBoardLifeAndDisplay()
     {
    
@@ -388,6 +427,10 @@ public class GameMananger : MonoBehaviour
         }
 
     }
+
+    /// <summary>
+    /// verifie si la fin de round a lieu et acctionne la methode servant a afficher le scoreboard
+    /// </summary>
     public void verifWin()
     {
 
@@ -416,7 +459,9 @@ public class GameMananger : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Reset la game en remettant le tout a 0 (affichage notamment)
+    /// </summary>
     IEnumerator ResetGame() //Ienumerator permet de mettre un yield pour faire attendre
     {
       
@@ -500,7 +545,9 @@ public class GameMananger : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Ordonne le scorboard
+    /// </summary>
     void scoreBoardOrder()
     {
         int compteur = 0;
@@ -527,7 +574,9 @@ public class GameMananger : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Cache le "Go" de debut de game
+    /// </summary>
         void HideGoTxt()
         {
             goTxt.SetActive(false);

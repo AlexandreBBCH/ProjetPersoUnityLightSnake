@@ -18,6 +18,7 @@ public class checkBox : MonoBehaviour
     public Text chckItem;
     bool itemCheck = true;
 
+
     private void Awake()
     {
         if (chckItem.text != null)
@@ -32,10 +33,11 @@ public class checkBox : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Stock vrai si le text vaut vrai et inversemment
+    /// </summary>
     public void itemActive()
     {
-        Debug.Log(PlayerPrefs.GetString("itemActif"));
         if (chckItem.text == "Yes")
         {
             chckItem.text = "No";

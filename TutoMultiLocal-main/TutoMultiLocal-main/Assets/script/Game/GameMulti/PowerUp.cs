@@ -129,7 +129,7 @@ public class PowerUp : MonoBehaviour
 
                 Destroy(collision.gameObject);
                 AddBoost();
-                cam.PlayChhhh();
+                
             }
 
             if (AleaPowerUp == "InverseCommand")
@@ -373,7 +373,7 @@ public class PowerUp : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            cam.PlayBoumSfx();
+            cam.PlayBoumSfx(cam.boomSfx);
             cam.Shake(5f, 2f, 30);
             if (i % 2 == 0)
             {

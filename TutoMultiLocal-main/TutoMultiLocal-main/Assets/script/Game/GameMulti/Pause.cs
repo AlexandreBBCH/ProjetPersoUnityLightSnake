@@ -24,15 +24,29 @@ public class Pause : MonoBehaviour
 
         gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
     }
+
+
+
+
+    /// <summary>
+    /// renvoie au main menu
+    /// </summary>
     public void BackToMenu()
     {
         Application.LoadLevel(0);
     }
 
+    /// <summary>
+    /// renvoie au menu multi
+    /// </summary>
     public void BackToMenuMulti()
     {
         Application.LoadLevel(2);
     }
+
+    /// <summary>
+    /// renvoie au menu option multi
+    /// </summary>
     public void OptionScoreMenu()
     {
 

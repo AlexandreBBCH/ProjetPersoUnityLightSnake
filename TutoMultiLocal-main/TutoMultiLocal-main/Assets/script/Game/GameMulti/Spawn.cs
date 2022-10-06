@@ -47,7 +47,7 @@ public class Spawn : MonoBehaviour
     {
 
      string validationItem = PlayerPrefs.GetString("itemActif");
-        //Debug.Log(PlayerPrefs.GetString("itemActif"));
+     
         gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
         if (validationItem == "Yes")
         {
@@ -71,11 +71,20 @@ public class Spawn : MonoBehaviour
         }        
     }
 
+
+
+    /// <summary>
+    /// instancie les items dans la map de maniere aléatoire en fonction du gizmo
+    /// </summary>
     void SpawnRandomBuff()
     {
         Vector3 randomPos = Random.insideUnitCircle * Radius;
         Instantiate(powerUp,randomPos, Quaternion.identity);
     }
+
+    /// <summary>
+    /// fait apparaitre des explosion de maniere aleatoire (pas fonctionelle)
+    /// </summary>
     void explosion()
     {
         Vector3 randomExplosion = Random.insideUnitCircle * Radius;

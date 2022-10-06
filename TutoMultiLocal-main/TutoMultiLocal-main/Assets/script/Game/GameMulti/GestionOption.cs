@@ -20,9 +20,11 @@ public class GestionOption : MonoBehaviour
     public float volumeBruitage;
 
 
-    //c est ici que l ont recupere les parametre audio au prealable choisis ainsi que la gestion du volume 
-    //des bruitage 
-        public void GestionAudio()
+
+    /// <summary>
+    ///  c est ici que l ont recupere les parametre audio au prealable choisis ainsi que la gestion de la musique
+    /// </summary>
+    public void GestionAudio()
     {
         volumeMusique = musiqueSlider.value;
         volumeMusique /= 100;
@@ -42,8 +44,9 @@ public class GestionOption : MonoBehaviour
         }
     }
 
-    //""
-    //des musiques
+    /// <summary>
+    /// c est ici que l ont recupere les parametre audio au prealable choisis ainsi que la gestion des ¨bruitage"
+    /// </summary>
     public void GestionSound()
     {
         volumeBruitage = bruitageSlider.value;

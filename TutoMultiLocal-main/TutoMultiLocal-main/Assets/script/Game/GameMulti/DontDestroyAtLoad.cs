@@ -27,7 +27,7 @@ public class DontDestroyAtLoad : MonoBehaviour
 
     int musiqueIndex;
 
-    //empeche la destrûction lors du changement de scene
+    
 
     private void Awake()
     {
@@ -36,7 +36,18 @@ public class DontDestroyAtLoad : MonoBehaviour
 
     void Start()
     {
-        musiqueIndex = PlayerPrefs.GetInt("SelectSong");
+        gestionMusique();
+
+
+    }
+
+
+    /// <summary>
+    /// Methode servant à gérer quel musique on choisis - Rendre cela en fonction pour l'avenir
+    /// </summary>
+    void gestionMusique()
+    {
+    musiqueIndex = PlayerPrefs.GetInt("SelectSong");
        
         switch (musiqueIndex)
         {
@@ -95,14 +106,10 @@ public class DontDestroyAtLoad : MonoBehaviour
         }
    
       
-     
     }
   
 
-    public void choixMusique()
-    {
-    //c est ici que sera stocké la musique sauvegarder de la derniere session de jeu
-    }
+
 
 
 }

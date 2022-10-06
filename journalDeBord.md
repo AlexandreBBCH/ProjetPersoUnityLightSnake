@@ -1,5 +1,8 @@
 # <b> Journal de bord |Light Snake|
 
+## Prologue
+### Je débute se journal de bord un peu tard. Les foncionalité principal on deja été codé.
+
 ## 29.09.2022
 ### <b> Matin
 ####  Durant la matinée je me suis occupée de réparer des bug visuels concernant le tableau des scores de mon jeu, ainsi qu'aider mes camarades de Unity pendant pour régler leur problème de contabilité du logiciel. J'ai aussi effectuer une fase de test et régler des problème lié à l'ergonomie ainsi que détecté un bug concernant un des items du jeu.
@@ -28,7 +31,12 @@
 ## 06.10.2022
 ### <b> Matin
 #### Le scoreboard est oppérationel à 100% dans les 2 premier mode, enfin ! J'ai rendue le jeu au complet en anglais !
-#### Il faut mettre les commentaires (triple /) sur chaque methode et fonction cette après midi. Je vais aussi débuter le code du 3ième mode, le mode survivor ! Ou bien rajouter des event dans les 2 modes.
+#### Il faut mettre les commentaires (triple /) sur chaque methode et fonction cette après midi. 
 
 ### <b> Aprem
-#### 
+#### Jai beaucoup aidée mes camarade de unity concernant la 3d vr étant un peu plus calé, jai aussi pratiquement terminé la mise des commentaire me laissant plus que la page "player et power #### up " à modifier. Sinon j'ai aussi traduit le jeu en anglais au complet. Je vais aussi débuter le code du 3ième mode, le mode survivor, ou bien rajouter des events dans les 2 modes la  #### prochaine fois.
+
+## 10.10.2022
+### <b> Matin
+
+### <b> Aprem

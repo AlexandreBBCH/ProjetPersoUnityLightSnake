@@ -32,6 +32,11 @@ public class Menu : MonoBehaviour
     private void Start()
     {
 
+        initialisation();
+    }
+
+    void initialisation()
+    {
         if (modeScore)
         {
             int nb = PlayerPrefs.GetInt("nbPlayers");
@@ -46,9 +51,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-
-
-    private void Awake()
+    void initialisationMode()
     {
         if (modeScore)
         {
@@ -61,24 +64,27 @@ public class Menu : MonoBehaviour
             int nbLife = PlayerPrefs.GetInt("nbLife");
             sldLife.value = nbLife;
         }
-
-
-
     }
-
-    private void Update()
+    private void Awake()
     {
-  
-       
+        initialisationMode();
     }
 
 
+
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void MainMenu()
     {
 
         Application.LoadLevel(0);
 
     }
+
+    /// <summary>
+    /// enmene a la page score
+    /// </summary>
     public void Play()
     {
         
@@ -86,7 +92,9 @@ public class Menu : MonoBehaviour
     
     }
 
-
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void MultiMenu()
     {
 
@@ -94,39 +102,53 @@ public class Menu : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void OptionScoreMenu()
     {
 
         Application.LoadLevel(3);
 
     }
-
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void OptionLifeMenu()
     {
 
         Application.LoadLevel(4);
 
     }
-
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void PlayLife()
     {
 
         Application.LoadLevel(5);
 
     }
-
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void OptionSurvivorMenu()
     {
 
         Application.LoadLevel(6);
 
     }
-
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void Quit()
     {
         Application.Quit();
     }
+
+    /// <summary>
+    /// verif si option active ou pas
+    /// </summary>
     public void Option()
     {
         if (!optionOpen)
@@ -143,20 +165,27 @@ public class Menu : MonoBehaviour
         
     }
 
-
+    /// <summary>
+    /// Set le nombre de joueur des option du mode score
+    /// </summary>
     public void SetPlayers()
     {
         nbPlayers.text = nbPlayersSlider.value.ToString();
         PlayerPrefs.SetInt("nbPlayers", (int)(nbPlayersSlider.value));
     }
 
+    /// <summary>
+    /// Set le nombre de joueur des option du mode life
+    /// </summary>
     public void SetLifePlayers()
     {
         nbLifePlayers.text = nbPlayersLifeSlider.value.ToString();
         PlayerPrefs.SetInt("nbLifePlayers", (int)(nbPlayersLifeSlider.value));
     }
 
-
+    /// <summary>
+    /// Set le nombre de round du mode score
+    /// </summary>
     public void SetRound()
     {
         nbRound.text = "Round " + sliderRound.value.ToString();
@@ -167,6 +196,10 @@ public class Menu : MonoBehaviour
         }
         PlayerPrefs.SetInt("nbRound", (int)(sliderRound.value));
     }
+
+    /// <summary>
+    /// Set le nombre de vie du mode life
+    /// </summary>
 
     public void SetLife()
     {
