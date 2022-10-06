@@ -160,9 +160,9 @@ public class Menu : MonoBehaviour
     public void SetRound()
     {
         nbRound.text = "Round " + sliderRound.value.ToString();
-        if (sliderRound.value >= 101)
+        if (sliderRound.value >= 100)
         {
-            nbRound.text = "Round infini";
+            nbRound.text = "Infinity";
 
         }
         PlayerPrefs.SetInt("nbRound", (int)(sliderRound.value));
@@ -171,10 +171,10 @@ public class Menu : MonoBehaviour
     public void SetLife()
     {
 
-        nbLife.text = sldLife.value +  " Vie(s) "  ;
+        nbLife.text = sldLife.value +  " Life "  ;
         if (sldLife.value >= 100)
         {
-            nbLife.text = "Vie infinis";
+            nbLife.text = "Immortal";
 
         }
         PlayerPrefs.SetInt("nbLife", (int)(sldLife.value));

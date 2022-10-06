@@ -127,13 +127,13 @@ public class Player : MonoBehaviour
         if (gm.modeLife)
         {
             life = PlayerPrefs.GetInt("nbLife");
-            if (life <= 100)
+            if (life < 100)
             {
                 title.text = "Light Snake " + life + " Life";
             }
             else
             {
-                title.text = "Light Snake infinity Life";
+                title.text = "Light Snake Immortal";
                 GameObject.Find("Life" + playerName).GetComponent<Text>().text = "Immortal ";
             }
          
@@ -253,8 +253,16 @@ public class Player : MonoBehaviour
             canActivateBoost = true;
             if (gm.modeLife)
             {
-                life--;
-                GameObject.Find("Life"+playerName).GetComponent<Text>().text = "Life "+ life;
+                if (life < 100)
+                {
+                 life--;
+                GameObject.Find("Life"+playerName).GetComponent<Text>().text = "Life : "+ life;
+                }
+                else
+                {
+                    life = 300;
+                }
+            
             }
 
         }
@@ -546,7 +554,8 @@ public class Player : MonoBehaviour
     //remet a 0 les attribut du joueur
     public void ResetPlayer()
     {
-         //Debug.Log(GameObject.Find("PlayerBlue").GetComponent<Player>().finalLife);
+        
+
         if (gm.modeScore)
         {
             StartCoroutine(AddScore());
@@ -582,7 +591,8 @@ public class Player : MonoBehaviour
         clearDisplay();
 
 
-
+   
+    
    
 
 

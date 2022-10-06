@@ -27,7 +27,8 @@
 
 ## 06.10.2022
 ### <b> Matin
-####
+#### Le scoreboard est oppérationel à 100% dans les 2 premier mode, enfin ! J'ai rendue le jeu au complet en anglais !
+#### Il faut mettre les commentaires (triple /) sur chaque methode et fonction cette après midi. Je vais aussi débuter le code du 3ième mode, le mode survivor ! Ou bien rajouter des event dans les 2 modes.
 
 ### <b> Aprem
-####
+#### 

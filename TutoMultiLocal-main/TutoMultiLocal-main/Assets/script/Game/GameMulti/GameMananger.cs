@@ -114,10 +114,10 @@ public class GameMananger : MonoBehaviour
 
     public void lifeStatetement()
     {
-        GameObject.Find("LifeP1").GetComponent<Text>().text = "Life " + nbLife;
-        GameObject.Find("LifeP2").GetComponent<Text>().text = "Life " + nbLife;
-        GameObject.Find("LifeP3").GetComponent<Text>().text = "Life " + nbLife;
-        GameObject.Find("LifeP4").GetComponent<Text>().text = "Life " + nbLife;
+        GameObject.Find("LifeP1").GetComponent<Text>().text = "Life : " + nbLife;
+        GameObject.Find("LifeP2").GetComponent<Text>().text = "Life : " + nbLife;
+        GameObject.Find("LifeP3").GetComponent<Text>().text = "Life : " + nbLife;
+        GameObject.Find("LifeP4").GetComponent<Text>().text = "Life :" + nbLife;
     }
 
 
@@ -390,7 +390,8 @@ public class GameMananger : MonoBehaviour
     }
     public void verifWin()
     {
-        if (nbRound <= 100)
+
+        if (nbRound < 100)
         {
             if (round > nbRound)
            {
@@ -411,6 +412,7 @@ public class GameMananger : MonoBehaviour
         else
         {
             title.text = "Light Snake Ininity";
+            nbRound = 9999;
         }
     }
 
@@ -462,16 +464,8 @@ public class GameMananger : MonoBehaviour
             {
                 if (p.isDead())
                 {
-          
-             
                     p.gameObject.SetActive(false);
-                  
                     p.ResetPlayer();
-                 
-                
-         
-
-
                 }
                 else
                 {

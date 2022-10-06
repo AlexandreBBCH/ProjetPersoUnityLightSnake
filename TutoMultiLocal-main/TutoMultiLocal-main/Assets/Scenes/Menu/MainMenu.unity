@@ -463,7 +463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Multijoueur
+  m_Text: 'MultiPlayer
 
 '
 --- !u!222 &155832976
@@ -601,7 +601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quitter
+  m_Text: 'Quit
 
 '
 --- !u!222 &225260334
@@ -1838,9 +1838,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Retour au menu
-
-'
+  m_Text: Back to menu
 --- !u!222 &625480098
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3267,7 +3265,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Solo
+  m_Text: SinglePlayer
 --- !u!222 &1328259577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3428,7 +3426,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bruitage
+  m_Text: Sound
 --- !u!222 &1502407897
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4543,7 +4541,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Musique
+  m_Text: Music
 --- !u!222 &1890286389
 CanvasRenderer:
   m_ObjectHideFlags: 0
