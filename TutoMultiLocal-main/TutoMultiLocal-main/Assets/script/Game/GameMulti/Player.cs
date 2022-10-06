@@ -411,7 +411,11 @@ public class Player : MonoBehaviour
         canActivateBoost = true;
     }
 
-    //c est ici quon instancie le mur durant nos changement de direction
+    //c est ici quon 
+
+    /// <summary>
+    /// instancie le mur durant nos changement de direction
+    /// </summary>
     public void CreateWall()
     {
         if (immortal == false)
@@ -427,6 +431,13 @@ public class Player : MonoBehaviour
     }
 
     //c est ici qu on calcul la taille du mur
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="col"></param>
+    /// <param name="posStart"></param>
+    /// <param name="posEnd"></param>
     private void SetLastWallSize(Collider2D col, Vector2 posStart, Vector2 posEnd)
     {
 
@@ -504,7 +515,12 @@ public class Player : MonoBehaviour
     }
 
 
-    //verifie si le joueur meurt
+    //
+
+    /// <summary>
+    /// verifie si le joueur meurt
+    /// </summary>
+    /// <return></return> 
     public bool isDead()
     {
         if (gm.modeLife && life <= 0)

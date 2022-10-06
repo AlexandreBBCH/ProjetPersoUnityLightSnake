@@ -23,3 +23,11 @@
 
 ### <b> Aprem
 #### J'ai commencé à mettre en place le 3ieme et dernier mode. Mais aussi avancé le scoreboard du mode vie en vain et que compte le finaliser demain. 
+
+
+## 06.10.2022
+### <b> Matin
+####
+
+### <b> Aprem
+####

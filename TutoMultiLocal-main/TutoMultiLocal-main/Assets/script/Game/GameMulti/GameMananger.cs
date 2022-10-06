@@ -55,6 +55,12 @@ public class GameMananger : MonoBehaviour
     public int nbPlayers;
     public int generalLifeCompteur;
 
+    //Les Joueurs
+    public Player P1;
+    public Player P2;
+    public Player P3;
+    public Player P4;
+
     Dictionary<string, int> scoreboard = new Dictionary<string, int>();
     Dictionary<string, int> scoreboardLife = new Dictionary<string, int>();
 
@@ -64,8 +70,17 @@ public class GameMananger : MonoBehaviour
         nbAlivePlayers = players.Length;
         scoreboardLife.Add("P1", 0);
         scoreboardLife.Add("P2", 0);
-        scoreboardLife.Add("P3", 0);
-        scoreboardLife.Add("P4", 0);
+        if (nbPlayers == 3)
+        {
+            scoreboardLife.Add("P3", 0);
+
+        }
+        if (nbPlayers == 4)
+        {
+            scoreboardLife.Add("P3", 0);
+            scoreboardLife.Add("P4", 0);
+        }
+ 
 
        
 
@@ -287,7 +302,11 @@ public class GameMananger : MonoBehaviour
             {
  
                 scoreFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
-                winner.text =scoreInfos.Key;
+                if (modeScore)
+                {
+                    winner.text = scoreInfos.Key;
+                }
+            
             }
             if (compteur == 2)
             {
@@ -301,7 +320,7 @@ public class GameMananger : MonoBehaviour
             {
                 scoreFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
             }
-            //Debug.Log(scoreInfos.Value + scoreInfos.Key);
+    
             //scoreInfos.Key + " : " +scoreInfos.Value;
             //GameObject.Find(scoreInfos.Key + "ScoreFinal").GetComponent<Text>().text = Convert.ToString( scoreInfos.Value);
 
@@ -312,37 +331,61 @@ public class GameMananger : MonoBehaviour
 
     public void orderScoreBoardLifeAndDisplay()
     {
-        Debug.Log(GameObject.Find("PlayerBlue").GetComponent<Player>().finalLife);
+   
+
+      
+
+        scoreboardLife["P1"] = P1.finalLife;
+        scoreboardLife["P2"] = P2.finalLife;
+        if (nbPlayers == 3)
+        {
+            scoreboardLife["P3"] = P3.finalLife;
+        }
+        if (nbPlayers == 4)
+        {
+            scoreboardLife["P3"] = P3.finalLife;
+            scoreboardLife["P4"] = P4.finalLife;
+        }
 
 
-        //int compteur = 0;
-        //foreach (KeyValuePair<string, int> scoreInfos in scoreboardLife.OrderByDescending(key => key.Value))
-        //{
-        //    compteur++;
-
-        //    if (compteur == 1)  
-        //    {
-
-        //        scoreLifeFinalFirst.text = scoreInfos.Key + " : " + scoreInfos.Value;
-        //        winner.text = scoreInfos.Key;
-        //    }
-        //    if (compteur == 2)
-        //    {
-        //        scoreLifeFinalSecond.text = scoreInfos.Key + " : " + scoreInfos.Value;
-        //    }
-        //    if (compteur == 3)
-        //    {
-        //        scoreLifeFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
-        //    }
-        //    if (compteur == 4)
-        //    {
-        //        scoreLifeFinalThird.text = scoreInfos.Key + " : " + scoreInfos.Value;
-        //        scoreLifeFinalFourth.text = scoreInfos.Key + " : " + scoreInfos.Value;
-        //    }
+        int compteurLife = 0;
+        foreach (KeyValuePair<string, int> scoreInfos in scoreboardLife.OrderBy(key => key.Value))
+        {
 
 
+   
 
-        //}
+            compteurLife++;
+
+            if (compteurLife == 1)
+            {
+
+                scoreLifeFinalFirst.text = scoreInfos.Key + " : "  + "First";
+                if (modeLife)
+                {
+                    winner.text = "Winner " + scoreInfos.Key;
+                
+                }
+            
+            }
+            if (compteurLife == 2)
+            {
+        
+                scoreLifeFinalSecond.text = scoreInfos.Key + " : " + "Second";
+            }
+            if (compteurLife == 3)
+            {
+                scoreLifeFinalThird.text = scoreInfos.Key + " : " + "Third";
+            }
+            if (compteurLife == 4)
+            {
+                scoreLifeFinalFourth.text = scoreInfos.Key + " : " + "Fourth";
+
+            }
+
+
+
+        }
 
     }
     public void verifWin()
@@ -350,9 +393,8 @@ public class GameMananger : MonoBehaviour
         if (nbRound <= 100)
         {
             if (round > nbRound)
-            {
-                //int bestScore =  (new[] { scores[0], scores[1], scores[2], scores[3] }.Max()) ;
-                //Debug.Log(scoreBoard["P1"]);      
+           {
+    
                 menuFinPartie.SetActive(true);
             
                 orderScoreBoardAndDisplay();
@@ -371,8 +413,6 @@ public class GameMananger : MonoBehaviour
             title.text = "Light Snake Ininity";
         }
     }
-
-
 
 
     IEnumerator ResetGame() //Ienumerator permet de mettre un yield pour faire attendre
@@ -401,14 +441,7 @@ public class GameMananger : MonoBehaviour
 
         foreach (Player p in players)
         {
-            if (!p.isDead())
-            {
-                //bug
-                if (nbAlivePlayers <= 1)
-                {
-                    GameObject.Find("theWinner").GetComponent<Text>().text = convertName(p.name);
-                }
-            }
+       
             if (p.isDead())
             {
 
@@ -417,24 +450,12 @@ public class GameMananger : MonoBehaviour
                 if (nbAlivePlayers <= 1)
                 {
                     p.menuFinPartie.SetActive(true);
-           
 
-                    //scoreboardLife["P1"] = GameObject.Find("PlayerBlue").GetComponent<Player>().finalLife;
-                    //scoreboardLife["P2"] = GameObject.Find("PlayerRed").GetComponent<Player>().finalLife;
-                    //if (nbPlayers == 3)
-                    //{
-                    //    scoreboardLife["P3"] = GameObject.Find("PlayerGreen").GetComponent<Player>().finalLife;
-                    //}
-                    //if (nbPlayers == 4)
-                    //{
-                    //    scoreboardLife["P4"] = GameObject.Find("PlayerViolet").GetComponent<Player>().finalLife;
-                    //}
-                   
-                
+              
 
-          
                     GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
                     p.speed = 0;
+                    orderScoreBoardLifeAndDisplay();
                 }
             }
             if (modeLife)
@@ -472,8 +493,8 @@ public class GameMananger : MonoBehaviour
         }
 
     
-        //Debug.Log(p.playerName + " " + p.finalLife);
         
+
         
         scoreBoardOrder();
 

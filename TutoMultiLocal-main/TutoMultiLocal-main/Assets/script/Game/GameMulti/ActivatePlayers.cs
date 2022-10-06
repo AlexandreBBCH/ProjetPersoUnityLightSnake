@@ -18,8 +18,8 @@ public class ActivatePlayers : MonoBehaviour
     public GameObject score4;
 
  
-
-
+    public GameObject scoreLife3;
+    public GameObject scoreLife4;
 
     void Awake()
     {
@@ -93,9 +93,12 @@ public class ActivatePlayers : MonoBehaviour
             {
                 P3.SetActive(true);
                 GameObject.FindGameObjectWithTag("StatViolet").SetActive(false);
+                scoreLife3.SetActive(true);
             }
             else if (nbPlayers == 4)
             {
+                scoreLife3.SetActive(true);
+                scoreLife4.SetActive(true);
                 P3.SetActive(true);
                 P4.SetActive(true);
             }
