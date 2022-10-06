@@ -19,7 +19,7 @@
 
 ## 05.10.2022
 ### <b> Matin
-#### J'ai dû créer une nouvelle branch "MasterReparation" pour continuer le versioning de mon jeu.
+#### J'ai dû créer une nouvelle branch "MasterReparation" pour continuer le versioning de mon jeu. Ayant commis de mauvais manipulation git (grand fichier), cela a corrompue mon git et apres un long moment j'ai opté pour la solution du haut. Sinon jai aussi aidée pour la doc de la cité des métier.
 
 ### <b> Aprem
-####
+#### J'ai commencé à mettre en place le 3ieme et dernier mode. Mais aussi avancé le scoreboard du mode vie en vain et que compte le finaliser demain. 
