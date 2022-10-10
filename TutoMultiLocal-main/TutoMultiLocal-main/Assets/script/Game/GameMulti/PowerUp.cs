@@ -113,8 +113,8 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
+    
+        //Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "PowerUpBoost")
         {
             string AleaPowerUp = powerUp[Random.Range(0,powerUp.Length)];
@@ -175,11 +175,21 @@ public class PowerUp : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.tag == "event")
+        {
+            
+            Destroy(collision.gameObject);
+            p.life+=2;
+            GameObject.Find("Life" + p.playerName).GetComponent<Text>().text = "Life : " + p.life;
 
+        }
 
     }
 
-    //active l'inversion des commands
+
+    /// <summary>
+    /// active l'inversion des commands
+    /// </summary>
     public void inverserCommand()
     {
        
@@ -250,8 +260,9 @@ public class PowerUp : MonoBehaviour
         
     }
 
-
-    //augmente la vitesse du joueur de 15
+    /// <summary>
+    ///  augmente la vitesse du joueur de 15
+    /// </summary>
     IEnumerator AddSpeed()
     {   
         GameObject.Find("iconPowerUpBoost" + p.playerName).GetComponent<Image>().sprite = iconBoost;
@@ -261,7 +272,11 @@ public class PowerUp : MonoBehaviour
         p.speed = 10;
         p.inBoost = false;
         GameObject.Find("iconPowerUpBoost" + p.playerName).GetComponent<Image>().sprite = oldPoweUpBoost;
-    }   //donne un boost suplementaire au joueur
+    }
+
+    /// <summary>
+    /// donne un boost suplementaire au joueur
+    /// </summary>
     void AddBoost()
     {
 
@@ -271,6 +286,12 @@ public class PowerUp : MonoBehaviour
         GameObject.Find("Boost" + p.playerName).GetComponent<Text>().text = "Boost : " + p.boost;
 
     }
+
+
+    /// <summary>
+    /// intancie une image annonçant le ramassage du boost supplementaire
+    /// </summary>
+
     IEnumerator apparitionBoostIcon()
     {
         Instantiate(boost, p.transform.position, Quaternion.identity);
@@ -280,8 +301,10 @@ public class PowerUp : MonoBehaviour
     }
 
 
+    /// <summary>
+    ///     donne un tire suplementaire au joueur
+    /// </summary>
 
-    //donne un tire suplementaire au joueur
     void AddShot()
     {
         StartCoroutine("apparitionShotIcon");
@@ -289,7 +312,9 @@ public class PowerUp : MonoBehaviour
         p.shotMissile++;
 
     }
-
+    /// <summary>
+    /// intancie une image annonçant le ramassage du shot supplementaire
+    /// </summary>
     IEnumerator apparitionShotIcon()
     {
         Instantiate(shot, p.transform.position, Quaternion.identity);
@@ -299,7 +324,11 @@ public class PowerUp : MonoBehaviour
     }
 
 
-    //donne 999 missile pendant 4 seconde
+ 
+
+    /// <summary>
+    /// donne 999 missile pendant 4 seconde
+    /// </summary>
     IEnumerator InfinityShot()
     {
         GameObject.Find("iconInfinityShot" + p.playerName).GetComponent<Image>().sprite = iconInfinityShot;
@@ -317,8 +346,9 @@ public class PowerUp : MonoBehaviour
 
 
 
-
-    //ralentis le joueur a une vitesse de 2
+    /// <summary>
+    /// ralentis le joueur
+    /// </summary>
     IEnumerator SlowSpeed()
     {
         p.inBoost = true;
@@ -342,7 +372,12 @@ public class PowerUp : MonoBehaviour
    
     }
 
-    //arrete le joueur pendant 2 seconde
+    
+
+    /// <summary>
+    /// arrete le joueur pendant 2 seconde
+    /// </summary>
+  
     IEnumerator Stop()
     {
  
@@ -355,7 +390,12 @@ public class PowerUp : MonoBehaviour
         GameObject.Find("iconStop" + p.playerName).GetComponent<Image>().sprite = oldIconStop;
     }
 
-    //fait trembler tout la map pendant quelque seconde
+
+
+    /// <summary>
+    /// fait trembler tout la map pendant quelque seconde
+    /// </summary>
+
     IEnumerator Tremblement()
     {
 
@@ -397,6 +437,10 @@ public class PowerUp : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// detruit des mur de façon àleatoire
+    /// </summary>
     void destructionMur()
     {
         
@@ -414,6 +458,10 @@ public class PowerUp : MonoBehaviour
          
     }
 
+
+    /// <summary>
+    /// rend immortel le joueur (plus fonctionelle uniquement utilisé dans les fase de test)
+    /// </summary>
     IEnumerator immortal()
     {
         
@@ -423,11 +471,20 @@ public class PowerUp : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// idée mais pas utilisé
+    /// </summary>
     void replaceStrategique()
     {
         //faire un random compris entre la taille du tableau et 0
         StartCoroutine("immortal");
     }
+
+
+    /// <summary>
+    /// Inverse les touche de tout les autres joueurs
+    /// </summary>
     public void inverserControl()
     {
         if (p.invert == true)

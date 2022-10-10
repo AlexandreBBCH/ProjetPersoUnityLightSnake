@@ -89,6 +89,12 @@ public class Player : MonoBehaviour
 
 
     Vector2[] direction = new Vector2[] { new Vector2(1, 0), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(0, -1) };
+
+
+    /// <summary>
+    /// renvoie une direction aléatoire
+    /// </summary>
+    /// <returns>vector2</returns>
     public Vector2 getRandomDir()
     {
         return direction[UnityEngine.Random.Range(0, direction.Length)];
@@ -210,11 +216,19 @@ public class Player : MonoBehaviour
        
         }
 
+        if (gm.modeLife && life >= 100)
+        {
+            GameObject.Find("Life" + playerName).GetComponent<Text>().text = "Immortal ";
+        }
+
 
     }
 
 
-    //en fonction d'ou regarde le joueur le missile est instancié
+    /// <summary>
+    /// tir en fonction d'ou regarde le joueur le missile est instancié
+    /// </summary>
+
     public void shootDirection()
     {
 
@@ -241,7 +255,7 @@ public class Player : MonoBehaviour
     //se declanche au moment du toucher du mur si on a activer la fonctionalité "on trigger"
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision != lastWallCol && collision.gameObject.tag != "PowerUpBoost" )
+        if(collision != lastWallCol && collision.gameObject.tag != "PowerUpBoost" && collision.gameObject.tag != "event" && collision.gameObject.tag != "boomZone")
         {
             isAlive = false;
             gm.KillPlayer();
@@ -259,6 +273,7 @@ public class Player : MonoBehaviour
                 GameObject.Find("Life"+playerName).GetComponent<Text>().text = "Life : "+ life;
                 }
                 else
+
                 {
                     life = 300;
                 }
@@ -269,8 +284,12 @@ public class Player : MonoBehaviour
         
     }
 
-    //c' est ici quon gerera les touche
-   public void HandheldKeys()
+
+
+    /// <summary>
+    /// c' est ici quon gerera les touche
+    /// </summary>
+    public void HandheldKeys()
     {
         if (isAbot == false && gm.gameSpeed >= 1)
         {
@@ -354,7 +373,12 @@ public class Player : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// renvoie une valeur aléatoire entre 2 nombre
+    /// </summary>
+    /// <param name="min">borne depart</param>
+    /// <param name="max">borne max</param>
+    /// <returns></returns>
     public int giveRandom(int min, int max)
     {
         int aleaNb = UnityEngine.Random.Range(min, max + 1);
@@ -362,11 +386,13 @@ public class Player : MonoBehaviour
         return aleaNb;
     }
 
-  
 
 
 
-    //fonction pour savoir dans quel direction se situe la droite du joueur
+    /// <summary>
+    /// fonction pour savoir dans quel direction se situe la droite du joueur
+    /// </summary>
+
 
     void CalculateRight()//calcule la direction droite en fonction du personnage
     {
@@ -395,7 +421,11 @@ public class Player : MonoBehaviour
     }
 
 
-    //c est ici quon gere le boost du personnage
+
+    /// <summary>
+    /// c est ici quon gere le boost du personnage
+    /// </summary>
+   
     IEnumerator ActivateBoost()
     {
         if (boost >= 1 && gm.gameSpeed >= 1)
@@ -414,6 +444,10 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// fait chose(a prevoir) au moment du reload du shot
+    /// </summary>
     void ReloadBoost()
     {
         canActivateBoost = true;
@@ -501,14 +535,14 @@ public class Player : MonoBehaviour
 
 
 
-   
+  
 
 
-    
-   
 
 
- 
+
+
+
     //fonction qui empeche l'ajout en trop en cas de bug de point
     IEnumerator AddScore()
     {

@@ -19,6 +19,8 @@ public class Spawn : MonoBehaviour
     public bool mapBuffActivated = true;
     bool waitInvok;
 
+    public GameObject heart;
+
     private void Update()
     {
         //if ()
@@ -45,8 +47,8 @@ public class Spawn : MonoBehaviour
 
     private void Awake()
     {
-
-     string validationItem = PlayerPrefs.GetString("itemActif");
+        
+        string validationItem = PlayerPrefs.GetString("itemActif");
      
         gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
         if (validationItem == "Yes")
@@ -80,7 +82,12 @@ public class Spawn : MonoBehaviour
     {
         Vector3 randomPos = Random.insideUnitCircle * Radius;
         Instantiate(powerUp,randomPos, Quaternion.identity);
+     
+
     }
+ 
+
+  
 
     /// <summary>
     /// fait apparaitre des explosion de maniere aleatoire (pas fonctionelle)

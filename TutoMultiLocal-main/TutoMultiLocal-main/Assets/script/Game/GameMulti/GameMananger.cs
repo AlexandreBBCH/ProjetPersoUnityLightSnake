@@ -29,7 +29,7 @@ public class GameMananger : MonoBehaviour
     public bool modeScore;
     public bool modeLife;
 
-
+    Spawn spawn;
     public int nbLife;
     public int nbRound;
     public int totalScore = 0;
@@ -55,6 +55,9 @@ public class GameMananger : MonoBehaviour
     public int nbPlayers;
     public int generalLifeCompteur;
 
+    public int nbPartie = 1;
+
+    public GameObject heart;
     //Les Joueurs
     public Player P1;
     public Player P2;
@@ -63,6 +66,9 @@ public class GameMananger : MonoBehaviour
 
     Dictionary<string, int> scoreboard = new Dictionary<string, int>();
     Dictionary<string, int> scoreboardLife = new Dictionary<string, int>();
+
+    public int aleaRound;
+    GameObject[] allEvent;
 
     private void Start()
     {
@@ -77,6 +83,7 @@ public class GameMananger : MonoBehaviour
     {
 
         initialisation();
+        //Instantiate()
 
     }
 
@@ -109,6 +116,8 @@ public class GameMananger : MonoBehaviour
     /// </summary>
     public void lifeStatetement()
     {
+
+  
         scoreboardLife.Add("P1", 0);
         scoreboardLife.Add("P2", 0);
         if (nbPlayers == 3)
@@ -483,7 +492,7 @@ public class GameMananger : MonoBehaviour
             Destroy(go);
         }
 
-
+     
 
 
         foreach (Player p in players)
@@ -531,18 +540,62 @@ public class GameMananger : MonoBehaviour
 
         }
 
-    
-        
 
-        
+
+
+
+
         scoreBoardOrder();
 
+        suppAllEvent();
+           aleaRound = UnityEngine.Random.RandomRange(1, 4);
+        if (modeLife)
+        {
+            if (aleaRound == 1)
+            {
+               
+                spawnEventLife();
+            } 
+        }
 
-            Invoke("HideGoTxt", 2);
-            powerUp.gameObject.SetActive(true);
+        Invoke("HideGoTxt", 2);
+        powerUp.gameObject.SetActive(true);
 
-     
 
+
+        nbPartie++;
+
+    }
+
+    /// <summary>
+    /// fait instencier aléatoirement un coeur donnant 1pv de plus a celui qui arrive a l attraper et supprime tous ceux present
+    /// </summary>
+    /// 
+    public void spawnEventLife()
+    {
+        allEvent = GameObject.FindGameObjectsWithTag("event");
+        Debug.Log(allEvent.Count());
+        int compteur = 0;
+        foreach (GameObject eventName in allEvent)
+        {
+            Destroy(allEvent[compteur]);
+            compteur++;
+             
+        }
+        Instantiate(heart, new Vector2(0, 0), Quaternion.identity);
+    }
+
+
+    void suppAllEvent()
+    {
+        allEvent = GameObject.FindGameObjectsWithTag("event");
+        int compteur = 0;
+        foreach (GameObject eventName in allEvent)
+        {
+            Destroy(allEvent[compteur]);
+            compteur++;
+
+        }
     }
 
     /// <summary>
@@ -580,6 +633,7 @@ public class GameMananger : MonoBehaviour
         void HideGoTxt()
         {
             goTxt.SetActive(false);
+ 
         }
 
     }

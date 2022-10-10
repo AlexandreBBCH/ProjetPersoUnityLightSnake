@@ -3536,6 +3536,7 @@ MonoBehaviour:
   explosionAlea: {fileID: 0}
   fullMapBuff: 0
   mapBuffActivated: 1
+  heart: {fileID: 5020279988334918394, guid: 89c069a83ce21b744b7ad0e22e6cc765, type: 3}
 --- !u!1 &949093145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,10 +3687,13 @@ MonoBehaviour:
   scoreLifeFinalFourth: {fileID: 1792196800}
   nbPlayers: 0
   generalLifeCompteur: 0
+  nbPartie: 1
+  heart: {fileID: 5020279988334918394, guid: 89c069a83ce21b744b7ad0e22e6cc765, type: 3}
   P1: {fileID: 706283255}
   P2: {fileID: 1237287532}
   P3: {fileID: 1558308293}
   P4: {fileID: 1623886452}
+  aleaRound: 0
 --- !u!4 &951940959
 Transform:
   m_ObjectHideFlags: 0

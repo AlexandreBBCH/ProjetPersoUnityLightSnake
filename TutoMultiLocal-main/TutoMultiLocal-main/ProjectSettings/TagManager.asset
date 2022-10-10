@@ -22,6 +22,9 @@ TagManager:
   - boost
   - shot
   - border
+  - heart
+  - event
+  - boomZone
   layers:
   - Default
   - TransparentFX

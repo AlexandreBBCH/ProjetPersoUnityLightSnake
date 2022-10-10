@@ -122,13 +122,11 @@ public class Missile : MonoBehaviour
         }
         else
         {
-        
             cam.PlayBoumSfx(cam.boomSfx);
             cam.Shake(0.75f, 2f, 30);
             Instantiate(boomParticles, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            PlayBoumSfx(boomSfx);
-     
+            PlayBoumSfx(boomSfx);   
         }
 
 
