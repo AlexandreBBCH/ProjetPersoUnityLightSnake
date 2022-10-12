@@ -39,6 +39,19 @@
 ***
 ## 10.10.2022
 ### <b> Matin
+#### Ce matin je me suis occupé du design et de l'animation du première event que je comptait rajouter. Ainsi que commencé une réfléxion sur comment l'implémenter.  
+
+### <b> Aprem
+#### J'ai rajouter l'event de manière brut mais fonctionelle, il faut encore rendre l'event désactivable en paramètre ainsi que prévenir les joueurs quand l'event arrivera. La prochaine fois je compte me concentrer plûtot sur le nouveau et dernier mode de jeu.  
+
+***
+
+## 12.10.2022
+### <b> Matin
 
 
 ### <b> Aprem
+
+***
+
+

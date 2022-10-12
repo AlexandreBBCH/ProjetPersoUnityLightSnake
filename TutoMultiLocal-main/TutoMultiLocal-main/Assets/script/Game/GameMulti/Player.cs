@@ -472,14 +472,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    //c est ici qu on calcul la taille du mur
+ 
 
     /// <summary>
-    /// 
+    /// c est ici qu on calcul la taille du mur
     /// </summary>
-    /// <param name="col"></param>
-    /// <param name="posStart"></param>
-    /// <param name="posEnd"></param>
+    /// <param name="col">taille du mur</param>
+    /// <param name="posStart">position du debut du mur (quand on tourne)</param>
+    /// <param name="posEnd">postion de fin du mur</param>
     private void SetLastWallSize(Collider2D col, Vector2 posStart, Vector2 posEnd)
     {
 
@@ -504,7 +504,11 @@ public class Player : MonoBehaviour
 
     }
 
-    //c est ici que l'ont reset l'affichage des icons d'objets
+
+    /// <summary>
+    /// c est ici que l'ont reset l'affichage des icons d'objets
+    /// </summary>
+    
     public void resetIcon()
     {
         GameObject.Find("iconPowerUpBoost" + playerName).GetComponent<Image>().sprite = oldPoweUpBoost;
@@ -513,8 +517,13 @@ public class Player : MonoBehaviour
         GameObject.Find("iconInfinityShot" + playerName).GetComponent<Image>().sprite = oldIconInfinityShot;
         GameObject.Find("iconInvert" + playerName).GetComponent<Image>().sprite = oldIconInvert;
     }
- 
-    //c'est ici que l on reset la map apres chaque partie
+
+
+
+    /// <summary>
+    /// c'est ici que l on reset la map apres chaque partie
+    /// </summary>
+
     public void clearDisplay()
     {
 
