@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 52891729}
   - component: {fileID: 52891730}
   m_Layer: 5
-  m_Name: sldLife
+  m_Name: sldTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,16 +206,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1211996059}
   m_HandleRect: {fileID: 1920535997}
   m_Direction: 0
-  m_MinValue: 1
-  m_MaxValue: 110
+  m_MinValue: 15
+  m_MaxValue: 60
   m_WholeNumbers: 1
-  m_Value: 105
+  m_Value: 60
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1133263696}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: SetLife
+        m_MethodName: SetSurvivorTimer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 161311168}
   - component: {fileID: 161311167}
   m_Layer: 5
-  m_Name: nbLife
+  m_Name: txtTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,7 +876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Immortal
+  m_Text: Time
 --- !u!222 &161311168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2579,8 +2579,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.2, y: 209.58}
-  m_SizeDelta: {x: 281.0691, y: 31.242}
+  m_AnchoredPosition: {x: -4.5, y: 209.5}
+  m_SizeDelta: {x: 490.6846, y: 31.242}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674442559
 MonoBehaviour:
@@ -2921,7 +2921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814533012}
   m_Layer: 5
-  m_Name: Life
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3263,7 +3263,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1133263696}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: OptionLifeMenu
+        m_MethodName: OptionSurvivorMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3673,6 +3673,8 @@ MonoBehaviour:
   modeSurvivor: 1
   nbLife: 0
   nbRound: 0
+  survivorTimer: 0
+  survivorTimerIsActivated: 0
   totalScore: 0
   lastOne: 1
   menuFinPartie: {fileID: 1456250904}
@@ -3702,8 +3704,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951940957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.284468, y: -13.130636, z: -5.327042}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -27.284302, y: -13.130615, z: -5.3270416}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5026,12 +5028,17 @@ MonoBehaviour:
   nbPlayersSlider: {fileID: 0}
   nbLifePlayers: {fileID: 0}
   nbPlayersLifeSlider: {fileID: 0}
+  nbSurvivorPlayers: {fileID: 0}
+  nbPlayersSurvivorSlider: {fileID: 0}
   nbRound: {fileID: 0}
   sliderRound: {fileID: 0}
-  nbLife: {fileID: 161311167}
-  sldLife: {fileID: 52891730}
+  nbLife: {fileID: 0}
+  sldLife: {fileID: 0}
+  txtSurvivorTimer: {fileID: 161311167}
+  sldSurvivorTimer: {fileID: 52891730}
   modeScore: 0
-  modeLife: 1
+  modeLife: 0
+  modeSurvivor: 1
 --- !u!114 &1133263697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5189,7 +5196,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.95412844, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8724,8 +8731,8 @@ RectTransform:
   m_Father: {fileID: 339697049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.95412844, y: 0}
-  m_AnchorMax: {x: 0.95412844, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

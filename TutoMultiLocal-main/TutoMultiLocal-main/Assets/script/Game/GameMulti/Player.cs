@@ -82,6 +82,7 @@ public class Player : MonoBehaviour
     public Text p4FinalScore;
 
     public int finalLife;
+    public bool hunter = false;
     
     //gestion de bug
     bool scoreAddedTimer = false;
@@ -123,8 +124,6 @@ public class Player : MonoBehaviour
      
         initialPos = transform.position;
         dir = getRandomDir();
-        //Debug.Log(dir);
-       //Debug.Log(ActivateP.getRandomDir());
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = dir * speed * gm.gameSpeed;
         wallPrefab = Resources.Load("Wall"+gameObject.tag) as GameObject;
@@ -159,7 +158,7 @@ public class Player : MonoBehaviour
         {
             title.text = "Light Snake Ininity";
         }
-        }
+      }
 
   
 
@@ -170,7 +169,6 @@ public class Player : MonoBehaviour
     //se lance au lancement de la scene ou se trouve ce scripte (avant start)
     private void Awake()
     {
-  
         GameObject.Find("Boost" + playerName).GetComponent<Text>().text = "Boost : " + boost;
         GameObject.Find("Shot" + playerName).GetComponent<Text>().text = "Shot : " + shotMissile;
         cam = Camera.main.GetComponent<Cam>();//fait le lien avec le script "Cam"
@@ -446,7 +444,7 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    
     /// <summary>
     /// fait chose(a prevoir) au moment du reload du shot
     /// </summary>
@@ -462,7 +460,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void CreateWall()
     {
-        if (immortal == false)
+        if (immortal == false && !hunter)
         {
             lastPos = transform.position; // recupere la pos du joueureur au moment du changement
             GameObject go = Instantiate(wallPrefab, transform.position, Quaternion.identity);

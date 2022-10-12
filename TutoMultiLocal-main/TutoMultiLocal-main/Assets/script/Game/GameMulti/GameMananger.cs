@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -34,6 +35,7 @@ public class GameMananger : MonoBehaviour
     public int nbLife;
     public int nbRound;
     public int survivorTimer;
+    public bool survivorTimerIsActivated = false;
     public int totalScore = 0;
     public bool lastOne = true;
 
@@ -59,6 +61,7 @@ public class GameMananger : MonoBehaviour
 
     public int nbPartie = 1;
 
+
     public GameObject heart;
     //Les Joueurs
     public Player P1;
@@ -69,6 +72,8 @@ public class GameMananger : MonoBehaviour
     Dictionary<string, int> scoreboard = new Dictionary<string, int>();
     Dictionary<string, int> scoreboardLife = new Dictionary<string, int>();
 
+
+
     public int aleaRound;
     GameObject[] allEvent;
 
@@ -76,16 +81,67 @@ public class GameMananger : MonoBehaviour
     {
         players = FindObjectsOfType<Player>();
         nbAlivePlayers = players.Length;
+
+        if (modeSurvivor)
+        {
+
+        }
+        if (survivorTimerIsActivated)
+        {
+          
+            InvokeRepeating("timerGestion",1,1);
+        }
     }
 
+    void survivorInit()
+    {
+        if (p.hunter)
+        {
+            p.shotMissile = 3;
+            p.boost = 1;
+        }
+        else
+        {
+            p.shotMissile = 1;
+            p.boost = 3;
+        }
+    }
 
+    void timerGestion()
+    {
+  
 
+        if (survivorTimer <= 0)
+        {
+            CancelInvoke();
+            title.text = "Light Snake 0";
+            menuFinPartie.SetActive(true);
+         
+            p.speed = 0;
+        }
+        survivorTimer--;
+        title.text = "Light Snake " + survivorTimer.ToString();
+
+    }
 
     private void Awake()
     {
-
+        
         initialisation();
         //Instantiate()
+        if (modeSurvivor)
+        {
+            survivorTimerIsActivated = true;
+            //faire powerup pause ou -3 sec
+            if (survivorTimerIsActivated)
+            {
+
+                survivorTimer = PlayerPrefs.GetInt("survivorTimer");
+               
+                title.text = "Light Snake "+ survivorTimer.ToString();
+            }
+        }
+
 
     }
 

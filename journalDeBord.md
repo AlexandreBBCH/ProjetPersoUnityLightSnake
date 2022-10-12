@@ -48,10 +48,11 @@
 
 ## 12.10.2022
 ### <b> Matin
-
+#### Jai créer la base du mode de jeu survivor pour l'avancer cette aprem.
 
 ### <b> Aprem
-
+#### Le mode de jeu est bien avancé, je devrai reussir à le finir demain. J'ai deja ajouter le timer mettant fin a la partie ainsi que rendue les "civil" inapate a la construsion de mur.
+#### Pour la prochaine fois je compte finaliser les règles du jeu et mettre le tableau des gagnant. Si possible me renseigner sur une mise en ligne. 
 ***
 
 

@@ -2579,8 +2579,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.2, y: 209.58}
-  m_SizeDelta: {x: 281.0691, y: 31.242}
+  m_AnchoredPosition: {x: 14.8843, y: 209.5}
+  m_SizeDelta: {x: 433.7631, y: 31.242}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674442559
 MonoBehaviour:
@@ -3670,8 +3670,10 @@ MonoBehaviour:
   goTxt: {fileID: 820228001}
   modeScore: 0
   modeLife: 1
+  modeSurvivor: 0
   nbLife: 0
   nbRound: 0
+  survivorTimer: 0
   totalScore: 0
   lastOne: 1
   menuFinPartie: {fileID: 1456250904}
@@ -3724,6 +3726,7 @@ MonoBehaviour:
   P4: {fileID: 1623886450}
   modeScore: 0
   modeLife: 1
+  modeSurvivor: 0
   score3: {fileID: 0}
   score4: {fileID: 0}
   scoreLife3: {fileID: 1698828210}
@@ -5024,12 +5027,17 @@ MonoBehaviour:
   nbPlayersSlider: {fileID: 0}
   nbLifePlayers: {fileID: 0}
   nbPlayersLifeSlider: {fileID: 0}
+  nbSurvivorPlayers: {fileID: 0}
+  nbPlayersSurvivorSlider: {fileID: 0}
   nbRound: {fileID: 0}
   sliderRound: {fileID: 0}
   nbLife: {fileID: 161311167}
   sldLife: {fileID: 52891730}
+  txtSurvivorTimer: {fileID: 0}
+  sldSurvivorTimer: {fileID: 0}
   modeScore: 0
   modeLife: 1
+  modeSurvivor: 0
 --- !u!114 &1133263697
 MonoBehaviour:
   m_ObjectHideFlags: 0
