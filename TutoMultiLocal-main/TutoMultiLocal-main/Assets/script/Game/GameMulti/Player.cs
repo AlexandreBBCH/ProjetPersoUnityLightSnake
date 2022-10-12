@@ -113,9 +113,12 @@ public class Player : MonoBehaviour
         }
         if (gm.modeLife)
         {
-            nbPlayers = PlayerPrefs.GetInt("nbLifePlayers");
-          
+            nbPlayers = PlayerPrefs.GetInt("nbLifePlayers");      
             int playerAlive = nbPlayers;
+        }
+        if (gm.modeSurvivor)
+        {
+            nbPlayers = PlayerPrefs.GetInt("nbSurvivorPlayers");
         }
      
         initialPos = transform.position;
@@ -137,11 +140,7 @@ public class Player : MonoBehaviour
             {
                 title.text = "Light Snake " + life + " Life";
             }
-            else
-            {
-                title.text = "Light Snake Immortal";
-                GameObject.Find("Life" + playerName).GetComponent<Text>().text = "Immortal ";
-            }
+    
          
 
         }
@@ -151,7 +150,7 @@ public class Player : MonoBehaviour
         {
 
        
-         nbRound = PlayerPrefs.GetInt("nbRound");
+        nbRound = PlayerPrefs.GetInt("nbRound");
         if (nbRound <= 100)
         {
             title.text = "Light Snake " + gm.round + "/" + nbRound;
@@ -161,6 +160,8 @@ public class Player : MonoBehaviour
             title.text = "Light Snake Ininity";
         }
         }
+
+  
 
     }
 
@@ -219,6 +220,7 @@ public class Player : MonoBehaviour
         if (gm.modeLife && life >= 100)
         {
             GameObject.Find("Life" + playerName).GetComponent<Text>().text = "Immortal ";
+            title.text = "Light Snake Immortal";
         }
 
 

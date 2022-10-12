@@ -18,16 +18,26 @@ public class Menu : MonoBehaviour
 
     public Text nbLifePlayers;
     public Slider nbPlayersLifeSlider;
-    //ChoixMusique musiqueScript;
+
+    public Text nbSurvivorPlayers;
+    public Slider nbPlayersSurvivorSlider;
+
+    GameMananger gm;
+  
     public Text nbRound;
     public Slider sliderRound;
-    GameMananger gm;
+ 
 
     public Text nbLife;
     public Slider sldLife;
 
+
+    public Text txtSurvivorTimer;
+    public Slider sldSurvivorTimer;
+
     public bool modeScore;
     public bool modeLife;
+    public bool modeSurvivor;
 
     private void Start()
     {
@@ -49,6 +59,12 @@ public class Menu : MonoBehaviour
             int nbLifePlayer = PlayerPrefs.GetInt("nbLifePlayers");
             nbPlayersLifeSlider.value = nbLifePlayer;
         }
+
+        if (modeSurvivor)
+        {
+            int nbSurvivorPlayer = PlayerPrefs.GetInt("nbSurvivorPlayers");
+            nbPlayersSurvivorSlider.value = nbSurvivorPlayer;
+        }
     }
 
     void initialisationMode()
@@ -63,6 +79,11 @@ public class Menu : MonoBehaviour
         {
             int nbLife = PlayerPrefs.GetInt("nbLife");
             sldLife.value = nbLife;
+        }
+        if (modeSurvivor)
+        {
+            int survivorTimer  = PlayerPrefs.GetInt("survivorTimer");
+            sldSurvivorTimer.value = survivorTimer;
         }
     }
     private void Awake()
@@ -95,6 +116,25 @@ public class Menu : MonoBehaviour
     /// <summary>
     /// enmene a la page indiqué
     /// </summary>
+    public void PlayLife()
+    {
+
+        Application.LoadLevel(5);
+
+    }
+
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
+    public void PlaySurvivor()
+    {
+
+        Application.LoadLevel(7);
+
+    }
+    /// <summary>
+    /// enmene a la page indiqué
+    /// </summary>
     public void MultiMenu()
     {
 
@@ -120,15 +160,7 @@ public class Menu : MonoBehaviour
         Application.LoadLevel(4);
 
     }
-    /// <summary>
-    /// enmene a la page indiqué
-    /// </summary>
-    public void PlayLife()
-    {
 
-        Application.LoadLevel(5);
-
-    }
     /// <summary>
     /// enmene a la page indiqué
     /// </summary>
@@ -138,9 +170,14 @@ public class Menu : MonoBehaviour
         Application.LoadLevel(6);
 
     }
+ 
+
+  
     /// <summary>
     /// enmene a la page indiqué
     /// </summary>
+    /// 
+
     public void Quit()
     {
         Application.Quit();
@@ -183,6 +220,16 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetInt("nbLifePlayers", (int)(nbPlayersLifeSlider.value));
     }
 
+
+    /// <summary>
+    /// Set le nombre de joueur des option du mode survivor
+    /// </summary>
+    public void SetSurvivorPlayers()
+    {
+        nbSurvivorPlayers.text = nbPlayersSurvivorSlider.value.ToString();
+        PlayerPrefs.SetInt("nbSurvivorPlayers", (int)(nbPlayersSurvivorSlider.value));
+    }
+
     /// <summary>
     /// Set le nombre de round du mode score
     /// </summary>
@@ -209,8 +256,20 @@ public class Menu : MonoBehaviour
         {
             nbLife.text = "Immortal";
 
+
         }
         PlayerPrefs.SetInt("nbLife", (int)(sldLife.value));
+    }
+
+
+    /// <summary>
+    /// Set le timer
+    /// </summary>
+    public void SetSurvivorTimer()
+    {
+
+        txtSurvivorTimer.text =  " Time " + sldSurvivorTimer.value;
+        PlayerPrefs.SetInt("survivorTimer", (int)(sldSurvivorTimer.value));
     }
 
 

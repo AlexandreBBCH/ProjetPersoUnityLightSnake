@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/OptionGame/LifeGameOption.unity
     guid: 6707e455fb5876142914259f5cfb4bc8
   - enabled: 1
-    path: Assets/Scenes/Game/GameLifeReal.unity
+    path: Assets/Scenes/Game/GameLife.unity
     guid: cdfa542fab7f14c47a9f30c1739e3746
+  - enabled: 1
+    path: Assets/Scenes/OptionGame/SurvivorGameOption.unity
+    guid: 0c438a55531579544b2dd64fdcf982c1
+  - enabled: 1
+    path: Assets/Scenes/Game/GameSurvivor.unity
+    guid: 2c091e8a7becb8745b41ab9065ebc424
   m_configObjects: {}

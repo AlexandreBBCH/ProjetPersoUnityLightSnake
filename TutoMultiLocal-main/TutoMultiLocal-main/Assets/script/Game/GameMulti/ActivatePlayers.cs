@@ -13,6 +13,8 @@ public class ActivatePlayers : MonoBehaviour
     public GameObject P4;
     public bool modeScore;
     public bool modeLife;
+    public bool modeSurvivor;
+
 
     public GameObject score3;
     public GameObject score4;
@@ -99,7 +101,49 @@ public class ActivatePlayers : MonoBehaviour
                 P4.SetActive(true);
             }
         }
+
+
+
+        if (modeSurvivor)
+        {
+            int nbPlayers = PlayerPrefs.GetInt("nbSurvivorPlayers");
+
+
+            if (nbPlayers == 2)
+            {
+
+                GameObject.FindGameObjectWithTag("StatGreen").SetActive(false);
+                GameObject.FindGameObjectWithTag("StatViolet").SetActive(false);
+
+
+
+            }
+            if (nbPlayers == 3)
+            {
+                P3.SetActive(true);
+                GameObject.FindGameObjectWithTag("StatViolet").SetActive(false);
+                score3.SetActive(true);
+
+
+            }
+            else if (nbPlayers == 4)
+            {
+                P3.SetActive(true);
+                P4.SetActive(true);
+                score3.SetActive(true);
+                score4.SetActive(true);
+
+
+            }
+
+
+        }
+
     }
+
+
+
+
 }
 
 

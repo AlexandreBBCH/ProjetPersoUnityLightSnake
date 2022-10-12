@@ -28,10 +28,12 @@ public class GameMananger : MonoBehaviour
     PowerUp powerUp;
     public bool modeScore;
     public bool modeLife;
+    public bool modeSurvivor;
 
-    Spawn spawn;
+
     public int nbLife;
     public int nbRound;
+    public int survivorTimer;
     public int totalScore = 0;
     public bool lastOne = true;
 
@@ -106,6 +108,11 @@ public class GameMananger : MonoBehaviour
 
 
         }
+        if (modeSurvivor)
+        {
+           nbPlayers = PlayerPrefs.GetInt("nbSurvivorPlayers");
+           survivorTimer = PlayerPrefs.GetInt("survivorTimer");
+        }
 
    
 
@@ -134,6 +141,12 @@ public class GameMananger : MonoBehaviour
         GameObject.Find("LifeP2").GetComponent<Text>().text = "Life : " + nbLife;
         GameObject.Find("LifeP3").GetComponent<Text>().text = "Life : " + nbLife;
         GameObject.Find("LifeP4").GetComponent<Text>().text = "Life : " + nbLife;
+   
+
+
+
+
+
         generalLifeCompteur = nbPlayers;
     }
 
