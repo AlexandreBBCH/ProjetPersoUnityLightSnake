@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
 
     public int finalLife;
     public bool hunter = false;
+ 
     
     //gestion de bug
     bool scoreAddedTimer = false;
@@ -160,7 +161,7 @@ public class Player : MonoBehaviour
         }
       }
 
-  
+   
 
     }
 
@@ -373,18 +374,7 @@ public class Player : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// renvoie une valeur aléatoire entre 2 nombre
-    /// </summary>
-    /// <param name="min">borne depart</param>
-    /// <param name="max">borne max</param>
-    /// <returns></returns>
-    public int giveRandom(int min, int max)
-    {
-        int aleaNb = UnityEngine.Random.Range(min, max + 1);
 
-        return aleaNb;
-    }
 
 
 
@@ -460,7 +450,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void CreateWall()
     {
-        if (immortal == false && !hunter)
+        if (gm.modeLife || gm.modeScore || hunter)
         {
             lastPos = transform.position; // recupere la pos du joueureur au moment du changement
             GameObject go = Instantiate(wallPrefab, transform.position, Quaternion.identity);

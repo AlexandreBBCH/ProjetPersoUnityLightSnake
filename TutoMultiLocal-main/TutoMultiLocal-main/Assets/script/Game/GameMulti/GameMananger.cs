@@ -69,6 +69,9 @@ public class GameMananger : MonoBehaviour
     public Player P3;
     public Player P4;
 
+    public int hunterPlayer;
+    bool hunterAlive = true;
+
     Dictionary<string, int> scoreboard = new Dictionary<string, int>();
     Dictionary<string, int> scoreboardLife = new Dictionary<string, int>();
 
@@ -82,36 +85,55 @@ public class GameMananger : MonoBehaviour
         players = FindObjectsOfType<Player>();
         nbAlivePlayers = players.Length;
 
-        if (modeSurvivor)
-        {
-
-        }
+        survivorStatement();
         if (survivorTimerIsActivated)
         {
           
             InvokeRepeating("timerGestion",1,1);
         }
-    }
 
+    }
+    private void Update()
+    {
+        foreach (Player p in players)
+        {
+            if (p.hunter && !p.isAlive)
+            {
+                Debug.Log("test");
+            }
+        }
+    }
     void survivorInit()
     {
-        if (p.hunter)
+
+        foreach (Player p in players)
         {
-            p.shotMissile = 3;
-            p.boost = 1;
+            if (p.hunter)
+            {
+                p.shotMissile = 3;
+                p.boost = 1;
+                GameObject.Find("Role"+p.playerName).GetComponent<Text>().text = "Hunter";
+         
+            }
+            else
+            {
+                p.shotMissile = 1;
+                p.boost = 3;
+                GameObject.Find("Role" + p.playerName).GetComponent<Text>().text = "Civilian";
+
+            }
+            GameObject.Find("Shot" + p.playerName).GetComponent<Text>().text ="Shot : " + p.shotMissile.ToString();
+            GameObject.Find("Boost" + p.playerName).GetComponent<Text>().text = "Boost : "+ p.boost.ToString();
         }
-        else
-        {
-            p.shotMissile = 1;
-            p.boost = 3;
-        }
+
+
     }
 
     void timerGestion()
     {
   
 
-        if (survivorTimer <= 0)
+        if (survivorTimer <= 0 || nbAlivePlayers <= 1 || !hunterAlive)
         {
             CancelInvoke();
             title.text = "Light Snake 0";
@@ -129,18 +151,9 @@ public class GameMananger : MonoBehaviour
         
         initialisation();
         //Instantiate()
-        if (modeSurvivor)
-        {
-            survivorTimerIsActivated = true;
-            //faire powerup pause ou -3 sec
-            if (survivorTimerIsActivated)
-            {
 
-                survivorTimer = PlayerPrefs.GetInt("survivorTimer");
-               
-                title.text = "Light Snake "+ survivorTimer.ToString();
-            }
-        }
+      
+
 
 
     }
@@ -206,7 +219,24 @@ public class GameMananger : MonoBehaviour
         generalLifeCompteur = nbPlayers;
     }
 
-
+    public void survivorStatement()
+    {
+        //p.hunter = false;
+        if (modeSurvivor)
+        {
+            survivorTimerIsActivated = true;
+            //faire powerup pause ou -3 sec
+            if (survivorTimerIsActivated)
+            {
+                hunterPlayer = giveRandom(1, nbPlayers);
+                string hunterName = "P" + hunterPlayer;
+                GameObject.Find(convertNameReverse(hunterName)).GetComponent<Player>().hunter = true;
+                survivorTimer = PlayerPrefs.GetInt("survivorTimer");
+                title.text = "Light Snake " + survivorTimer.ToString();
+                survivorInit();
+            }
+        }
+    }
 
     //A optimiser en une fonction
     /// <summary>
@@ -374,9 +404,35 @@ public class GameMananger : MonoBehaviour
         return name;
     }
 
-   /// <summary>
-   /// Empeche la duplication de round
-   /// </summary>
+
+    /// <summary>
+    /// convertie les nom base "PlayerColor" en "P1,P2"
+    /// </summary>
+    /// <param name="name">nom du joueur</param>
+    /// <returns>string nom convertie</returns>
+    public string convertNameReverse(string name)
+    {
+        if (name == "P1")
+        {
+            return "PlayerBlue";
+        }
+        if (name == "P2")
+        {
+            return "PlayerRed";
+        }
+        if (name == "P3")
+        {
+            return "PlayerGreen";
+        }
+        if (name == "P4")
+        {
+            return "PlayerViolet";
+        }
+        return name;
+    }
+    /// <summary>
+    /// Empeche la duplication de round
+    /// </summary>
     IEnumerator waitAddScore()
     {
         if (!roundAddedTimer)
@@ -537,6 +593,22 @@ public class GameMananger : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// renvoie une valeur aléatoire entre 2 nombre
+    /// </summary>
+    /// <param name="min">borne depart</param>
+    /// <param name="max">borne max</param>
+    /// <returns></returns>
+    public int giveRandom(int min, int max)
+    {
+        int aleaNb = UnityEngine.Random.Range(min, max + 1);
+
+        return aleaNb;
+    }
+
+   
+
     /// <summary>
     /// Reset la game en remettant le tout a 0 (affichage notamment)
     /// </summary>
@@ -610,7 +682,7 @@ public class GameMananger : MonoBehaviour
         }
 
 
-
+        survivorStatement();
 
 
 

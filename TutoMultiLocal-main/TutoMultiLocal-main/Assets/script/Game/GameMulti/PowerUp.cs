@@ -60,6 +60,7 @@ public class PowerUp : MonoBehaviour
 
     public bool modeScore;
     public bool modeLife;
+    public bool modeSurvivor;
 
     //bruitage
     public AudioClip boomSfx;
@@ -101,7 +102,10 @@ public class PowerUp : MonoBehaviour
     
             nbPlayers = PlayerPrefs.GetInt("nbLifePlayers");
         }
-        
+        if (modeSurvivor)
+        {
+            nbPlayers = PlayerPrefs.GetInt("nbSurvivorPlayers");
+        }
         mur = GameObject.FindGameObjectsWithTag("mur");
         inverserControl();
 
