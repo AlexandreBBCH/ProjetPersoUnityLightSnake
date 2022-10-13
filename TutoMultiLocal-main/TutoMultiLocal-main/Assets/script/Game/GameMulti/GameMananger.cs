@@ -88,7 +88,6 @@ public class GameMananger : MonoBehaviour
         survivorStatement();
         if (survivorTimerIsActivated)
         {
-          
             InvokeRepeating("timerGestion",1,1);
         }
 
@@ -99,7 +98,8 @@ public class GameMananger : MonoBehaviour
         {
             if (p.hunter && !p.isAlive)
             {
-                Debug.Log("test");
+             hunterAlive = false;   
+                
             }
         }
     }
@@ -119,7 +119,7 @@ public class GameMananger : MonoBehaviour
             {
                 p.shotMissile = 1;
                 p.boost = 3;
-                GameObject.Find("Role" + p.playerName).GetComponent<Text>().text = "Civilian";
+               
 
             }
             GameObject.Find("Shot" + p.playerName).GetComponent<Text>().text ="Shot : " + p.shotMissile.ToString();
@@ -136,9 +136,22 @@ public class GameMananger : MonoBehaviour
         if (survivorTimer <= 0 || nbAlivePlayers <= 1 || !hunterAlive)
         {
             CancelInvoke();
-            title.text = "Light Snake 0";
+            title.text = "Light Snake";
             menuFinPartie.SetActive(true);
-         
+            if (!hunterAlive || survivorTimer <= 0)
+            {
+                GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "First : Civilian";
+                GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Second : Hunter";
+                GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Civilian";
+            }
+            else
+            {
+                GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "First : Hunter";
+                GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Second : Civilian";
+                GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Hunter";
+            }
+
+     
             p.speed = 0;
         }
         survivorTimer--;
@@ -147,15 +160,9 @@ public class GameMananger : MonoBehaviour
     }
 
     private void Awake()
-    {
-        
+    {  
         initialisation();
         //Instantiate()
-
-      
-
-
-
     }
 
 
@@ -174,8 +181,6 @@ public class GameMananger : MonoBehaviour
         {
             nbPlayers = PlayerPrefs.GetInt("nbPlayers");
             nbRound = PlayerPrefs.GetInt("nbRound");
-
-
         }
         if (modeSurvivor)
         {

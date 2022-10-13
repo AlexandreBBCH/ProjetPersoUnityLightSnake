@@ -2920,12 +2920,17 @@ MonoBehaviour:
   nbPlayersSlider: {fileID: 1593684353}
   nbLifePlayers: {fileID: 0}
   nbPlayersLifeSlider: {fileID: 0}
+  nbSurvivorPlayers: {fileID: 0}
+  nbPlayersSurvivorSlider: {fileID: 0}
   nbRound: {fileID: 0}
   sliderRound: {fileID: 0}
   nbLife: {fileID: 0}
   sldLife: {fileID: 0}
+  txtSurvivorTimer: {fileID: 0}
+  sldSurvivorTimer: {fileID: 0}
   modeScore: 0
   modeLife: 0
+  modeSurvivor: 0
 --- !u!114 &1133263696
 MonoBehaviour:
   m_ObjectHideFlags: 0
