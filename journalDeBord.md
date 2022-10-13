@@ -51,8 +51,16 @@
 #### Jai créer la base du mode de jeu survivor pour l'avancer cette aprem.
 
 ### <b> Aprem
-#### Le mode de jeu est bien avancé, je devrai reussir à le finir demain. J'ai deja ajouter le timer mettant fin a la partie ainsi que rendue les "civil" inapate a la construsion de mur.
+#### Le mode de jeu est bien avancé, je devrai reussir à le finir demain. J'ai deja ajouter le timer mettant fin a la partie ainsi que rendue les "civil" inapte a la construsion de mur.
 #### Pour la prochaine fois je compte finaliser les règles du jeu et mettre le tableau des gagnant. Si possible me renseigner sur une mise en ligne. 
 ***
 
 
+## 13.10.2022
+### <b> Matin
+#### Je compte ce matin mettre en place le menu du choix des chasseurs ainsi que rendre le jeu jouable, c'est à dire avoir un chasseur contenant tout les caractéristiques du chasseur de même pour les souris. Si possible afficher le camps des vainqueurs à la fin de la partie.
+
+### <b> Aprem
+#### Cette aprem je compte terminé les tâche du matin si il en reste, sinon soit rendre plus sympatique les menu multi et le main menu pour une utilisation plus agréable. Et s'il me reste du temps. Trois possibilités me reste pour cette aprem, optimiser le code, rendre optionelle le mode vie ainsi que éventuellement m'inicier au mode multijoueur.   
+
+***
