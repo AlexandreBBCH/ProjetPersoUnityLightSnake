@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181.99998, y: -28.730083}
-  m_SizeDelta: {x: 276.66, y: 44.8568}
+  m_AnchoredPosition: {x: 181.99998, y: -32.792}
+  m_SizeDelta: {x: 171.08, y: 160.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7015259
 MonoBehaviour:
@@ -207,7 +207,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1133263695}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: OptionSurvivorMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
