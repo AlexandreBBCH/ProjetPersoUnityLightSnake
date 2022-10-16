@@ -14,9 +14,10 @@ public class MainMenuPause : MonoBehaviour
 {
 
     bool isPaused = false;
+    bool isControllerMenuPaused = false;
     GameMananger gm;
     public GameObject pauseMenu;
-
+    public GameObject controllerButton;
     public Slider musiqueSlider;
     public Slider bruitageSlider;
 
@@ -35,6 +36,8 @@ public class MainMenuPause : MonoBehaviour
     {
         Application.LoadLevel(0);
     }
+
+
 
     private void Update()
     {
@@ -89,6 +92,25 @@ public class MainMenuPause : MonoBehaviour
             isPaused = false;
 
             pauseMenu.SetActive(isPaused);
+        }
+    }
+
+    public void openControllerMenu()
+    {
+        if (!isControllerMenuPaused)
+        {
+
+
+            isControllerMenuPaused = true;
+            controllerButton.SetActive(isControllerMenuPaused);
+
+
+        }
+        else
+        {
+            isControllerMenuPaused = false;
+
+            controllerButton.SetActive(isControllerMenuPaused);
         }
     }
 
