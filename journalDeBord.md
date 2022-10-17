@@ -58,9 +58,17 @@
 
 ## 13.10.2022
 ### <b> Matin
-#### Je compte ce matin mettre en place le menu du choix des chasseurs ainsi que rendre le jeu jouable, c'est à dire avoir un chasseur contenant tout les caractéristiques du chasseur de même pour les souris. Si possible afficher le camps des vainqueurs à la fin de la partie.
+#### Je compte ce matin mettre en place le menu du choix des chasseurs ainsi que rendre le jeu jouable, c'est à dire avoir un chasseur contenant tout les caractéristiques du chasseur de même pour les souris. Si possible afficher le camps des vainqueurs à la fin de la partie.Cette aprem je compte terminé les tâche du matin si il en reste, sinon soit rendre plus sympatique les menu multi et le main menu pour une utilisation plus agréable.Et s'il me reste du temps. Trois possibilités me reste pour cette aprem, optimiser le code, rendre optionelle le mode vie ainsi que éventuellement m'inicier au mode multijoueur.
 
 ### <b> Aprem
-#### Cette aprem je compte terminé les tâche du matin si il en reste, sinon soit rendre plus sympatique les menu multi et le main menu pour une utilisation plus agréable. Et s'il me reste du temps. Trois possibilités me reste pour cette aprem, optimiser le code, rendre optionelle le mode vie ainsi que éventuellement m'inicier au mode multijoueur.   
-
+#### 
+Finalement je n'ai eu le temps d'uniquement avancé sur l'aspect visuel des modes multi pour rendre le tout plus visuel pour un utilisateur lambda. La partie graphique m'a pris relativement pas mal de temps sur photoshop. La prochaine fois je m'occuperai de finaliser la version démo pour la présentation en ajoutant un menu pour indiquer les touches pour chaque joueur ainsi qu'un explicatif des règles pour chaque mode.
 ***
+## 17.10.2022
+### <b> Matin
+Hier soir je me suis occupé de rajouter le menu des touches pour joueur, je me suis aussi occupé des logo de mode de jeu qui ne me satisfaisait pas auparavant quil faut encore que j'insert dans le jeu.
+Ce m0atin je compte créer les 3 page de règle de jeu s'affichant quelque seconde au choix du mode. Cette aprem je vais plutot me focaliser sur la gestion de dernier bug, 
+
+### <b> Aprem
+
+
