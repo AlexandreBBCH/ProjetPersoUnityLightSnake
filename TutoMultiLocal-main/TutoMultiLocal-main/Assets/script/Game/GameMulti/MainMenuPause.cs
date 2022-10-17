@@ -26,7 +26,7 @@ public class MainMenuPause : MonoBehaviour
     private void Start()
     {
 
-        gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
+        //gm = GameObject.Find("GameManager").GetComponent<GameMananger>();
     }
 
     /// <summary>

@@ -41,11 +41,14 @@ public class Menu : MonoBehaviour
     public bool modeLife;
     public bool modeSurvivor;
 
+    public GameObject ruleScore;
     public GameObject ruleLife;
+    public GameObject ruleSurvivor;
 
     bool ruleActivated = true;
     bool ruleLifeActivated = true;
-
+    bool ruleScoreActivated = true;
+    bool ruleSurvivorActivated = true;
     private void Start()
     {
 
@@ -81,13 +84,13 @@ public class Menu : MonoBehaviour
 
         if (Input.anyKey)
         {
+            ruleScoreActivated = false;
             ruleLifeActivated = false;
+            ruleSurvivorActivated = false;
         }
-        if (modeLife)
-        {
-
-            StartCoroutine("ruleLifeGestion");
-        }
+     
+            StartCoroutine("ruleGestion");
+       
     }
 
     void initialisationMode()
@@ -118,20 +121,55 @@ public class Menu : MonoBehaviour
 
     
 
-    IEnumerator ruleLifeGestion()
+    IEnumerator ruleGestion()
     {
-        if (ruleActivated && ruleLifeActivated)
+        if (modeLife)
         {
-            ruleLife.SetActive(true);
-            yield return new WaitForSeconds(5);
-            ruleLife.SetActive(false);
-            ruleLifeActivated = false;
+            if (ruleActivated && ruleLifeActivated)
+            {
+                ruleLife.SetActive(true);
+                yield return new WaitForSeconds(5);
+                ruleLife.SetActive(false);
+                ruleLifeActivated = false;
+            }
+            else
+            {
+                ruleLife.SetActive(false);
+            }
         }
-        else
+
+        if (modeScore)
         {
-            ruleLife.SetActive(false);
+            if (ruleActivated && ruleScoreActivated)
+            {
+                ruleScore.SetActive(true);
+                yield return new WaitForSeconds(5);
+                ruleScore.SetActive(false);
+                ruleScoreActivated = false;
+            }
+            else
+            {
+                ruleScore.SetActive(false);
+            }
         }
+
+        if (modeSurvivor)
+        {
+            if (ruleActivated && ruleSurvivorActivated)
+            {
+                ruleSurvivor.SetActive(true);
+                yield return new WaitForSeconds(5);
+                ruleSurvivor.SetActive(false);
+                ruleSurvivorActivated = false;
+            }
+            else
+            {
+                ruleSurvivor.SetActive(false);
+            }
+        }
+
   
+
     }
 
 

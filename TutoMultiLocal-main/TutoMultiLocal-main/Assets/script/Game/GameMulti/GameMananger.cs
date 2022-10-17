@@ -99,6 +99,7 @@ public class GameMananger : MonoBehaviour
             if (p.hunter && !p.isAlive)
             {
              hunterAlive = false;   
+                
             }
         }
     }
@@ -111,7 +112,7 @@ public class GameMananger : MonoBehaviour
             {
                 p.shotMissile = 3;
                 p.boost = 1;
-                GameObject.Find("Role"+p.playerName).GetComponent<Text>().text = "Hunter";
+                GameObject.Find("Role"+p.playerName).GetComponent<Text>().text = "Snake";
          
             }
             else
@@ -139,15 +140,15 @@ public class GameMananger : MonoBehaviour
             menuFinPartie.SetActive(true);
             if (!hunterAlive || survivorTimer <= 0)
             {
-                GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "First : Civilian";
-                GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Second : Hunter";
-                GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Civilian";
+                GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "Prey : First";
+                GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Snake : Second";
+                GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Prey";
             }
             else
             {
-                GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "First : Hunter";
-                GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Second : Civilian";
-                GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Hunter";
+                GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "Snake : First";
+                GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Prey : Second ";
+                GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Snake";
             }
 
      
