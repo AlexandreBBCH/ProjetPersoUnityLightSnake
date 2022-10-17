@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 
@@ -39,11 +41,18 @@ public class Menu : MonoBehaviour
     public bool modeLife;
     public bool modeSurvivor;
 
+    public GameObject ruleLife;
+
+    bool ruleActivated = true;
+    bool ruleLifeActivated = true;
+
     private void Start()
     {
 
         initialisation();
     }
+
+
 
     void initialisation()
     {
@@ -67,18 +76,34 @@ public class Menu : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+        if (Input.anyKey)
+        {
+            ruleLifeActivated = false;
+        }
+        if (modeLife)
+        {
+
+            StartCoroutine("ruleLifeGestion");
+        }
+    }
+
     void initialisationMode()
     {
         if (modeScore)
         {
             int nbRound = PlayerPrefs.GetInt("nbRound");
             sliderRound.value = nbRound;
+           
         }
 
         if (modeLife)
         {
             int nbLife = PlayerPrefs.GetInt("nbLife");
             sldLife.value = nbLife;
+    
         }
         if (modeSurvivor)
         {
@@ -91,6 +116,23 @@ public class Menu : MonoBehaviour
         initialisationMode();
     }
 
+    
+
+    IEnumerator ruleLifeGestion()
+    {
+        if (ruleActivated && ruleLifeActivated)
+        {
+            ruleLife.SetActive(true);
+            yield return new WaitForSeconds(5);
+            ruleLife.SetActive(false);
+            ruleLifeActivated = false;
+        }
+        else
+        {
+            ruleLife.SetActive(false);
+        }
+  
+    }
 
 
     /// <summary>

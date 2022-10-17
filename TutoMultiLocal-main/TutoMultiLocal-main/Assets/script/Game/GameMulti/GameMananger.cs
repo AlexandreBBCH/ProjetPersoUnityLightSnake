@@ -99,7 +99,6 @@ public class GameMananger : MonoBehaviour
             if (p.hunter && !p.isAlive)
             {
              hunterAlive = false;   
-                
             }
         }
     }
