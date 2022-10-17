@@ -70,5 +70,5 @@ Hier soir je me suis occupé de rajouter le menu des touches pour joueur, je me 
 Ce m0atin je compte créer les 3 page de règle de jeu s'affichant quelque seconde au choix du mode. Cette aprem je vais plutot me focaliser sur la gestion de dernier bug, 
 
 ### <b> Aprem
-
+Cette aprem jai uniformiser les polices afin de rendre le tout lisible ainsi que ajouter les regles au moment du choix du mode. Mais aussi j'ai corriger certaine denomination dans le jeu.
 
