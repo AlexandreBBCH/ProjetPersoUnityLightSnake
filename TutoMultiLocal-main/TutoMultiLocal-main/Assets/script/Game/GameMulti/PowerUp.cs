@@ -20,33 +20,22 @@ public class PowerUp : MonoBehaviour
     bool isImmortal = false;
     Vector2 positionCollide;
     GameMananger gm;
-
-
     public Sprite iconBoost;
     Sprite oldPoweUpBoost;
-
     public Sprite iconStop;
     Sprite oldIconStop;
-
     public Sprite iconInvert;
     Sprite oldIconInvert;
-
     public Sprite iconInfinityShot;
     Sprite oldIconInfinityShot;
-
     public Sprite iconApocalypse;
     Sprite oldIconApocalypse;
-
-
-
     public GameObject p1;
     public GameObject p2;
     public GameObject p3;
     public GameObject p4;
-
     public GameObject boost;
     public GameObject shot;
-
     string player1 = "PlayerBlue";
     string player2 = "PlayerRed";
     string player3 = "PlayerGreen";
@@ -57,11 +46,9 @@ public class PowerUp : MonoBehaviour
     int nbPlayers;
     int nbLifePlayers;
     Missile missile;
-
     public bool modeScore;
     public bool modeLife;
     public bool modeSurvivor;
-
     //bruitage
     public AudioClip boomSfx;
 

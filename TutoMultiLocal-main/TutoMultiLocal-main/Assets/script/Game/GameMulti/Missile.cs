@@ -27,7 +27,11 @@ public class Missile : MonoBehaviour
     int directionMissileX;
     int directionMissileY;
 
-    //cest ici que l ont joue le son de l impact
+    
+    /// <summary>
+    /// cest ici que l ont joue le son de l impact
+    /// </summary>
+    /// <param name="sound"></param>
     public void PlayBoumSfx(AudioClip sound)
     {
         GetComponent<AudioSource>().volume = (float)PlayerPrefs.GetInt("volumeBruitage") / 100;
@@ -66,11 +70,6 @@ public class Missile : MonoBehaviour
         //rb.velocity = direction * speed * gm.gameSpeed;
     }
 
-
-
-
-
- 
 
     /// <summary>
     /// tir en fonction de la direction du regard du joueur

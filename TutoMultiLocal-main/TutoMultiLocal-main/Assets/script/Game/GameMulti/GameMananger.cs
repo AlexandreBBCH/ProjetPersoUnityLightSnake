@@ -103,6 +103,10 @@ public class GameMananger : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    ///initialise les donne de base du mode survivor
+    /// </summary>
     void survivorInit()
     {
 
