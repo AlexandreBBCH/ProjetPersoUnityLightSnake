@@ -111,7 +111,7 @@ public class GameMananger : MonoBehaviour
             if (p.hunter)
             {
                 p.shotMissile = 3;
-                p.boost = 1;
+                p.boost = 3;
                 GameObject.Find("Role"+p.playerName).GetComponent<Text>().text = "Snake";
          
             }
@@ -129,6 +129,10 @@ public class GameMananger : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// Gere l'affichage au lancement du timer
+    /// </summary>
     void timerGestion()
     {
   
@@ -338,10 +342,6 @@ public class GameMananger : MonoBehaviour
                         case "P2":
 
                             StartCoroutine("AddScore1");
-
-
-
-
                             break;
                         case "P3":
 
@@ -354,9 +354,6 @@ public class GameMananger : MonoBehaviour
 
 
                             StartCoroutine("AddScore3");
-
-
-
                             break;
 
 
@@ -617,33 +614,44 @@ public class GameMananger : MonoBehaviour
     /// <summary>
     /// Reset la game en remettant le tout a 0 (affichage notamment)
     /// </summary>
-    IEnumerator ResetGame() //Ienumerator permet de mettre un yield pour faire attendre
+    IEnumerator ResetGame() 
     {
-      
+
+        addScoreAndWinVerify();
+        yield return new WaitForSeconds(2);
+        resetDisplayGame();
+        verifPlayerDeadToMakeThings();
+        survivorStatement();
+        scoreBoardOrder();
+        suppAllEvent();
+        eventRound();
+        Invoke("HideGoTxt", 2);
+        powerUp.gameObject.SetActive(true);
+        nbPartie++;
+
+    }
+
+    /// <summary>
+    /// ajout le score apres victoire d un round et verifie la victoire
+    /// </summary>
+    public void addScoreAndWinVerify()
+    {
         if (modeScore)
         {
             StartCoroutine(waitAddScore());
             title.text = "Light Snake " + round + "/" + nbRound;
             verifWin();
         }
-        yield return new WaitForSeconds(2);
-        goTxt.SetActive(true);
-        nbAlivePlayers = players.Length;
-        gameSpeed = 1;
-        GameObject[] murs = GameObject.FindGameObjectsWithTag("mur");
+    }
 
-
-        foreach (GameObject go in murs)
-        {
-            Destroy(go);
-        }
-
-     
-
-
+    /// <summary>
+    /// verifie les joueur et effectue les actiond nécéssaire
+    /// </summary>
+   public void verifPlayerDeadToMakeThings()
+    {
         foreach (Player p in players)
         {
-       
+
             if (p.isDead())
             {
 
@@ -653,7 +661,6 @@ public class GameMananger : MonoBehaviour
                 {
                     p.menuFinPartie.SetActive(true);
 
-              
 
                     GameObject.Find("GameManager").GetComponent<GameMananger>().gameSpeed = 0;
                     p.speed = 0;
@@ -672,45 +679,45 @@ public class GameMananger : MonoBehaviour
                     p.gameObject.SetActive(true);
                     p.ResetPlayer();
                 }
-
             }
-
             if (modeScore)
             {
                 p.gameObject.SetActive(true);
                 p.ResetPlayer();
             }
-
-       
-
-
         }
+    }
 
+    /// <summary>
+    /// reset de la scene entre chaque rouns
+    /// </summary>
+   public void resetDisplayGame()
+    {
+        goTxt.SetActive(true);
+        nbAlivePlayers = players.Length;
+        gameSpeed = 1;
+        GameObject[] murs = GameObject.FindGameObjectsWithTag("mur");
+        foreach (GameObject go in murs)
+        {
+            Destroy(go);
+        }
+    }
 
-        survivorStatement();
+    /// <summary>
+    /// Gere l'apparition aleatoire des event
+    /// </summary>
 
-
-
-        scoreBoardOrder();
-
-        suppAllEvent();
-           aleaRound = UnityEngine.Random.RandomRange(1, 4);
+    public void eventRound()
+    {
+        aleaRound = UnityEngine.Random.RandomRange(1, 4);
         if (modeLife)
         {
             if (aleaRound == 1)
             {
-               
+
                 spawnEventLife();
-            } 
+            }
         }
-
-        Invoke("HideGoTxt", 2);
-        powerUp.gameObject.SetActive(true);
-
-
-
-        nbPartie++;
-
     }
 
     /// <summary>
@@ -720,7 +727,7 @@ public class GameMananger : MonoBehaviour
     public void spawnEventLife()
     {
         allEvent = GameObject.FindGameObjectsWithTag("event");
-        Debug.Log(allEvent.Count());
+  
         int compteur = 0;
         foreach (GameObject eventName in allEvent)
         {

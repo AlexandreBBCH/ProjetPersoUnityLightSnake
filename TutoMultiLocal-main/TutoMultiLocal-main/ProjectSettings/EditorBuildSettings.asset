@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/GameSurvivor.unity
     guid: 2c091e8a7becb8745b41ab9065ebc424
+  - enabled: 1
+    path: Assets/Scenes/Menu/MenuSolo.unity
+    guid: 7f9024aaa89a5544ab1cb40d969942b6
   m_configObjects: {}

@@ -452,7 +452,7 @@ public class Player : MonoBehaviour
     {
         if (gm.modeLife || gm.modeScore || hunter)
         {
-            lastPos = transform.position; // recupere la pos du joueureur au moment du changement
+            lastPos = transform.position; // recupere la pos du joueur au moment du changement
             GameObject go = Instantiate(wallPrefab, transform.position, Quaternion.identity);
             if (lastWallCol != null)
             {
@@ -481,15 +481,15 @@ public class Player : MonoBehaviour
         {
         col.transform.position = posStart + (posEnd - posStart)/2;
         float size = Vector2.Distance(posEnd, posStart);
-        if (posStart.x != posEnd.x)
-        {
+            if (posStart.x != posEnd.x)
+            {
             col.transform.localScale = new Vector2(size + wallWidth, wallWidth);
-        }
-        else
-        {
+            }
+            else
+            {
             col.transform.localScale = new Vector2(wallWidth,size + wallWidth);
-        }
-      } 
+         }
+        } 
         }
 
     }
@@ -583,8 +583,10 @@ public class Player : MonoBehaviour
             return false;
         }
     }
-    
-    //remet a 0 les attribut du joueur
+
+    /// <summary>
+    /// remet a 0 les attribut du joueur
+    /// </summary>
     public void ResetPlayer()
     {
         

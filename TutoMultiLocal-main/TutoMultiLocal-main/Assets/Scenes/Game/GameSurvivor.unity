@@ -208,7 +208,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1920535997}
   m_Direction: 0
   m_MinValue: 15
-  m_MaxValue: 60
+  m_MaxValue: 420
   m_WholeNumbers: 1
   m_Value: 60
   m_OnValueChanged:
@@ -4231,7 +4231,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: cabda526651602e499348a607aec4147, type: 3}
     - target: {fileID: 3388500756239785409, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3388500756239785409, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4315,7 +4315,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f0847749c11b12849b2eff0cfc8340dc, type: 3}
     - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: modeLife
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: iconBoost
@@ -4329,6 +4329,10 @@ PrefabInstance:
       propertyPath: iconInvert
       value: 
       objectReference: {fileID: 21300000, guid: 40f67be5ffdba564e9ee8615690a7619, type: 3}
+    - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
+      propertyPath: modeSurvivor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: iconApocalypse
       value: 
@@ -5513,7 +5517,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0.11111111, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5966,7 +5970,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f0847749c11b12849b2eff0cfc8340dc, type: 3}
     - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: modeLife
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: iconBoost
@@ -5980,6 +5984,10 @@ PrefabInstance:
       propertyPath: iconInvert
       value: 
       objectReference: {fileID: 21300000, guid: 40f67be5ffdba564e9ee8615690a7619, type: 3}
+    - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
+      propertyPath: modeSurvivor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7654212175930011776, guid: b844b1fd141c9fb4a941126831e1af64, type: 3}
       propertyPath: iconApocalypse
       value: 
@@ -7706,7 +7714,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f0847749c11b12849b2eff0cfc8340dc, type: 3}
     - target: {fileID: 6411773247027197749, guid: 21c6149972080c54cbe6ebbce8587b1b, type: 3}
       propertyPath: modeLife
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6411773247027197749, guid: 21c6149972080c54cbe6ebbce8587b1b, type: 3}
       propertyPath: iconBoost
@@ -7720,6 +7728,10 @@ PrefabInstance:
       propertyPath: iconInvert
       value: 
       objectReference: {fileID: 21300000, guid: 40f67be5ffdba564e9ee8615690a7619, type: 3}
+    - target: {fileID: 6411773247027197749, guid: 21c6149972080c54cbe6ebbce8587b1b, type: 3}
+      propertyPath: modeSurvivor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6411773247027197749, guid: 21c6149972080c54cbe6ebbce8587b1b, type: 3}
       propertyPath: iconApocalypse
       value: 
@@ -9032,8 +9044,8 @@ RectTransform:
   m_Father: {fileID: 339697049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.11111111, y: 0}
+  m_AnchorMax: {x: 0.11111111, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9215,7 +9227,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f0847749c11b12849b2eff0cfc8340dc, type: 3}
     - target: {fileID: -6892936086096010095, guid: 94c6b2f37509efd4093bbb4a08edafc9, type: 3}
       propertyPath: modeLife
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6892936086096010095, guid: 94c6b2f37509efd4093bbb4a08edafc9, type: 3}
       propertyPath: iconBoost
@@ -9229,6 +9241,10 @@ PrefabInstance:
       propertyPath: iconInvert
       value: 
       objectReference: {fileID: 21300000, guid: 40f67be5ffdba564e9ee8615690a7619, type: 3}
+    - target: {fileID: -6892936086096010095, guid: 94c6b2f37509efd4093bbb4a08edafc9, type: 3}
+      propertyPath: modeSurvivor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6892936086096010095, guid: 94c6b2f37509efd4093bbb4a08edafc9, type: 3}
       propertyPath: iconApocalypse
       value: 
@@ -9315,7 +9331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6359773809888067885, guid: 94c6b2f37509efd4093bbb4a08edafc9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6359773809888067885, guid: 94c6b2f37509efd4093bbb4a08edafc9, type: 3}
       propertyPath: m_LocalPosition.x

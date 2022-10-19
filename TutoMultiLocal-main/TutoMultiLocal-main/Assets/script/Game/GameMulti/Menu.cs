@@ -250,9 +250,14 @@ public class Menu : MonoBehaviour
         Application.LoadLevel(6);
 
     }
- 
 
-  
+    public void OptionSoloMenu()
+    {
+
+        Application.LoadLevel(8);
+
+    }
+
     /// <summary>
     /// enmene a la page indiqué
     /// </summary>
