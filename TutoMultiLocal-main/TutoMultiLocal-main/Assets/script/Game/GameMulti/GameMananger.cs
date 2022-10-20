@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ public class GameMananger : MonoBehaviour
 
     public int nbAlivePlayers;
     [HideInInspector]
-    Player p;
+    Player p = new Player();
     public float gameSpeed = 1;
     public int[] scores;
     public int[] life;
@@ -40,6 +41,7 @@ public class GameMananger : MonoBehaviour
     public bool lastOne = true;
 
     public GameObject menuFinPartie;
+    public GameObject menuFastRestart;
     public Text title;
     public Text winner;
     public Text scoreFinalFirst;
@@ -51,6 +53,8 @@ public class GameMananger : MonoBehaviour
     public Text scoreLifeFinalSecond;
     public Text scoreLifeFinalThird;
     public Text scoreLifeFinalFourth;
+
+    
 
 
     bool scoreAddedTimer = false;
@@ -69,12 +73,16 @@ public class GameMananger : MonoBehaviour
     public Player P3;
     public Player P4;
 
+    Menu menu = new Menu();
+    public Text lastChanceTimer ;
+
     public int hunterPlayer;
     bool hunterAlive = true;
 
     Dictionary<string, int> scoreboard = new Dictionary<string, int>();
     Dictionary<string, int> scoreboardLife = new Dictionary<string, int>();
 
+    bool isFastModeActive;
 
 
     public int aleaRound;
@@ -137,32 +145,76 @@ public class GameMananger : MonoBehaviour
     /// <summary>
     /// Gere l'affichage au lancement du timer
     /// </summary>
+    /// 
+    IEnumerator fastRestartGestion()
+    {
+
+        yield return new WaitForSeconds(1); 
+        menuFastRestart.SetActive(false);
+        menu.PlaySurvivor();
+    }
     void timerGestion()
     {
-  
-
+    
         if (survivorTimer <= 0 || nbAlivePlayers <= 1 || !hunterAlive)
         {
             CancelInvoke();
             title.text = "Light Snake";
-            menuFinPartie.SetActive(true);
-            if (!hunterAlive || survivorTimer <= 0)
+            if (isFastModeActive)
             {
-                GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "Prey : First";
-                GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Snake : Second";
-                GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Prey";
+                menuFastRestart.SetActive(true);
+                StartCoroutine("fastRestartGestion");
+     
             }
             else
             {
+                menuFinPartie.SetActive(true);
+            }
+            if (!hunterAlive || survivorTimer <= 0)
+            {
+                if (isFastModeActive)
+                {
+                    GameObject.Find("theFastWinner").GetComponent<Text>().text = "Winner : Prey";
+                }
+                else
+                {
+
+                    GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "Prey : First";
+                    GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Snake : Second";
+                    GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Prey";
+                }
+
+            }
+            else
+            {
+                if (isFastModeActive)
+                {
+                    GameObject.Find("theFastWinner").GetComponent<Text>().text = "Winner : Snake";
+                }
+                else { 
+ 
                 GameObject.Find("P1ScoreFinal").GetComponent<Text>().text = "Snake : First";
                 GameObject.Find("P2ScoreFinal").GetComponent<Text>().text = "Prey : Second ";
                 GameObject.Find("theWinner").GetComponent<Text>().text = "Winner : Snake";
+                }
+
             }
 
-     
+    
+
+
             p.speed = 0;
         }
+
         survivorTimer--;
+        if (survivorTimer <= 5)
+        {
+            lastChanceTimer.text = survivorTimer.ToString();
+            if (survivorTimer <= 0)
+            {
+                lastChanceTimer.text = "Hunt Failed";
+            }
+        }
         title.text = "Light Snake " + survivorTimer.ToString();
 
     }
@@ -172,6 +224,7 @@ public class GameMananger : MonoBehaviour
         initialisation();
         //Instantiate()
     }
+
 
 
     /// <summary>
@@ -194,6 +247,15 @@ public class GameMananger : MonoBehaviour
         {
            nbPlayers = PlayerPrefs.GetInt("nbSurvivorPlayers");
            survivorTimer = PlayerPrefs.GetInt("survivorTimer");
+            int fastMode = PlayerPrefs.GetInt("isFastMode");
+            if (fastMode == 0)
+            {
+                isFastModeActive = false;
+            }
+            else
+            {
+                isFastModeActive = true;
+            }
         }
 
    
@@ -622,7 +684,7 @@ public class GameMananger : MonoBehaviour
     {
 
         addScoreAndWinVerify();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         resetDisplayGame();
         verifPlayerDeadToMakeThings();
         survivorStatement();

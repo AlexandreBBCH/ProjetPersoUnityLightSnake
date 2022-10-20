@@ -49,6 +49,9 @@ public class Menu : MonoBehaviour
     bool ruleLifeActivated = true;
     bool ruleScoreActivated = true;
     bool ruleSurvivorActivated = true;
+
+    public Toggle tglFastRestart;
+
     private void Start()
     {
 
@@ -112,6 +115,19 @@ public class Menu : MonoBehaviour
         {
             int survivorTimer  = PlayerPrefs.GetInt("survivorTimer");
             sldSurvivorTimer.value = survivorTimer;
+
+            if (PlayerPrefs.GetInt("isFastMode")== 1)
+            {
+                tglFastRestart.isOn = true;
+            }
+            else
+            {
+                tglFastRestart.isOn = false;
+            }
+        
+       
+
+            
         }
     }
     private void Awake()
@@ -119,6 +135,17 @@ public class Menu : MonoBehaviour
         initialisationMode();
     }
 
+    public void fastRestartActivation()
+    {
+        if (tglFastRestart.isOn)
+        {
+            PlayerPrefs.SetInt("isFastMode", 1);    
+        }
+        else
+        {
+            PlayerPrefs.SetInt("isFastMode", 0);
+        }
+    }
     
 
     IEnumerator ruleGestion()
