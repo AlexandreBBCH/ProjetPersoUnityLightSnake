@@ -19,7 +19,9 @@ public class GestionOption : MonoBehaviour
     public Text bruitageText;
     public float volumeBruitage;
 
+    public Toggle tglRules;
 
+  
 
     /// <summary>
     ///  c est ici que l ont recupere les parametre audio au prealable choisis ainsi que la gestion de la musique
@@ -57,5 +59,22 @@ public class GestionOption : MonoBehaviour
 
     }
 
+
+    public void activationRule()
+    {
+        //if (tglRules.isOn)
+        //{
+        //    PlayerPrefs.SetInt("ruleActivated", 1);
+       
+        //}
+        //else
+        //{
+        //    PlayerPrefs.SetInt("ruleActivated", 0);
+       
+        //}
+
+      
+
+    }
 
 }

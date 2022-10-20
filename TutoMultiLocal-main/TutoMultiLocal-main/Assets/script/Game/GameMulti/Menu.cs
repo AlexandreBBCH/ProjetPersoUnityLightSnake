@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -45,12 +46,13 @@ public class Menu : MonoBehaviour
     public GameObject ruleLife;
     public GameObject ruleSurvivor;
 
-    bool ruleActivated = true;
+    public bool ruleActivated = true;
     bool ruleLifeActivated = true;
     bool ruleScoreActivated = true;
     bool ruleSurvivorActivated = true;
 
     public Toggle tglFastRestart;
+    public Toggle tglRuleActivated;
 
     private void Start()
     {
@@ -93,7 +95,8 @@ public class Menu : MonoBehaviour
         }
      
             StartCoroutine("ruleGestion");
-       
+      
+
     }
 
     void initialisationMode()
@@ -132,7 +135,21 @@ public class Menu : MonoBehaviour
     }
     private void Awake()
     {
+        //if (PlayerPrefs.GetInt("ruleActivated") == 1)
+        //{
+        //    tglRuleActivated.isOn = true;
+        
+        //}
+        //else
+        //{
+        //    tglRuleActivated.isOn = true;
+           
+        //}
+
+
         initialisationMode();
+  
+
     }
 
     public void fastRestartActivation()
@@ -150,6 +167,19 @@ public class Menu : MonoBehaviour
 
     IEnumerator ruleGestion()
     {
+        ///marche po
+        //if (PlayerPrefs.GetInt("ruleActivated") == 1)
+        //{
+          
+        //    ruleActivated = true;
+        //}
+        //else
+        //{
+     
+        //    ruleActivated = false;
+        //}
+
+
         if (modeLife)
         {
             if (ruleActivated && ruleLifeActivated)
