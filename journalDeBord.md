@@ -72,3 +72,23 @@ Ce m0atin je compte créer les 3 page de règle de jeu s'affichant quelque secon
 ### <b> Aprem
 Cette aprem jai uniformiser les polices afin de rendre le tout lisible ainsi que ajouter les regles au moment du choix du mode. Mais aussi j'ai corriger certaine denomination dans le jeu.
 
+## 19.10.2022
+### <b> Matin
+####
+Alors j'ai eu un ptit probleme, j'ai pas mal de travaillé chez moi simplement j'ai du mal m'y prendre pour push resultat. 
+J'ai passé une heure au telephone avec ma famille pour leur faire fait un push git à distance. Finalement on m'a envoyé un zip qui m'a permis de récupérer une partie de mon travails 2h plus tard. 
+Heureusement, j'ai quand même avancé mon jeu durant l'appel au cas ou ils n'y arriveraient pas. C'était le stress toute la matinée. Heureusement les présentations était l'après-midi. 
+
+### <b> Aprem
+####
+Je me suis occupée de terminer mon powerpoint qui lui aussi a eu des problème d'affichage. Et j'ai aussi eu le temps de remette au point (visuellement) mon jeu en lui ajoutant même des petite animation sur les menus.
+
+## 20.10.2022
+### <b> Matin
+####
+Hier jme suis rendue compte d'un bug d'affichage durant la présentation, je vais donc essayer de m'en charger. 
+Ainsi que régler les bugs du mode hunt.
+
+### <b> Aprem
+####
+Je vais tenter de débuter le mode online.
