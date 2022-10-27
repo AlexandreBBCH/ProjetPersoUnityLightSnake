@@ -2178,6 +2178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2961b5db9067d6c40b89810709c9ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointer: {fileID: 0}
+  pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1001 &525675660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2426,6 +2429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2961b5db9067d6c40b89810709c9ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointer: {fileID: 0}
+  pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &559427014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,6 +3640,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2961b5db9067d6c40b89810709c9ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointer: {fileID: 0}
+  pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &905907879
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,6 +4012,7 @@ MonoBehaviour:
   totalScore: 0
   lastOne: 1
   menuFinPartie: {fileID: 1456250904}
+  menuFastRestart: {fileID: 0}
   title: {fileID: 674442559}
   winner: {fileID: 442303671}
   scoreFinalFirst: {fileID: 0}
@@ -4021,6 +4031,7 @@ MonoBehaviour:
   P2: {fileID: 1237287532}
   P3: {fileID: 1558308293}
   P4: {fileID: 1623886452}
+  lastChanceTimer: {fileID: 0}
   hunterPlayer: 0
   aleaRound: 0
 --- !u!4 &951940959
@@ -4800,6 +4811,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2961b5db9067d6c40b89810709c9ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointer: {fileID: 0}
+  pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1051818028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5505,6 +5519,9 @@ MonoBehaviour:
   ruleScore: {fileID: 0}
   ruleLife: {fileID: 0}
   ruleSurvivor: {fileID: 0}
+  ruleActivated: 1
+  tglFastRestart: {fileID: 0}
+  tglRuleActivated: {fileID: 0}
 --- !u!114 &1133263697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5523,6 +5540,7 @@ MonoBehaviour:
   bruitageSlider: {fileID: 1226654088}
   bruitageText: {fileID: 678782678}
   volumeBruitage: 0
+  tglRules: {fileID: 0}
 --- !u!114 &1133263698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7526,6 +7544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2961b5db9067d6c40b89810709c9ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointer: {fileID: 0}
+  pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1505041277
 GameObject:
   m_ObjectHideFlags: 0

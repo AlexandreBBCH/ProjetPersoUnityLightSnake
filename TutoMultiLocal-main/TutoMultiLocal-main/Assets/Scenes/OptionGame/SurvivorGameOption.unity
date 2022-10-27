@@ -768,6 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &231902746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,6 +2774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &635279830
 GameObject:
   m_ObjectHideFlags: 0
@@ -4452,6 +4454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1059677273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,7 +4862,9 @@ MonoBehaviour:
   ruleScore: {fileID: 0}
   ruleLife: {fileID: 0}
   ruleSurvivor: {fileID: 2039071562}
+  ruleActivated: 1
   tglFastRestart: {fileID: 1887834498}
+  tglRuleActivated: {fileID: 0}
 --- !u!114 &1133263696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4878,6 +4883,7 @@ MonoBehaviour:
   bruitageSlider: {fileID: 314605827}
   bruitageText: {fileID: 337528563}
   volumeBruitage: 0
+  tglRules: {fileID: 0}
 --- !u!114 &1133263697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5859,6 +5865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1519561034
 GameObject:
   m_ObjectHideFlags: 0
@@ -6450,6 +6457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 0}
 --- !u!1 &1707640927
 GameObject:
   m_ObjectHideFlags: 0
@@ -6641,6 +6649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1726125659
 GameObject:
   m_ObjectHideFlags: 0
@@ -7809,6 +7818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &2032563859
 GameObject:
   m_ObjectHideFlags: 0

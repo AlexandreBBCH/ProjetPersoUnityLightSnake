@@ -9,6 +9,8 @@ public class animationButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     public Texture2D pointer;
     public Texture2D pointerNull;
+    public AudioClip select;
+    AudioSource audio;
     /// <summary>
     /// Animation de grandissement
     /// </summary>
@@ -16,7 +18,7 @@ public class animationButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private void Awake()
     {
         initScal = this.transform.localScale;
-
+        audio = gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -29,6 +31,8 @@ public class animationButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         this.transform.localScale = new Vector3((float)1.2, (float)1.2, (float)1.2);
         Cursor.SetCursor(pointer, Vector2.zero, CursorMode.Auto);
+        audio.volume = PlayerPrefs.GetInt("volumeBruitage");
+        audio.PlayOneShot(select);
     }
 
     public void OnPointerExit(PointerEventData eventData)

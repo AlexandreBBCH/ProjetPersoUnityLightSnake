@@ -493,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &225260330
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &253173055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2130270547111203844, guid: 233e8b51f0a6b7d4db712857e9ff1439, type: 3}
@@ -1995,6 +1997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &635279830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,6 +3593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1340659651
 GameObject:
   m_ObjectHideFlags: 0
@@ -3847,7 +3851,7 @@ GameObject:
   - component: {fileID: 1515885157}
   m_Layer: 5
   m_Name: option_ls
-  m_TagString: Untagged
+  m_TagString: sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3953,6 +3957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1519561034
 GameObject:
   m_ObjectHideFlags: 0
@@ -5912,6 +5917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1001 &3981721665101329303
 PrefabInstance:
   m_ObjectHideFlags: 0

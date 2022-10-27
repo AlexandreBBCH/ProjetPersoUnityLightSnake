@@ -1528,6 +1528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &421518510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,6 +2298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1001 &524896821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3633,6 +3635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &905907879
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,7 +5531,9 @@ MonoBehaviour:
   ruleScore: {fileID: 0}
   ruleLife: {fileID: 0}
   ruleSurvivor: {fileID: 0}
+  ruleActivated: 1
   tglFastRestart: {fileID: 0}
+  tglRuleActivated: {fileID: 0}
 --- !u!114 &1133263697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5547,6 +5552,7 @@ MonoBehaviour:
   bruitageSlider: {fileID: 1226654088}
   bruitageText: {fileID: 678782678}
   volumeBruitage: 0
+  tglRules: {fileID: 0}
 --- !u!114 &1133263698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7632,6 +7638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1505041277
 GameObject:
   m_ObjectHideFlags: 0
@@ -9098,6 +9105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 0}
   pointerNull: {fileID: 0}
+  select: {fileID: 8300000, guid: 2c7e37a376f9e0b4aaa1c88e8afd8832, type: 3}
 --- !u!1 &1874926448
 GameObject:
   m_ObjectHideFlags: 0
