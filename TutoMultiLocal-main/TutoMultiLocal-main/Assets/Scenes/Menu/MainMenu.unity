@@ -425,7 +425,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1133263695}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: MultiMenu
+        m_MethodName: ChooseTypeMultiMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -315,6 +315,21 @@ public class Menu : MonoBehaviour
 
     }
 
+    public void ChooseTypeMultiMenu()
+    {
+
+        Application.LoadLevel(9);
+
+    }
+
+    public void testMulti()
+    {
+
+        Application.LoadLevel(10);
+
+    }
+
+
     /// <summary>
     /// enmene a la page indiqué
     /// </summary>
